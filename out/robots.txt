@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anstat.co.in/sitemap.xml
