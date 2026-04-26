@@ -1,0 +1,43 @@
+# ANSTAT robots.txt — Allow all crawlers including AI engines
+# Last updated: 2026-04-26
+
+User-agent: *
+Allow: /
+
+# Explicitly allow Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Explicitly allow Bing
+User-agent: Bingbot
+Allow: /
+
+# Explicitly allow AI crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://anstat.co.in/sitemap.xml
