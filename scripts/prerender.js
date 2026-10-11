@@ -284,15 +284,16 @@ const routePages = [
       </header>
       <main class="py-20 px-4 max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Empirical Proof</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Our Work & Technical Case Studies</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">Factual breakdowns of verified client engagements and production deployments.</p>
+          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Evidence-Based Portfolio</span>
+          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-4">Our Work</h1>
+          <p class="text-xl font-bold text-[#16804A] mb-3">Selected projects, engineered solutions and measurable outcomes.</p>
+          <p class="text-base text-[#435149] leading-relaxed">ANSTAT delivers production software platforms, applied machine intelligence, creative growth campaigns, and structured operational improvements. Every documented project reflects verified deliverables.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
             <h2 class="text-2xl font-bold text-[#18372A] mb-2">UK GradLink Admissions Platform</h2>
             <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Education & International Admissions</p>
-            <p class="text-sm text-[#435149] mb-4">Centralized application management portal and document processing assistant reducing student intake review delays from 7 days to under 4 hours.</p>
+            <p class="text-sm text-[#435149] mb-4">Centralized application management portal and document processing assistant eliminating manual application review bottlenecks and establishing live applicant tracking.</p>
             <div class="text-xs text-[#68766E]">Stack: React, Vite, Node.js, PostgreSQL, Tailwind CSS</div>
           </article>
           <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
@@ -310,13 +311,13 @@ const routePages = [
           <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
             <h2 class="text-2xl font-bold text-[#18372A] mb-2">Coastal Catch Co. Commercial Videography</h2>
             <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Food & Beverage Distribution</p>
-            <p class="text-sm text-[#435149] mb-4">Cinema-grade commercial video production and B2B buyer acquisition funnels doubling qualified inbound commercial restaurant inquiries.</p>
+            <p class="text-sm text-[#435149] mb-4">Cinema-grade commercial video production and B2B buyer acquisition funnels establishing commercial wholesale brand visibility and inbound buyer inquiries.</p>
             <div class="text-xs text-[#68766E]">Stack: Commercial Videography, Landing Architecture, Meta & Google Ads</div>
           </article>
           <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
             <h2 class="text-2xl font-bold text-[#18372A] mb-2">NEB Real Estate Agency</h2>
             <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Real Estate & Property Development</p>
-            <p class="text-sm text-[#435149] mb-4">Brand identity formulation, presentation collateral, and targeted acquisition campaigns securing 14 commercial clients during initial launch.</p>
+            <p class="text-sm text-[#435149] mb-4">Brand identity formulation, presentation collateral, and targeted acquisition campaigns activating a consistent pipeline of qualified property consultations.</p>
             <div class="text-xs text-[#68766E]">Stack: Brand Strategy, Campaign Design, Lead Pipelines</div>
           </article>
           <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
