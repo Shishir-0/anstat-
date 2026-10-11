@@ -1,203 +1,463 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import FinalCTA from "../components/FinalCTA";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Navbar from "../components/Navbar";
 
-const services = [
+const divisions = [
   {
-    category: "Production",
-    items: [
+    id: "technology",
+    badge: "Division 01",
+    name: "ANSTAT Technology",
+    headline: "Custom Software, Web Platforms & System Integrations",
+    overview:
+      "We design, build, and maintain production-grade software applications tailored to the specific operational needs of growing companies. We prioritize clean architecture, performant frontends, and reliable data pipelines over generic templates.",
+    services: [
       {
-        title: "Web Development",
-        description: "High-performance, scalable web ecosystems built with modern stacks (React, Next.js, Node).",
-        outcomes: ["Conversion-optimized", "SEO Engine Built-in", "Ultra-fast load times"],
+        title: "Website & Web Application Development",
+        description:
+          "Modern, responsive web applications engineered with React, Next.js, and Vite. Designed for rapid page loads, high accessibility, and seamless responsive behavior across all viewport sizes.",
+        deliverables: [
+          "Responsive multi-device interface",
+          "Component-driven architecture",
+          "Performance optimization & SEO baseline",
+        ],
       },
       {
-        title: "Software Development",
-        description: "Custom enterprise software solutions designed for reliability and operational excellence.",
-        outcomes: ["Scalable Architecture", "Secure Data Flow", "Seamless Integrations"],
+        title: "Custom Software Engineering",
+        description:
+          "End-to-end bespoke software built to replace clunky legacy tooling or fragmented spreadsheets with structured, scalable systems.",
+        deliverables: [
+          "Bespoke backend APIs & business logic",
+          "Role-based access control & authentication",
+          "Scalable relational & document data models",
+        ],
       },
       {
-        title: "AI Model Development",
-        description: "Bespoke machine learning models tailored to your business data and predictive needs.",
-        outcomes: ["Pattern Recognition", "Automated Insights", "Decision Intelligence"],
+        title: "ERP Development & Customization",
+        description:
+          "Custom enterprise resource planning modules and adjustments that mirror your actual organizational workflow rather than forcing you into rigid off-the-shelf software.",
+        deliverables: [
+          "Inventory & warehouse management modules",
+          "Vendor, billing & order reconciliation",
+          "Internal audit logging & permission control",
+        ],
       },
       {
-        title: "AI Agent Development",
-        description: "Autonomous agents that handle customer support, lead qualifying, and operational tasks.",
-        outcomes: ["24/7 Automation", "Reduced Overhead", "Natural Language UX"],
+        title: "API Development & System Integrations",
+        description:
+          "Secure RESTful and GraphQL endpoints connecting your core systems to third-party payment gateways, CRM databases, logistics APIs, and communication tools.",
+        deliverables: [
+          "Robust API endpoints with comprehensive documentation",
+          "Webhook handlers & retry mechanisms",
+          "Third-party platform integrations (Stripe, WhatsApp, CRMs)",
+        ],
+      },
+      {
+        title: "Application Modernization & Maintenance",
+        description:
+          "Auditing, refactoring, and upgrading legacy codebases to improve security, reduce cloud hosting overhead, and ensure long-term maintainability.",
+        deliverables: [
+          "Technical debt & security vulnerability audit",
+          "Dependency & framework version upgrades",
+          "Ongoing SLA maintenance & uptime monitoring",
+        ],
+      },
+      {
+        title: "Internal Business Systems & Portals",
+        description:
+          "Administrative portals and employee dashboards that automate manual data entry, streamline approvals, and consolidate operational visibility.",
+        deliverables: [
+          "Operational KPI dashboards",
+          "Multi-level approval workflows",
+          "Exportable data reporting & audit trails",
+        ],
       },
     ],
   },
   {
-    category: "Scaling",
-    items: [
+    id: "ai",
+    badge: "Division 02",
+    name: "ANSTAT AI",
+    headline: "Applied AI Solutions, Autonomous Agents & Workflow Automation",
+    overview:
+      "We build practical, reliable artificial intelligence solutions that solve immediate business problems. We focus on task automation, contextual knowledge retrieval, and software integrations that reduce operational hours and deliver clear economic return.",
+    services: [
       {
-        title: "Marketing Strategy",
-        description: "Data-driven growth frameworks designed to dominate your specific market niche.",
-        outcomes: ["Predictable Growth", "Market Dominance", "Targeted Acquisition"],
+        title: "Customized AI Solutions for Business",
+        description:
+          "Targeted AI applications designed around your company's proprietary data, operational rules, and specific customer touchpoints.",
+        deliverables: [
+          "Feasibility analysis & model selection",
+          "Custom pipeline architecture",
+          "Deployment to private cloud infrastructure",
+        ],
       },
       {
-        title: "Content Creation",
-        description: "Premium visual and written content that positions your brand as an industry authority.",
-        outcomes: ["High Engagement", "Viral Potential", "Brand Consistency"],
+        title: "AI Agents & Autonomous Workflow Automation",
+        description:
+          "Intelligent agents capable of executing multi-step business tasks—such as triaging inbound tickets, validating application documents, or dispatching notifications.",
+        deliverables: [
+          "Multi-agent task orchestration",
+          "State management & exception handling",
+          "Human-in-the-loop review interfaces",
+        ],
       },
       {
-        title: "Ad Campaigning",
-        description: "Precision-targeted paid media acquisition across Meta, Google, and LinkedIn.",
-        outcomes: ["Positive ROI", "Scale-ready funnel", "Metric-led Optimization"],
+        title: "LLM Application Development",
+        description:
+          "Commercial applications powered by modern large language models, engineered with disciplined prompt governance and deterministic safety rails.",
+        deliverables: [
+          "Prompt engineering & evaluation benchmarks",
+          "Latency & token-cost optimization",
+          "Model fallbacks & rate-limiting infrastructure",
+        ],
       },
       {
-        title: "Business Analysis",
-        description: "Deep-dive operational audits to identify bottlenecks and unlock hidden revenue.",
-        outcomes: ["Efficiency Gains", "Data Transparency", "Strategic Roadmap"],
+        title: "RAG & Knowledge Assistants",
+        description:
+          "Retrieval-Augmented Generation systems that allow your team or customers to search internal documentation, manuals, contracts, and knowledge bases with high precision and zero hallucinations.",
+        deliverables: [
+          "Document ingestion & vector chunking pipeline",
+          "Vector database integration (pgvector, Pinecone)",
+          "Source attribution & citation responses",
+        ],
+      },
+      {
+        title: "AI Integrations with Existing Software",
+        description:
+          "Embedding AI capabilities directly into your current CRM, ERP, or internal dashboards without requiring a complete rewrite of your software stack.",
+        deliverables: [
+          "Custom API connectors for existing databases",
+          "Embedded chat/assistant widgets",
+          "Automated background processing workers",
+        ],
+      },
+      {
+        title: "Voice AI & Conversational Applications",
+        description:
+          "Voice synthesis and conversational agents that handle telephony inquiries, scheduling requests, and audio transcription with low latency.",
+        deliverables: [
+          "Voice pipeline integration (STT, LLM, TTS)",
+          "Conversational dialog flow design",
+          "Real-time call routing & summary logging",
+        ],
+      },
+    ],
+  },
+  {
+    id: "growth",
+    badge: "Division 03",
+    name: "ANSTAT Growth & Media",
+    headline: "Marketing Strategy, Campaign Execution & Advertisement Videography",
+    overview:
+      "We connect technology with commercial distribution. Our media and marketing division produces the creative assets, videography, and multi-channel advertising campaigns needed to generate qualified inquiries and acquire paying clients.",
+    services: [
+      {
+        title: "Marketing Strategy & Positioning",
+        description:
+          "Comprehensive go-to-market strategies that clearly articulate your value proposition, identify high-intent target audiences, and define sustainable acquisition channels.",
+        deliverables: [
+          "Market positioning & competitor audit",
+          "Ideal customer profile (ICP) definitions",
+          "Multi-quarter channel & budget roadmap",
+        ],
+      },
+      {
+        title: "Targeted Advertising Campaigns",
+        description:
+          "End-to-end paid advertising management across Meta (Instagram/Facebook), Google Search & Display, and LinkedIn, optimized for cost-per-lead and pipeline velocity.",
+        deliverables: [
+          "Ad campaign structuring & audience segmentation",
+          "A/B creative & copy testing",
+          "Weekly performance reviews & budget pacing",
+        ],
+      },
+      {
+        title: "Advertisement Videography & Production",
+        description:
+          "High-definition commercial video production, product reels, and customer story films that capture attention and build commercial credibility.",
+        deliverables: [
+          "Scriptwriting, storyboarding & creative direction",
+          "On-location or studio professional filming",
+          "Post-production color grading, motion graphics & sound",
+        ],
+      },
+      {
+        title: "Brand Campaigns & Digital Presence",
+        description:
+          "Cohesive digital identities, visual assets, and cross-platform creative guidelines that ensure your business looks authoritative and consistent across every touchpoint.",
+        deliverables: [
+          "Brand style guides & color typography systems",
+          "Social media creative kits & pitch presentation decks",
+          "Interactive digital collateral",
+        ],
+      },
+      {
+        title: "Website Conversion Improvement (CRO)",
+        description:
+          "Iterative UX audits, headline testing, and funnel adjustments that maximize the percentage of website visitors who convert into qualified consultations.",
+        deliverables: [
+          "Heatmap analysis & user friction audit",
+          "Landing page conversion optimization",
+          "Form simplification & user flow redesign",
+        ],
+      },
+      {
+        title: "Marketing Analytics & Attribution Tracking",
+        description:
+          "Clean analytics setup that tracks where your best inquiries originate, measuring actual customer acquisition cost and marketing ROI without data discrepancies.",
+        deliverables: [
+          "Google Tag Manager & GA4 configuration",
+          "Server-side conversion API tracking",
+          "Executive lead & revenue dashboards",
+        ],
+      },
+    ],
+  },
+  {
+    id: "business",
+    badge: "Division 04",
+    name: "ANSTAT Business Solutions",
+    headline: "Business Analysis, Operational Improvement & Implementation Management",
+    overview:
+      "We provide analytical and operational support to ensure software, AI tools, and marketing campaigns translate into sustainable business operations. We help leadership teams streamline execution and drive commercial growth.",
+    services: [
+      {
+        title: "Business Process Analysis & Audits",
+        description:
+          "Detailed assessments of current operational workflows, mapping out bottlenecks, communication delays, and redundant manual steps.",
+        deliverables: [
+          "Current-state process documentation & maps",
+          "Bottleneck & inefficiency assessment",
+          "Prioritized optimization roadmap",
+        ],
+      },
+      {
+        title: "Business Development Support",
+        description:
+          "Structured support for lead qualification pipelines, partnership outreach, and sales enablement collateral that helps close enterprise prospects.",
+        deliverables: [
+          "Sales collateral & proposal templates",
+          "Inbound inquiry qualification criteria",
+          "Pipeline tracking & CRM configuration",
+        ],
+      },
+      {
+        title: "Event Management & Corporate Coordination",
+        description:
+          "End-to-end planning and technical execution for corporate product launches, industry conferences, and executive workshops.",
+        deliverables: [
+          "Event agenda & vendor coordination",
+          "Technical AV, streaming & stage management",
+          "Attendee registration & follow-up pipelines",
+        ],
+      },
+      {
+        title: "Operational Process Improvement",
+        description:
+          "Standard Operating Procedure (SOP) design and workflow restructuring that enables teams to deliver consistent quality as customer volume grows.",
+        deliverables: [
+          "Documented Standard Operating Procedures (SOPs)",
+          "Cross-department handoff guidelines",
+          "Staff training & enablement materials",
+        ],
+      },
+      {
+        title: "Project & Implementation Management",
+        description:
+          "Rigorous technical project management overseeing cross-functional software rollouts, third-party vendor coordination, and quality assurance.",
+        deliverables: [
+          "Sprint planning & milestone tracking",
+          "Stakeholder progress reports & risk mitigation",
+          "User acceptance testing (UAT) signoff",
+        ],
       },
     ],
   },
 ];
 
 export default function Services() {
+  const [activeTab, setActiveTab] = useState("technology");
+
+  const scrollToDivision = (id) => {
+    setActiveTab(id);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <main className="min-h-screen">
+    <div className="bg-white min-h-screen text-[#435149]">
       <Helmet>
-        <title>Engineering & Scaling Services | ANSTAT Growth Infrastructure</title>
-        <meta name="description" content="ANSTAT provides high-fidelity engineering and scaling systems. From Agentic AI development to algorithmic market dominance. Explore our modular growth arsenal." />
-        <meta name="keywords" content="AI development, SaaS scaling, agentic systems, software engineering, market strategy, ANSTAT services" />
+        <title>Services & Solutions Directory | ANSTAT</title>
+        <meta
+          name="description"
+          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+        />
+        <meta
+          name="keywords"
+          content="software development, web applications, custom AI, AI agents, videography, marketing strategy, business process improvement, ERP, ANSTAT"
+        />
         <link rel="canonical" href="https://anstat.co.in/services" />
-        
-        {/* Service Schema for Search Dominance */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "serviceType": "Growth Infrastructure Engineering",
-              "provider": {
-                "@type": "Organization",
-                "name": "ANSTAT"
-              },
-              "areaServed": "Global",
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Engineering & Scaling Systems",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Agentic AI Development",
-                      "description": "Autonomous agents for enterprise operational automation."
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "High-Performance Web Ecosystems",
-                      "description": "Scalable web infrastructure built for conversion and speed."
-                    }
-                  }
-                ]
-              }
-            }
-          `}
-        </script>
       </Helmet>
 
       <Navbar />
 
-      <section className="pt-40 pb-20 px-6">
+      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Machine-Readable Service Summary (GEO Optimization) */}
-          <div className="sr-only" aria-hidden="false">
-             <h2>ANSTAT Core Service Framework</h2>
-             <p>ANSTAT delivers dual-track growth systems: **Production** (Engineering high-fidelity software and AI) and **Scaling** (Deploying algorithmic market dominance). Every service is designed for maximum unit economic efficiency in the AI economy.</p>
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="badge-emerald mb-4">Complete Service Directory</div>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight mb-6">
+              Engineering & Growth Solutions
+            </h1>
+            <p className="text-lg text-[#435149] leading-relaxed">
+              ANSTAT operates across four specialized divisions under a unified company.
+              Whether you need a dedicated software platform, an applied AI assistant,
+              or an integrated campaign, explore our capabilities below.
+            </p>
           </div>
 
-          <header className="mb-24 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-6 inline-block bg-green-500/10 border border-green-500/20 px-4 py-1 rounded-full"
-            >
-              <span className="text-green-500 text-[10px] font-black uppercase tracking-[0.3em]">The Arsenal</span>
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter"
-            >
-              Our <span className="text-green-500">Systems</span>.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-neutral-400 max-w-3xl mx-auto text-xl font-light leading-relaxed"
-            >
-              We don't sell hours. We build infrastructure. Choose the modular system your business needs to achieve technical and market dominance.
-            </motion.p>
-          </header>
-
-          {services.map((group, groupIdx) => (
-            <div key={group.category} className="mb-32">
-              <div className="flex items-center gap-6 mb-16">
-                <h2 className="text-3xl font-black tracking-tighter uppercase italic text-neutral-500">{group.category}</h2>
-                <div className="h-[1px] flex-grow bg-neutral-800" />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {group.items.map((service, idx) => (
-                  <motion.div
-                    key={service.title}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="glass p-12 rounded-[2.5rem] relative group hover:bg-neutral-800/40 transition-all duration-500 card-glow"
-                  >
-                    <div className="flex justify-between items-start mb-10">
-                      <div className="w-14 h-14 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center group-hover:bg-green-500 group-hover:text-black transition-all duration-500">
-                         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
-                            <path d="M12 8V16M8 12H16" strokeLinecap="round" />
-                         </svg>
-                      </div>
-                      <span className="text-[10px] font-black tracking-[0.3em] text-neutral-600 uppercase">System {groupIdx + 1}.{idx + 1}</span>
-                    </div>
-
-                    <h3 className="text-3xl font-black mb-6 tracking-tight">{service.title}</h3>
-                    <p className="text-neutral-400 mb-10 leading-relaxed font-light">{service.description}</p>
-                    
-                    <div className="space-y-4 pt-8 border-t border-white/5">
-                      {service.outcomes.map((outcome) => (
-                        <div key={outcome} className="flex items-center gap-3">
-                          <div className="w-5 h-5 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
-                            <svg className="w-3 h-3 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                              <polyline points="20 6 9 17 4 12" />
-                            </svg>
-                          </div>
-                          <span className="text-xs font-bold tracking-widest uppercase text-neutral-300">{outcome}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-12">
-                      <a href="tel:+919019731057" className="inline-block bg-green-500/10 border border-green-500/30 text-green-500 text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3 rounded-full hover:bg-green-500 hover:text-black transition-all">
-                        Deploy System
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+          {/* Quick-Jump Navigation Tabs */}
+          <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md py-4 mb-16 border-b border-[#E1E9E2]">
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
+              {divisions.map((div) => (
+                <button
+                  key={div.id}
+                  onClick={() => scrollToDivision(div.id)}
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                    activeTab === div.id
+                      ? "bg-[#16804A] text-white shadow-xs"
+                      : "bg-[#F4F7F4] text-[#18372A] hover:bg-[#E8F3EB] border border-[#E1E9E2]"
+                  }`}
+                >
+                  {div.name}
+                </button>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
 
-      <FinalCTA />
-    </main>
+          {/* Divisions Content */}
+          <div className="space-y-28">
+            {divisions.map((div) => (
+              <section
+                key={div.id}
+                id={div.id}
+                className="scroll-mt-36 pt-4 border-t border-[#E1E9E2] first:border-t-0"
+              >
+                {/* Division Header Banner */}
+                <div className="bg-[#F4F7F4]/80 border border-[#E1E9E2] rounded-3xl p-8 sm:p-12 mb-12">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div className="max-w-3xl">
+                      <div className="badge-emerald mb-3">{div.badge}</div>
+                      <h2 className="text-3xl sm:text-4xl font-extrabold text-[#18372A] mb-3">
+                        {div.name}
+                      </h2>
+                      <p className="text-base sm:text-lg font-semibold text-[#16804A] mb-3">
+                        {div.headline}
+                      </p>
+                      <p className="text-sm sm:text-base text-[#435149] leading-relaxed">
+                        {div.overview}
+                      </p>
+                    </div>
+
+                    <Link
+                      to="/#enquiry"
+                      className="btn-primary self-start lg:self-center text-sm py-3 px-6 whitespace-nowrap shadow-sm"
+                    >
+                      <span>Enquire About {div.badge}</span>
+                      <svg
+                        className="w-4 h-4 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 10a.75.75 0 01.75-.75h8.638L11.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l3.158-2.96H5.75A.75.75 0 015 10z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Service Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {div.services.map((service, idx) => (
+                    <motion.div
+                      key={service.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      className="bg-white border border-[#E1E9E2] rounded-2xl p-7 flex flex-col justify-between hover:border-[#16804A] transition-all shadow-xs"
+                    >
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-2">
+                          Service {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                        </div>
+                        <h3 className="text-xl font-bold text-[#18372A] mb-3">
+                          {service.title}
+                        </h3>
+                        <p className="text-sm text-[#435149] leading-relaxed mb-6">
+                          {service.description}
+                        </p>
+
+                        <div className="pt-4 border-t border-[#E1E9E2]">
+                          <div className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-2.5">
+                            Key Deliverables:
+                          </div>
+                          <ul className="space-y-2">
+                            {service.deliverables.map((d) => (
+                              <li
+                                key={d}
+                                className="flex items-start text-xs text-[#435149]"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#16804A] mt-1.5 mr-2 flex-shrink-0" />
+                                <span>{d}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="mt-8 pt-4 border-t border-[#E1E9E2]/60">
+                        <Link
+                          to="/#enquiry"
+                          className="text-xs font-bold text-[#16804A] hover:text-[#12693C] inline-flex items-center"
+                        >
+                          <span>Request Scoping & Proposal</span>
+                          <span className="ml-1">→</span>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+
+          {/* Bottom Callout */}
+          <section className="mt-28 bg-[#F4F7F4] border border-[#E1E9E2] rounded-3xl p-8 sm:p-12 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#18372A] mb-4">
+              Need a Custom Cross-Division Solution?
+            </h2>
+            <p className="text-sm sm:text-base text-[#435149] max-w-2xl mx-auto mb-8">
+              Many engagements combine custom software engineering with targeted marketing
+              and operational support. Tell us about your goals and we will assemble the
+              exact team required.
+            </p>
+            <Link
+              to="/#enquiry"
+              className="btn-primary text-sm py-3.5 px-8 shadow-sm"
+            >
+              Start a Project Conversation
+            </Link>
+          </section>
+        </div>
+      </main>
+    </div>
   );
 }
