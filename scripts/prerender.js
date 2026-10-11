@@ -7,11 +7,11 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const outDir = path.resolve(rootDir, 'dist');
 
-console.log('🚀 Running ANSTAT Static Prerendering Pipeline...');
+console.log(' Running ANSTAT Static Prerendering Pipeline...');
 
 const baseHtmlPath = path.join(outDir, 'index.html');
 if (!fs.existsSync(baseHtmlPath)) {
-  console.error(`❌ Base template not found at ${baseHtmlPath}. Please run vite build first.`);
+  console.error(` Base template not found at ${baseHtmlPath}. Please run vite build first.`);
   process.exit(1);
 }
 
@@ -34,14 +34,14 @@ const routePages = [
       "logo": "https://anstat.co.in/AnLogo.png",
       "image": "https://anstat.co.in/AnLogo.png",
       "description": "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
-      "email": "prasadshishir1@gmail.com",
+      "email": "connect@anstat.co.in",
       "telephone": "+919019731057",
       "contactPoint": [
         {
           "@type": "ContactPoint",
           "telephone": "+919019731057",
           "contactType": "sales",
-          "email": "prasadshishir1@gmail.com",
+          "email": "connect@anstat.co.in",
           "availableLanguage": ["English", "Hindi", "Kannada"]
         }
       ],
@@ -140,7 +140,7 @@ const routePages = [
         <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center max-w-2xl mx-auto">
           <h2 class="text-2xl font-bold text-[#18372A] mb-4">Ready to Discuss Your Project?</h2>
           <p class="text-sm text-[#435149] mb-6">Schedule a 30-minute discovery consultation with our engineering team. We audit requirements and deliver transparent technical scope.</p>
-          <a href="mailto:prasadshishir1@gmail.com" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: prasadshishir1@gmail.com</a>
+          <a href="mailto:connect@anstat.co.in" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: connect@anstat.co.in</a>
         </div>
       </main>
     `
@@ -468,7 +468,7 @@ const routePages = [
           </div>
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">How do we begin a project conversation with ANSTAT?</h2>
-            <p class="text-sm text-[#435149]">Submit an inquiry via our project form or email prasadshishir1@gmail.com. We schedule a 30-minute discovery consultation to understand your objectives and audit technical requirements.</p>
+            <p class="text-sm text-[#435149]">Submit an inquiry via our project form or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to understand your objectives and audit technical requirements.</p>
           </div>
         </div>
       </main>
@@ -536,8 +536,105 @@ const routePages = [
           </div>
           <div class="pt-8 border-t border-[#E1E9E2]">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">Direct Contact</h2>
-            <p class="text-sm">Email: <a href="mailto:prasadshishir1@gmail.com" class="text-[#16804A] font-bold">prasadshishir1@gmail.com</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
+            <p class="text-sm">Email: <a href="mailto:connect@anstat.co.in" class="text-[#16804A] font-bold">connect@anstat.co.in</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
           </div>
+        </div>
+      </main>
+    `
+  },
+  {
+    route: '/contact',
+    outPath: path.join(outDir, 'contact', 'index.html'),
+    canonical: 'https://anstat.co.in/contact',
+    title: 'Contact ANSTAT | Project Enquiries & Technical Consultations',
+    description: 'Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT. We review scope and provide actionable technical guidance.',
+    keywords: 'contact ANSTAT, software inquiry, hire AI engineers, project scoping, technical consultation, ANSTAT email',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://anstat.co.in/contact#webpage",
+      "url": "https://anstat.co.in/contact",
+      "name": "Contact ANSTAT",
+      "description": "Official project inquiry and technical consultation destination for ANSTAT.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://anstat.co.in/#website",
+        "name": "ANSTAT",
+        "url": "https://anstat.co.in"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://anstat.co.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://anstat.co.in/contact"
+          }
+        ]
+      },
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://anstat.co.in/#organization",
+        "name": "ANSTAT",
+        "url": "https://anstat.co.in",
+        "logo": "https://anstat.co.in/AnLogo.png",
+        "email": "connect@anstat.co.in",
+        "telephone": "+919019731057",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+919019731057",
+            "contactType": "sales",
+            "email": "connect@anstat.co.in",
+            "availableLanguage": ["English", "Hindi", "Kannada"]
+          }
+        ]
+      }
+    },
+    bodyHtml: `
+      <header class="py-6 px-4 border-b border-[#E1E9E2]">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
+            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
+            <span>ANSTAT</span>
+          </a>
+          <nav class="flex gap-4 text-sm font-semibold text-[#435149]">
+            <a href="/" class="hover:text-[#16804A]">Home</a>
+            <a href="/services" class="hover:text-[#16804A]">Services</a>
+            <a href="/case-studies" class="hover:text-[#16804A]">Case Studies</a>
+            <a href="/about" class="hover:text-[#16804A]">About</a>
+            <a href="/faq" class="hover:text-[#16804A]">FAQ</a>
+          </nav>
+        </div>
+      </header>
+      <main class="max-w-4xl mx-auto py-16 px-4">
+        <header class="text-center mb-12">
+          <h1 class="text-4xl font-extrabold text-[#18372A] tracking-tight mb-4">Start a Project Conversation</h1>
+          <p class="text-lg text-[#435149]">Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT.</p>
+        </header>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+          <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+            <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Email</h2>
+            <a href="mailto:connect@anstat.co.in" class="text-lg font-bold text-[#18372A]">connect@anstat.co.in</a>
+            <p class="text-xs text-[#68766E] mt-1">24-hour business day response</p>
+          </div>
+          <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+            <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Phone & WhatsApp</h2>
+            <a href="tel:+919019731057" class="text-lg font-bold text-[#18372A]">+91 90197 31057</a>
+            <p class="text-xs text-[#68766E] mt-1">Mon - Fri, 9:00 AM - 6:00 PM IST</p>
+          </div>
+        </div>
+        <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center">
+          <h2 class="text-2xl font-bold text-[#18372A] mb-4">Project Inquiry Form</h2>
+          <p class="text-sm text-[#435149] mb-6">Our engineering desk reviews your scope and responds within one business day.</p>
+          <a href="mailto:connect@anstat.co.in" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: connect@anstat.co.in</a>
         </div>
       </main>
     `
@@ -584,6 +681,13 @@ for (const p of routePages) {
   fs.writeFileSync(p.outPath, html, 'utf8');
   console.log(`✅ Prerendered [${p.route}] -> ${path.relative(rootDir, p.outPath)}`);
   generatedCount++;
+
+  // Dual slashless support: output flat .html file for routes to prevent directory redirect loops
+  if (p.route !== '/') {
+    const slug = p.route.replace(/^\//, '').replace(/\//g, '-');
+    const flatPath = path.join(outDir, `${slug}.html`);
+    fs.writeFileSync(flatPath, html, 'utf8');
+  }
 }
 
 console.log(`🎉 Prerendering complete! Successfully generated ${generatedCount} static HTML routes.`);

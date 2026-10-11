@@ -75,10 +75,10 @@ export default function FinalCTA() {
           </a>
 
           <a
-            href="mailto:prasadshishir1@gmail.com"
+            href="mailto:connect@anstat.co.in"
             className="btn-secondary w-full sm:w-auto text-base py-3.5 px-8"
           >
-            Email: prasadshishir1@gmail.com
+            Email: connect@anstat.co.in
           </a>
         </motion.div>
       </div>

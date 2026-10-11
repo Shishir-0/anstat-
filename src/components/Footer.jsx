@@ -27,10 +27,10 @@ export default function Footer() {
               <div>
                 <strong className="text-[#18372A]">Email:</strong>{" "}
                 <a
-                  href="mailto:prasadshishir1@gmail.com"
+                  href="mailto:connect@anstat.co.in"
                   className="text-[#16804A] hover:underline"
                 >
-                  prasadshishir1@gmail.com
+                  connect@anstat.co.in
                 </a>
               </div>
               <div>
@@ -130,12 +130,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/#enquiry"
+                <Link
+                  to="/contact"
                   className="hover:text-[#16804A] transition-colors"
                 >
                   Project Enquiry
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -172,12 +172,12 @@ export default function Footer() {
               <span className="font-bold text-[#18372A] block mb-1">
                 Ready to talk?
               </span>
-              <a
-                href="/#enquiry"
+              <Link
+                to="/contact"
                 className="text-[#16804A] font-bold hover:underline"
               >
                 Start an enquiry →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

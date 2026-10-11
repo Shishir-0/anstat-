@@ -443,7 +443,7 @@ export default function Services() {
                     </div>
 
                     <Link
-                      to="/#enquiry"
+                      to="/contact"
                       className="btn-primary self-start lg:self-center text-sm py-3 px-6 whitespace-nowrap shadow-sm"
                     >
                       <span>Enquire About {div.badge}</span>
@@ -504,7 +504,7 @@ export default function Services() {
 
                       <div className="mt-8 pt-4 border-t border-[#E1E9E2]/60">
                         <Link
-                          to="/#enquiry"
+                          to="/contact"
                           className="text-xs font-bold text-[#16804A] hover:text-[#12693C] inline-flex items-center"
                         >
                           <span>Request Scoping & Proposal</span>
@@ -529,7 +529,7 @@ export default function Services() {
               exact team required.
             </p>
             <Link
-              to="/#enquiry"
+              to="/contact"
               className="btn-primary text-sm py-3.5 px-8 shadow-sm"
             >
               Start a Project Conversation

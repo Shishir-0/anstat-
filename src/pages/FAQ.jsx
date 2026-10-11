@@ -38,7 +38,7 @@ const faqs = [
   {
     category: "Ownership & Maintenance",
     q: "Who owns the code, intellectual property, and media assets?",
-    a: "You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation.",
+    a: "You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation (standard third-party open-source libraries and cloud dependencies remain under their respective permissive licenses).",
   },
   {
     category: "Ownership & Maintenance",
@@ -48,7 +48,7 @@ const faqs = [
   {
     category: "Getting Started",
     q: "How do we begin a project conversation with ANSTAT?",
-    a: "Submit an inquiry via our project form or email prasadshishir1@gmail.com. We will schedule a 30-minute discovery consultation to understand your objectives, audit technical requirements, and determine whether ANSTAT is the right fit for your team.",
+    a: "Submit an inquiry via our project form or email connect@anstat.co.in. We will schedule a 30-minute discovery consultation to understand your objectives, audit technical requirements, and determine whether ANSTAT is the right fit for your team.",
   },
 ];
 
@@ -230,16 +230,16 @@ export default function FAQ() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/#enquiry"
+                to="/contact"
                 className="btn-primary text-sm py-3 px-6 shadow-sm w-full sm:w-auto"
               >
                 Start an Enquiry
               </Link>
               <a
-                href="mailto:prasadshishir1@gmail.com"
+                href="mailto:connect@anstat.co.in"
                 className="btn-secondary text-sm py-3 px-6 w-full sm:w-auto"
               >
-                Email: prasadshishir1@gmail.com
+                Email: connect@anstat.co.in
               </a>
             </div>
           </section>

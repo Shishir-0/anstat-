@@ -77,6 +77,8 @@ export default function Navbar() {
         el.scrollIntoView({ behavior: "smooth" });
         setMobileMenuOpen(false);
       }
+    } else {
+      setMobileMenuOpen(false);
     }
   };
 
@@ -253,7 +255,7 @@ export default function Navbar() {
           {/* Action Button & Mobile Toggle */}
           <div className="flex items-center gap-3">
             <Link
-              to="/#enquiry"
+              to={location.pathname === "/" ? "#enquiry" : "/contact"}
               onClick={handleEnquiryClick}
               className="btn-primary text-xs md:text-sm py-2.5 px-5 md:px-6 shadow-sm hidden sm:inline-flex"
             >
@@ -391,7 +393,7 @@ export default function Navbar() {
 
               <div className="pt-2 border-t border-[#E1E9E2]">
                 <Link
-                  to="/#enquiry"
+                  to={location.pathname === "/" ? "#enquiry" : "/contact"}
                   onClick={handleEnquiryClick}
                   className="btn-primary w-full text-center py-3 text-sm justify-center"
                 >
@@ -399,10 +401,10 @@ export default function Navbar() {
                 </Link>
                 <div className="mt-3 text-center">
                   <a
-                    href="mailto:prasadshishir1@gmail.com"
+                    href="mailto:connect@anstat.co.in"
                     className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
                   >
-                    prasadshishir1@gmail.com
+                    connect@anstat.co.in
                   </a>
                   <span className="mx-2 text-[#E1E9E2]">|</span>
                   <a

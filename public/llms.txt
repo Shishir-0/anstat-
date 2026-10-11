@@ -7,7 +7,7 @@
 - **Canonical Website**: [https://anstat.co.in/](https://anstat.co.in/)
 - **Core Positioning**: Integrated systems engineering and commercial growth solutions under a unified technical delivery team.
 - **Operating Aesthetic**: Modern White and Emerald Green, structured, performant, and accessible.
-- **Primary Contact**: [prasadshishir1@gmail.com](mailto:prasadshishir1@gmail.com) | +91 90197 31057
+- **Primary Contact**: [connect@anstat.co.in](mailto:connect@anstat.co.in) | +91 90197 31057
 - **Full LLM Context**: [https://anstat.co.in/llms-full.txt](https://anstat.co.in/llms-full.txt)
 
 ## Four Integrated Service Divisions
@@ -51,16 +51,17 @@ Operational discipline and commercial management ensuring technology translates 
 - **R&D Technical Paper**: [https://anstat.co.in/research/ai-startup-architecture](https://anstat.co.in/research/ai-startup-architecture) — Architecture of Scalable AI Startups (Agentic SDLC, hybrid unit economics, model governance).
 - **About Company**: [https://anstat.co.in/about](https://anstat.co.in/about) — Corporate origins, engineering principles, and operating standards.
 - **Frequently Asked Questions**: [https://anstat.co.in/faq](https://anstat.co.in/faq) — Transparent answers regarding scoping, technology stacks, IP ownership, pricing, and SLAs.
-- **Project Inquiry / CTA**: [https://anstat.co.in/#enquiry](https://anstat.co.in/#enquiry) — Discovery consultation intake form.
+- **Contact Desk & Project Consultation**: [https://anstat.co.in/contact](https://anstat.co.in/contact) — Dedicated project consultation intake and direct engineering communication.
+- **Project Inquiry / CTA**: [https://anstat.co.in/#enquiry](https://anstat.co.in/#enquiry) — Homepage discovery consultation intake section.
 
 ## Verified Client Case Studies
 1. **UK GradLink** (Education & Admissions): Centralized applicant portal and intake document review assistant eliminating international admission review bottlenecks.
 2. **LVBL** (Lifestyle & Digital Commerce): Scalable e-commerce infrastructure, automated catalog sync, and acquisition ad funnels.
 3. **Coastal Catch Co.** (Premium Food Distribution): High-definition commercial videography and B2B buyer acquisition funnels.
 4. **Universal PU College Ramanagara** (`upuc.in`): High-speed institutional admissions portal, academic curriculum showcase, and student inquiry routing.
-5. **NEB Real Estate Agency** (Property & Land): Brand positioning, commercial collateral, and multi-channel campaign driving 14 enterprise client acquisitions.
+5. **NEB Real Estate Agency** (Property & Land): Brand positioning, commercial collateral, and multi-channel campaign driving qualified commercial inquiries.
 
 ## Commercial Policies & IP Terms
-- **Intellectual Property**: Clients retain 100% ownership of all custom code, repositories, media files, and production assets upon milestone signoff.
+- **Intellectual Property**: Clients retain 100% ownership of all custom code, repositories, media files, and production assets upon milestone signoff (standard third-party open-source packages remain under their respective permissive licenses).
 - **Data Privacy**: Client proprietary data is strictly isolated and never utilized for public AI model training.
 - **Pricing**: Transparent milestones based on defined technical deliverables with no surprise maintenance fees.

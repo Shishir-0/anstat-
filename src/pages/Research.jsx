@@ -350,7 +350,7 @@ export default function Research() {
                 roadmap with our engineering division.
               </p>
               <Link
-                to="/#enquiry"
+                to="/contact"
                 className="btn-primary text-sm py-3.5 px-8 shadow-sm"
               >
                 Discuss an AI Engineering Project

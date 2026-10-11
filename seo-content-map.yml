@@ -3,7 +3,7 @@
 # Purpose: Internal single source of truth for route metadata, keyword intent,
 #          structured data, and automated build-time validation.
 # Canonical Domain: https://anstat.co.in
-# Contact: prasadshishir1@gmail.com
+# Contact: connect@anstat.co.in
 # Version: 1.0.0
 # Last Updated: 2026-10-11
 # ==============================================================================
@@ -12,7 +12,7 @@ organization:
   name: "ANSTAT"
   legal_name: "ANSTAT"
   domain: "https://anstat.co.in"
-  email: "prasadshishir1@gmail.com"
+  email: "connect@anstat.co.in"
   phone: "+919019731057"
   logo: "https://anstat.co.in/AnLogo.png"
   brand_colors:
@@ -169,3 +169,25 @@ routes:
     priority: 0.75
     changefreq: "monthly"
     conversion_goal: "Direct leadership consultation booking"
+
+  - path: "/contact"
+    canonical_url: "https://anstat.co.in/contact"
+    title: "Contact ANSTAT | Project Enquiries & Technical Consultations"
+    meta_description: "Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT. We review scope and provide actionable technical guidance."
+    primary_h1: "Start a Project Conversation"
+    primary_intent: "Direct Commercial Enquiry"
+    target_keywords:
+      primary: "contact ANSTAT project inquiry"
+      secondary:
+        - "hire custom software engineers India"
+        - "custom AI development inquiry"
+        - "growth marketing consultation ANSTAT"
+        - "ANSTAT contact email and phone"
+    schema_types:
+      - "ContactPage"
+      - "Organization"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.85
+    changefreq: "monthly"
+    conversion_goal: "Direct project consultation inquiry submission"

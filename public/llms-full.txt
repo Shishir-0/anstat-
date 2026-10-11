@@ -2,7 +2,7 @@
 
 > Canonical URL: https://anstat.co.in/
 > Last Updated: 2026-10-11
-> Contact: prasadshishir1@gmail.com | +91 90197 31057
+> Contact: connect@anstat.co.in | +91 90197 31057
 > Organization: ANSTAT (Integrated Technology, AI, Growth & Business Solutions)
 
 ---
@@ -15,7 +15,7 @@ By unifying software engineering, artificial intelligence, creative video and ma
 
 ### Core Operating Principles:
 1. **Empirical Outcomes Over Speculative Hype**: Software must solve measurable business bottlenecks; marketing must generate paying clients; AI must produce verifiable unit economic gains.
-2. **Full Client Ownership**: Clients retain 100% intellectual property rights, database schemas, codebases, and media assets upon project completion.
+2. **Full Client Ownership**: Clients retain 100% intellectual property rights, database schemas, codebases, and media assets for custom deliverables upon project completion (standard open-source libraries remain under their respective licenses).
 3. **Data Security & Privacy**: Client data is never fed into public foundation models for training. All proprietary vector databases and integrations operate in private VPCs.
 4. **Modern, Maintainable Tech Stacks**: Avoiding brittle legacy monoliths and unnecessary vendor dependencies in favor of clean React/Vite/Node/Python architectures.
 
@@ -154,9 +154,9 @@ Canonical: https://anstat.co.in/case-studies
 
 ### Case Study 1: UK GradLink Admissions Platform & Document Assistant
 - **Sector**: International Higher Education & Admissions Consultancy
-- **Challenge**: Advisors were overwhelmed with thousands of unformatted academic transcripts, passport scans, and English language test scores, resulting in 7-10 day turnaround times during peak university application windows.
+- **Challenge**: Advisors were overwhelmed with thousands of unformatted academic transcripts, passport scans, and English language test scores, resulting in communication delays during peak university application windows.
 - **Solution**: Developed a custom React/Vite portal connected to a secure document intake engine with automated compliance verification, counselor triage workflows, and applicant notification triggers.
-- **Outcome**: Reduced initial application review times from 7 days to under 4 hours; eliminated document ingestion bottlenecks.
+- **Outcome**: Eliminated document review delays, provided applicants with clear real-time application tracking, and reduced administrative overhead.
 
 ### Case Study 2: LVBL Digital Commerce & Brand Infrastructure
 - **Sector**: Premium Lifestyle & Digital Retail
@@ -168,7 +168,7 @@ Canonical: https://anstat.co.in/case-studies
 - **Sector**: Commercial Food & Beverage Supply
 - **Challenge**: Premium seafood wholesaler with superior product quality relied exclusively on word-of-mouth and struggled to land high-volume restaurant and hotel accounts.
 - **Solution**: Produced documentary-style commercial video highlighting sourcing, quality controls, and supply chain speed, integrated into an enterprise B2B inquiry funnel.
-- **Outcome**: Doubled qualified inbound commercial inquiries within 60 days of launch.
+- **Outcome**: Established verified commercial brand presence and activated a predictable stream of qualified wholesale restaurant inquiries.
 
 ### Case Study 4: Universal PU College Ramanagara
 - **Canonical Portal**: https://upuc.in/
@@ -181,7 +181,7 @@ Canonical: https://anstat.co.in/case-studies
 - **Sector**: Real Estate Brokerage & Property Investment
 - **Challenge**: A new property brokerage required commercial brand positioning, premium collateral, and targeted local buyer acquisition to establish initial market presence.
 - **Solution**: Formulated brand identity, digital marketing campaigns, and buyer presentation decks.
-- **Outcome**: Landed 14 enterprise clients during initial launch phase.
+- **Outcome**: Activated a consistent monthly pipeline of qualified consultations and established full transparency on advertising spend return.
 
 ---
 
@@ -211,10 +211,10 @@ Canonical: https://anstat.co.in/faq
    Cloud: AWS, Google Cloud, Cloudflare, Docker.
 
 4. **Who owns the code and intellectual property?**
-   The client retains 100% intellectual property rights, source code, repositories, and media files upon milestone sign-off.
+   The client retains 100% intellectual property rights, source code, repositories, and media files upon milestone sign-off (standard third-party open-source packages remain under their respective permissive licenses).
 
 5. **How does project pricing work?**
    Pricing is milestone-based and scoped transparently based on functional deliverables and architectural complexity. No hidden hourly surprises.
 
 6. **How do we get started?**
-   Submit an inquiry via our project form at https://anstat.co.in/#enquiry or email prasadshishir1@gmail.com. We schedule a 30-minute discovery consultation to audit requirements and determine fit.
+   Submit an inquiry via our project form at https://anstat.co.in/contact or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to audit requirements and determine fit.

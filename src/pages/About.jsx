@@ -117,7 +117,7 @@ export default function About() {
               "logo": "https://anstat.co.in/AnLogo.png",
               "description":
                 "Integrated technology and growth solutions company providing software development, applied AI, media production, and business operations.",
-              "email": "prasadshishir1@gmail.com",
+              "email": "connect@anstat.co.in",
               "telephone": "+919019731057",
               "sameAs": [
                 "https://linkedin.com/company/anstat",
@@ -245,10 +245,10 @@ export default function About() {
                   Direct Inquiries
                 </span>
                 <a
-                  href="mailto:prasadshishir1@gmail.com"
+                  href="mailto:connect@anstat.co.in"
                   className="font-semibold text-[#16804A] hover:underline"
                 >
-                  prasadshishir1@gmail.com
+                  connect@anstat.co.in
                 </a>
               </div>
               <div>
@@ -274,7 +274,7 @@ export default function About() {
               Schedule an introductory discussion to explore your project requirements and next steps.
             </p>
             <Link
-              to="/#enquiry"
+              to="/contact"
               className="btn-primary text-sm py-3.5 px-8 shadow-sm"
             >
               Discuss a Project

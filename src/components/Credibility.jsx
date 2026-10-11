@@ -16,7 +16,7 @@ const standards = [
   },
   {
     title: "Documented Deliverables & Clear Ownership",
-    desc: "Clients retain full intellectual property rights, comprehensive system documentation, and version-controlled repositories.",
+    desc: "Clients retain full intellectual property rights to custom deliverables, comprehensive system documentation, and version-controlled repositories (third-party open-source packages remain under their respective licenses).",
   },
 ];
 

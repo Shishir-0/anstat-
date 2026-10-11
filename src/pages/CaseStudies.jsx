@@ -347,7 +347,7 @@ export default function CaseStudies() {
 
                   <div className="px-8 pb-8 pt-0 flex flex-col sm:flex-row items-center gap-3">
                     <Link
-                      to="/#enquiry"
+                      to="/contact"
                       className="btn-primary text-xs py-2.5 px-5 flex-1 w-full justify-center shadow-xs"
                     >
                       Discuss a Similar Project
@@ -462,7 +462,7 @@ export default function CaseStudies() {
               Share your project scope for an objective technical review.
             </p>
             <Link
-              to="/#enquiry"
+              to="/contact"
               className="btn-primary text-sm py-3.5 px-8 shadow-sm"
             >
               Discuss Your Project

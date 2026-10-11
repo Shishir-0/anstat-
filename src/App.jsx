@@ -23,21 +23,36 @@ const Research = lazy(() => import("./pages/Research"));
 const About = lazy(() => import("./pages/About"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 /* ------------------ HELPERS ------------------ */
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+
   useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
+      const id = hash.replace("#", "");
+      let attempts = 0;
+      const maxAttempts = 15;
+
+      const scrollToElement = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        } else if (attempts < maxAttempts) {
+          attempts += 1;
+          setTimeout(scrollToElement, 60);
+        }
+      };
+
+      scrollToElement();
+      return;
     }
+
     window.scrollTo(0, 0);
   }, [pathname, hash]);
+
   return null;
 };
 
@@ -78,14 +93,14 @@ const Home = () => (
           "image": "https://anstat.co.in/AnLogo.png",
           "description":
             "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
-          "email": "prasadshishir1@gmail.com",
+          "email": "connect@anstat.co.in",
           "telephone": "+919019731057",
           "contactPoint": [
             {
               "@type": "ContactPoint",
               "telephone": "+919019731057",
               "contactType": "sales",
-              "email": "prasadshishir1@gmail.com",
+              "email": "connect@anstat.co.in",
               "availableLanguage": ["English", "Hindi", "Kannada"]
             }
           ],
@@ -219,6 +234,7 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/research/ai-startup-architecture" element={<Research />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
         </GlobalLayout>

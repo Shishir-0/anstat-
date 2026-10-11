@@ -67,7 +67,8 @@ if (fs.existsSync(sitemapPath)) {
     'https://anstat.co.in/case-studies',
     'https://anstat.co.in/research/ai-startup-architecture',
     'https://anstat.co.in/faq',
-    'https://anstat.co.in/about'
+    'https://anstat.co.in/about',
+    'https://anstat.co.in/contact'
   ];
 
   for (const url of expectedUrls) {
@@ -97,7 +98,7 @@ if (fs.existsSync(llmsPath)) {
   const llms = fs.readFileSync(llmsPath, 'utf8');
   assert(llms.startsWith('# ANSTAT'), 'llms.txt has correct top-level H1 header');
   assert(llms.includes('ANSTAT Technology') && llms.includes('ANSTAT AI'), 'llms.txt documents core service divisions');
-  assert(llms.includes('prasadshishir1@gmail.com'), 'llms.txt contains verified contact email');
+  assert(llms.includes('connect@anstat.co.in'), 'llms.txt contains verified contact email');
   assert(llms.includes('https://anstat.co.in/services'), 'llms.txt contains canonical services link');
   assert(llms.includes('https://anstat.co.in/case-studies'), 'llms.txt contains canonical case studies link');
   assert(llms.includes('Universal PU College Ramanagara'), 'llms.txt references verified client engagements');
@@ -107,7 +108,7 @@ if (fs.existsSync(llmsFullPath)) {
   const full = fs.readFileSync(llmsFullPath, 'utf8');
   assert(full.length > 3000, `llms-full.txt has rich depth (${full.length} bytes)`);
   assert(full.includes('The Architecture of Scalable AI Startups'), 'llms-full.txt includes R&D architectural context');
-  assert(full.includes('prasadshishir1@gmail.com'), 'llms-full.txt contains verified contact email');
+  assert(full.includes('connect@anstat.co.in'), 'llms-full.txt contains verified contact email');
 }
 
 // -----------------------------------------------------------------------------
@@ -120,13 +121,14 @@ assert(fs.existsSync(seoMapPath), 'seo-content-map.yml exists in repository root
 if (fs.existsSync(seoMapPath)) {
   const mapContent = fs.readFileSync(seoMapPath, 'utf8');
   assert(mapContent.includes('https://anstat.co.in'), 'seo-content-map.yml defines canonical domain');
-  assert(mapContent.includes('prasadshishir1@gmail.com'), 'seo-content-map.yml contains verified contact email');
+  assert(mapContent.includes('connect@anstat.co.in'), 'seo-content-map.yml contains verified contact email');
   assert(mapContent.includes('path: "/"'), 'seo-content-map.yml covers root path');
   assert(mapContent.includes('path: "/services"'), 'seo-content-map.yml covers /services');
   assert(mapContent.includes('path: "/case-studies"'), 'seo-content-map.yml covers /case-studies');
   assert(mapContent.includes('path: "/research/ai-startup-architecture"'), 'seo-content-map.yml covers /research/ai-startup-architecture');
   assert(mapContent.includes('path: "/faq"'), 'seo-content-map.yml covers /faq');
   assert(mapContent.includes('path: "/about"'), 'seo-content-map.yml covers /about');
+  assert(mapContent.includes('path: "/contact"'), 'seo-content-map.yml covers /contact');
 }
 
 // -----------------------------------------------------------------------------
@@ -139,7 +141,8 @@ const routesToCheck = [
   { path: 'case-studies/index.html', title: 'Case Studies & Selected Work | ANSTAT', canonical: 'https://anstat.co.in/case-studies' },
   { path: 'research/ai-startup-architecture/index.html', title: 'The Architecture of Scalable AI Startups | ANSTAT Research', canonical: 'https://anstat.co.in/research/ai-startup-architecture' },
   { path: 'faq/index.html', title: 'Frequently Asked Questions | ANSTAT', canonical: 'https://anstat.co.in/faq' },
-  { path: 'about/index.html', title: 'About ANSTAT | Integrated Technology & Growth Solutions', canonical: 'https://anstat.co.in/about' }
+  { path: 'about/index.html', title: 'About ANSTAT | Integrated Technology & Growth Solutions', canonical: 'https://anstat.co.in/about' },
+  { path: 'contact/index.html', title: 'Contact ANSTAT | Project Enquiries & Technical Consultations', canonical: 'https://anstat.co.in/contact' }
 ];
 
 for (const r of routesToCheck) {
@@ -153,7 +156,7 @@ for (const r of routesToCheck) {
     assert(html.includes(`<link rel="canonical" href="${r.canonical}" />`), `Correct canonical tag in dist/${r.path}`);
     assert(html.includes('type="application/ld+json"'), `Contains JSON-LD schema in dist/${r.path}`);
     assert(html.includes('<h1'), `Contains crawlable <h1> heading in dist/${r.path}`);
-    assert(!html.includes('contact@anstat.co.in') && !html.includes('connect@anstat.co.in'), `No old emails in dist/${r.path}`);
+    assert(!html.includes('prasadshishir1@gmail.com'), `No old prasadshishir1 email in dist/${r.path}`);
   }
 }
 

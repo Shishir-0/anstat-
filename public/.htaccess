@@ -23,21 +23,26 @@
   SetEnvIfNoCase User-Agent "Applebot"            allow_bot
 </IfModule>
 
-# --- 2. Routing: Serve physical files/directories first, fallback to index.html for SPA ---
+# --- 2. Routing: Canonical URL Normalization + Static Prerender + SPA Fallback ---
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Canonical HTTPS & Host redirection (ensure single canonical origin)
-  # RewriteCond %{HTTP_HOST} ^www\.anstat\.co\.in$ [NC]
-  # RewriteRule ^(.*)$ https://anstat.co.in/$1 [R=301,L]
+  # Normalize trailing slash to slashless canonical URL (except root /)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # If a matching flat prerendered .html file exists, serve it directly without redirect
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^.]+)$ $1.html [L]
 
   # Skip rewrite for existing physical files and directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Route everything else to index.html for React Router / client-side routing
+  # Route everything else to index.html for React Router client-side routing
   RewriteRule ^ index.html [L]
 </IfModule>
 

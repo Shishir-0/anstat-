@@ -44,6 +44,9 @@ export default function EnquiryForm() {
     }
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState("idle"); // 'idle' | 'network_success' | 'client_prepared' | 'network_error'
+
   const emailSubject = `Project Enquiry: ${formData.division} - ${formData.company || formData.name}`;
   const emailBody = `Name: ${formData.name}
 Company: ${formData.company || "N/A"}
@@ -56,11 +59,11 @@ Budget: ${formData.budget}
 Project Description:
 ${formData.description}`;
 
-  const mailtoUrl = `mailto:prasadshishir1@gmail.com?subject=${encodeURIComponent(
+  const mailtoUrl = `mailto:connect@anstat.co.in?subject=${encodeURIComponent(
     emailSubject
   )}&body=${encodeURIComponent(emailBody)}`;
 
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=prasadshishir1@gmail.com&su=${encodeURIComponent(
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=connect@anstat.co.in&su=${encodeURIComponent(
     emailSubject
   )}&body=${encodeURIComponent(emailBody)}`;
 
@@ -69,21 +72,61 @@ ${formData.description}`;
   const whatsappUrl = `https://wa.me/919019731057?text=${encodeURIComponent(whatsappText)}`;
 
   const handleCopySummary = () => {
-    const textToCopy = `To: prasadshishir1@gmail.com\nSubject: ${emailSubject}\n\n${emailBody}`;
+    const textToCopy = `To: connect@anstat.co.in\nSubject: ${emailSubject}\n\n${emailBody}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
 
   const handleDispatchEmail = () => {
-    // Attempt standard mailto protocol
     window.location.href = mailtoUrl;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+
+    setIsSubmitting(true);
+    const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
+
+    if (endpoint) {
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            recipient: "connect@anstat.co.in",
+            subject: emailSubject,
+          }),
+        });
+
+        if (response.ok) {
+          setSubmissionStatus("network_success");
+          setSubmitted(true);
+          setIsSubmitting(false);
+          return;
+        } else {
+          setSubmissionStatus("network_error");
+          setSubmitted(true);
+          setIsSubmitting(false);
+          return;
+        }
+      } catch {
+        setSubmissionStatus("network_error");
+        setSubmitted(true);
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Default static deployment workflow: compile and present verified dispatch actions
+    setSubmissionStatus("client_prepared");
     setSubmitted(true);
+    setIsSubmitting(false);
     try {
       window.location.href = mailtoUrl;
     } catch {
@@ -125,17 +168,27 @@ ${formData.description}`;
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-bold text-[#18372A] mb-3">
-                Project Summary Prepared
+                {submissionStatus === "network_success"
+                  ? "Enquiry Delivered Successfully"
+                  : submissionStatus === "network_error"
+                  ? "Direct Server Relay Unavailable"
+                  : "Project Summary Prepared"}
               </h3>
               <p className="text-sm sm:text-base text-[#435149] max-w-lg mx-auto mb-6">
-                Thank you, <strong>{formData.name}</strong>. Your enquiry details have been compiled for direct dispatch to <strong>prasadshishir1@gmail.com</strong>.
+                {submissionStatus === "network_success" ? (
+                  <>Thank you, <strong>{formData.name}</strong>. Your project details have been successfully transmitted to our engineering desk at <strong>connect@anstat.co.in</strong>.</>
+                ) : submissionStatus === "network_error" ? (
+                  <>We couldn't reach the automated server relay, but your details are completely preserved below. Please click <strong>Open in Web Gmail</strong> or <strong>Dispatch via Email App</strong> to deliver your enquiry directly to <strong>connect@anstat.co.in</strong>.</>
+                ) : (
+                  <>Thank you, <strong>{formData.name}</strong>. Your enquiry details have been compiled for direct dispatch to <strong>connect@anstat.co.in</strong>.</>
+                )}
               </p>
 
               {/* Summary Card */}
               <div className="bg-white border border-[#E1E9E2] rounded-2xl p-5 mb-8 max-w-xl mx-auto text-left shadow-xs text-xs sm:text-sm space-y-2">
                 <div className="flex justify-between border-b border-[#E1E9E2] pb-2 font-medium">
-                  <span className="text-[#68766E]">Recipient:</span>
-                  <span className="font-bold text-[#16804A]">prasadshishir1@gmail.com</span>
+                  <span className="text-[#68766E]">Recipient Desk:</span>
+                  <span className="font-bold text-[#16804A]">connect@anstat.co.in</span>
                 </div>
                 <div className="flex justify-between border-b border-[#E1E9E2] pb-2 font-medium">
                   <span className="text-[#68766E]">Subject:</span>
@@ -437,20 +490,30 @@ ${formData.description}`;
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   type="submit"
-                  className="btn-primary w-full sm:w-auto text-sm py-3.5 px-8 shadow-sm"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full sm:w-auto text-sm py-3.5 px-8 shadow-sm flex items-center justify-center gap-2"
                 >
-                  <span>Submit Project Details</span>
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  {isSubmitting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Transmitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Project Details</span>
+                      <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </>
+                  )}
                 </button>
 
                 <p className="text-xs text-[#68766E] text-center sm:text-right">
-                  Direct dispatch to: <strong>prasadshishir1@gmail.com</strong>. No spam, ever.
+                  Direct dispatch to: <strong>connect@anstat.co.in</strong>. No spam, ever.
                 </p>
               </div>
             </form>
