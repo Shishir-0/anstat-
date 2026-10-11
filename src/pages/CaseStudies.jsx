@@ -21,7 +21,7 @@ const projects = [
     divisions: ["technology"],
     divisionBadge: "ANSTAT Technology",
     sector: "Software Studio, SaaS & Interactive 3D Platforms",
-    image: "/dusk.jpeg",
+    image: "/dusk.png",
     website: "https://duskenterprise.com",
     clientContext:
       "Dusk Enterprise (duskenterprise.com) is an independent software studio that designs, builds, and operates its own software products—including 3D Menu (an interactive 3D restaurant-menu platform) and utility mobile applications with over 25,000 installs and a 4.8 average rating on Google Play and the App Store.",
