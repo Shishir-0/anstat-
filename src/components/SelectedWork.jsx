@@ -73,6 +73,21 @@ const projects = [
     outcome:
       "Consistent pipeline of qualified property inquiries and clear return on advertising spend.",
   },
+  {
+    title: "Dusk Enterprise Digital Platform & Software Studio",
+    type: "Software Studio, SaaS & Interactive 3D Platforms",
+    image: "/dusk.png",
+    website: "https://duskenterprise.com",
+    problem:
+      "Dusk Enterprise required a high-performance web foundation to showcase its flagship 3D restaurant-menu SaaS product, mobile utility applications, and engineering articles.",
+    contribution:
+      "Engineered the official digital showcase platform (duskenterprise.com), interactive product demonstration funnels, and streamlined restaurant demo inquiry workflows.",
+    solution:
+      "Responsive, modern web platform featuring product architecture highlights, interactive 3D demo requests, and direct studio communication routing.",
+    technologies: ["React", "Tailwind CSS", "SaaS Architecture", "Lead Routing", "Technical SEO"],
+    outcome:
+      "Established verified brand authority for Dusk Enterprise at duskenterprise.com, driving inbound product demos and enterprise collaboration requests.",
+  },
 ];
 
 export default function SelectedWork() {
@@ -193,7 +208,7 @@ export default function SelectedWork() {
                     rel="noopener noreferrer"
                     className="text-xs font-semibold text-[#18372A] hover:text-[#16804A] inline-flex items-center gap-1 bg-[#F4F7F4] hover:bg-[#E8F3EB] px-2.5 py-1 rounded-lg border border-[#E1E9E2] transition-colors"
                   >
-                    <span>Visit upuc.in</span>
+                    <span>Visit {p.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                     <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                       <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />

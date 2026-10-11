@@ -183,6 +183,13 @@ Canonical: https://anstat.co.in/case-studies
 - **Solution**: Formulated brand identity, digital marketing campaigns, and buyer presentation decks.
 - **Outcome**: Activated a consistent monthly pipeline of qualified consultations and established full transparency on advertising spend return.
 
+### Case Study 6: Dusk Enterprise
+- **Canonical Portal**: https://duskenterprise.com/
+- **Sector**: Independent Software Studio, SaaS & Interactive 3D Platforms
+- **Challenge**: Dusk Enterprise required a high-performance web foundation and interactive digital showcase to demonstrate its flagship 3D restaurant-menu SaaS product, mobile utility applications, and engineering articles.
+- **Solution**: Engineered the official digital showcase platform (duskenterprise.com), interactive product demonstration funnels, and streamlined restaurant demo inquiry workflows.
+- **Outcome**: Established verified web authority for Dusk Enterprise at duskenterprise.com, showcasing 3D dining technology and driving qualified product demo inquiries.
+
 ---
 
 ## 4. Technical Research: The Architecture of Scalable AI Startups

@@ -100,6 +100,26 @@ const clientWork = [
     outcome:
       "Consistent monthly pipeline of qualified consultations and full transparency on advertising spend return.",
   },
+  {
+    title: "Dusk Enterprise Digital Platform & Interactive Software Showcase",
+    category: "Client Engagement",
+    sector: "Software Studio, SaaS & Interactive 3D Platforms",
+    image: "/dusk.jpeg",
+    website: "https://duskenterprise.com",
+    overview:
+      "Modern digital showcase platform engineered for Dusk Enterprise (duskenterprise.com), the independent software studio behind the 3D Menu restaurant platform and specialized mobile applications.",
+    problem:
+      "Dusk Enterprise required a high-performance web foundation and interactive digital showcase to demonstrate its flagship 3D restaurant-menu SaaS product, mobile utility applications, and technical engineering publications to global enterprise collaborators and restaurant operators.",
+    scope: [
+      "Responsive, mobile-first web architecture showcasing the studio's proprietary software catalog",
+      "Interactive 3D Menu product showcase and enterprise demonstration inquiry funnels",
+      "Streamlined demo request workflows connecting restaurant partners directly to the studio team",
+      "Structured technical SEO, rich article publishing metadata, and developer credibility architecture",
+    ],
+    technologies: ["React", "Vite", "Tailwind CSS", "Interactive Web Architecture", "Technical SEO", "Lead Routing"],
+    outcome:
+      "Delivered a fast, authoritative digital platform for Dusk Enterprise at duskenterprise.com, showcasing 3D dining technology and driving qualified product demo inquiries.",
+  },
 ];
 
 const researchDemos = [

@@ -60,6 +60,7 @@ Operational discipline and commercial management ensuring technology translates 
 3. **Coastal Catch Co.** (Premium Food Distribution): High-definition commercial videography and B2B buyer acquisition funnels.
 4. **Universal PU College Ramanagara** (`upuc.in`): High-speed institutional admissions portal, academic curriculum showcase, and student inquiry routing.
 5. **NEB Real Estate Agency** (Property & Land): Brand positioning, commercial collateral, and multi-channel campaign driving qualified commercial inquiries.
+6. **Dusk Enterprise** (`duskenterprise.com`): Digital showcase platform and interactive SaaS product demonstration funnels for the independent software studio behind 3D Menu and mobile apps.
 
 ## Commercial Policies & IP Terms
 - **Intellectual Property**: Clients retain 100% ownership of all custom code, repositories, media files, and production assets upon milestone signoff (standard third-party open-source packages remain under their respective permissive licenses).

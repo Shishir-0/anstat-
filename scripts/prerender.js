@@ -319,6 +319,12 @@ const routePages = [
             <p class="text-sm text-[#435149] mb-4">Brand identity formulation, presentation collateral, and targeted acquisition campaigns securing 14 commercial clients during initial launch.</p>
             <div class="text-xs text-[#68766E]">Stack: Brand Strategy, Campaign Design, Lead Pipelines</div>
           </article>
+          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+            <h2 class="text-2xl font-bold text-[#18372A] mb-2">Dusk Enterprise Digital Platform</h2>
+            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Software Studio, SaaS & Interactive 3D Platforms | duskenterprise.com</p>
+            <p class="text-sm text-[#435149] mb-4">Modern digital showcase platform and interactive SaaS product demonstration funnels engineered for Dusk Enterprise and its flagship 3D Menu dining platform.</p>
+            <div class="text-xs text-[#68766E]">Stack: React, Vite, Tailwind CSS, Interactive Architecture, Technical SEO</div>
+          </article>
         </div>
       </main>
     `
