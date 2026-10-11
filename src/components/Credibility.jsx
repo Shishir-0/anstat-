@@ -22,7 +22,7 @@ const standards = [
 
 const industries = [
   "Education & EdTech",
-  "Retail & Wholesale Supply",
+  "Lifestyle & Digital Commerce",
   "Professional Services",
   "Food & Beverage Supply",
   "Real Estate & Property",

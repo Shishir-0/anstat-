@@ -24,23 +24,23 @@ const clientWork = [
       "Eliminated document review delays, provided applicants with clear real-time application tracking, and reduced administrative overhead.",
   },
   {
-    title: "Urban Supplies Multi-Warehouse Inventory Platform",
+    title: "LVBL Digital Commerce & Brand Infrastructure",
     category: "Client Engagement",
-    sector: "Retail, Wholesale & Logistics",
-    image: "/UB.jpeg",
+    sector: "Lifestyle, Digital Commerce & Retail",
+    image: "/lvbl.jpeg",
     overview:
-      "Bespoke inventory management and order reconciliation software connecting warehouse operations with sales teams.",
+      "Full-stack digital commerce presence, integrated inventory and catalog management, and automated acquisition campaigns.",
     problem:
-      "The business relied on fragmented spreadsheets and phone calls between three distribution warehouses, leading to frequent inventory discrepancies, delayed shipments, and double-ordered stock.",
+      "A fast-growing lifestyle brand required an end-to-end digital foundation, centralized product catalog, and structured customer acquisition funnel to scale beyond localized sales without ballooning manual overhead.",
     scope: [
-      "End-to-end inventory tracking portal with barcode & SKU management",
-      "Multi-warehouse stock visibility and automated reorder alerts",
-      "Vendor order reconciliation API integrated with fulfillment staff workflows",
-      "Cloud database synchronization with automated daily data backups",
+      "Modern, responsive digital storefront engineered with React and modern Tailwind CSS",
+      "Centralized product catalog and inventory visibility integrated with order fulfillment",
+      "Automated customer engagement and inquiry routing across email and messaging channels",
+      "Targeted digital advertising funnels and attribution tracking across key consumer demographics",
     ],
-    technologies: ["React", "Express", "PostgreSQL", "Cloud APIs", "Role-Based Security"],
+    technologies: ["React", "Node.js", "Tailwind CSS", "Commerce APIs", "Attribution Analytics"],
     outcome:
-      "Real-time visibility across warehouse inventory, eliminating out-of-stock surprises and cutting order reconciliation time substantially.",
+      "Established verified brand authority, unified customer acquisition channels, and enabled seamless order management from launch.",
   },
   {
     title: "Coastal Catch Co. Commercial Videography & Funnel",

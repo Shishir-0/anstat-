@@ -17,18 +17,18 @@ const projects = [
       "Structured student onboarding, eliminated document review backlogs, and established clear audit trails for international applications.",
   },
   {
-    title: "Urban Supplies Inventory & Operations Portal",
-    type: "Retail, Wholesale & Supply Chain Systems",
-    image: "/UB.jpeg",
+    title: "LVBL Digital Commerce & Brand Infrastructure",
+    type: "Lifestyle, Digital Commerce & Brand Systems",
+    image: "/lvbl.jpeg",
     problem:
-      "Disjointed spreadsheets and offline warehouse communication created stock discrepancy issues and manual delays in fulfilling wholesale vendor orders.",
+      "A fast-growing lifestyle brand required an end-to-end digital foundation, centralized product catalog, and structured customer acquisition funnel to scale beyond localized sales.",
     contribution:
-      "Engineered an end-to-end stock visibility system and inventory reconciliation tool integrated directly with fulfillment staff workflows.",
+      "Engineered an omni-channel digital storefront, automated customer engagement flows, and deployed targeted performance advertising campaigns.",
     solution:
-      "Web-based inventory management portal featuring automated low-stock alerts, multi-warehouse tracking, and unified vendor order manifests.",
-    technologies: ["React", "Express", "PostgreSQL", "Cloud Hosting", "Role-Based Access"],
+      "High-performance mobile-first web platform with real-time inventory synchronization, frictionless customer checkout, and integrated acquisition tracking.",
+    technologies: ["React", "Node.js", "Tailwind CSS", "Commerce APIs", "Attribution Analytics"],
     outcome:
-      "Real-time stock reconciliation across warehouse locations and eliminated duplicate order entries.",
+      "Established verified brand authority, unified customer acquisition channels, and enabled seamless order management from launch.",
   },
   {
     title: "Coastal Catch Co. Commercial Funnel & Brand",
