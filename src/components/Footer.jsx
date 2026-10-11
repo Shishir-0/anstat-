@@ -27,10 +27,10 @@ export default function Footer() {
               <div>
                 <strong className="text-[#18372A]">Email:</strong>{" "}
                 <a
-                  href="mailto:contact@anstat.co.in"
+                  href="mailto:prasadshishir1@gmail.com"
                   className="text-[#16804A] hover:underline"
                 >
-                  contact@anstat.co.in
+                  prasadshishir1@gmail.com
                 </a>
               </div>
               <div>

@@ -68,7 +68,7 @@ export default function About() {
               "name": "ANSTAT",
               "description":
                 "Integrated technology and growth solutions company providing software development, applied AI, media production, and business operations.",
-              "email": "contact@anstat.co.in",
+              "email": "prasadshishir1@gmail.com",
               "telephone": "+919019731057"
             }
           })}
@@ -192,10 +192,10 @@ export default function About() {
                   Direct Inquiries
                 </span>
                 <a
-                  href="mailto:contact@anstat.co.in"
+                  href="mailto:prasadshishir1@gmail.com"
                   className="font-semibold text-[#16804A] hover:underline"
                 >
-                  contact@anstat.co.in
+                  prasadshishir1@gmail.com
                 </a>
               </div>
               <div>

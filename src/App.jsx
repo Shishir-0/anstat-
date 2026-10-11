@@ -78,7 +78,7 @@ const Home = () => (
           "image": "https://anstat.co.in/AnLogo.png",
           "description":
             "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
-          "email": "contact@anstat.co.in",
+          "email": "prasadshishir1@gmail.com",
           "telephone": "+919019731057",
           "address": {
             "@type": "PostalAddress",

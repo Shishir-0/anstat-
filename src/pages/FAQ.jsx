@@ -48,7 +48,7 @@ const faqs = [
   {
     category: "Getting Started",
     q: "How do we begin a project conversation with ANSTAT?",
-    a: "Submit an inquiry via our project form or email contact@anstat.co.in. We will schedule a 30-minute discovery consultation to understand your objectives, audit technical requirements, and determine whether ANSTAT is the right fit for your team.",
+    a: "Submit an inquiry via our project form or email prasadshishir1@gmail.com. We will schedule a 30-minute discovery consultation to understand your objectives, audit technical requirements, and determine whether ANSTAT is the right fit for your team.",
   },
 ];
 
@@ -188,10 +188,10 @@ export default function FAQ() {
                 Start an Enquiry
               </Link>
               <a
-                href="mailto:contact@anstat.co.in"
+                href="mailto:prasadshishir1@gmail.com"
                 className="btn-secondary text-sm py-3 px-6 w-full sm:w-auto"
               >
-                Email: contact@anstat.co.in
+                Email: prasadshishir1@gmail.com
               </a>
             </div>
           </section>

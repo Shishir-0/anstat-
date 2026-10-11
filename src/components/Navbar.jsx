@@ -399,10 +399,10 @@ export default function Navbar() {
                 </Link>
                 <div className="mt-3 text-center">
                   <a
-                    href="mailto:contact@anstat.co.in"
+                    href="mailto:prasadshishir1@gmail.com"
                     className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
                   >
-                    contact@anstat.co.in
+                    prasadshishir1@gmail.com
                   </a>
                   <span className="mx-2 text-[#E1E9E2]">|</span>
                   <a
