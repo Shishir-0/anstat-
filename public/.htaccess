@@ -1,0 +1,60 @@
+# ============================================================
+# ANSTAT — Production .htaccess
+# Crawlability + SPA Routing + Performance
+# ============================================================
+
+# --- 1. Explicitly allow all major search & AI crawlers ---
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase User-Agent "Googlebot"           allow_bot
+  SetEnvIfNoCase User-Agent "Googlebot-Image"     allow_bot
+  SetEnvIfNoCase User-Agent "AdsBot-Google"       allow_bot
+  SetEnvIfNoCase User-Agent "Bingbot"             allow_bot
+  SetEnvIfNoCase User-Agent "Slurp"               allow_bot
+  SetEnvIfNoCase User-Agent "DuckDuckBot"         allow_bot
+  SetEnvIfNoCase User-Agent "YandexBot"           allow_bot
+  SetEnvIfNoCase User-Agent "facebot"             allow_bot
+  SetEnvIfNoCase User-Agent "ia_archiver"         allow_bot
+  SetEnvIfNoCase User-Agent "GPTBot"              allow_bot
+  SetEnvIfNoCase User-Agent "ChatGPT-User"        allow_bot
+  SetEnvIfNoCase User-Agent "PerplexityBot"       allow_bot
+  SetEnvIfNoCase User-Agent "anthropic-ai"        allow_bot
+  SetEnvIfNoCase User-Agent "ClaudeBot"           allow_bot
+  SetEnvIfNoCase User-Agent "CCBot"               allow_bot
+  SetEnvIfNoCase User-Agent "Applebot"            allow_bot
+</IfModule>
+
+# --- 2. SPA Routing: Serve index.html for all non-file, non-directory requests ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Always allow bots through without any challenge
+  RewriteCond %{ENV:allow_bot} =1
+  RewriteRule ^ - [L]
+
+  # Skip rewrite for real files and directories
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Route everything else to index.html for React Router
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# --- 3. Security & Performance Headers ---
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "index, follow"
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- 4. Enable Gzip Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
