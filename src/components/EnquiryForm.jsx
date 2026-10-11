@@ -15,6 +15,7 @@ export default function EnquiryForm() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const validate = () => {
     const newErrors = {};
@@ -43,23 +44,52 @@ export default function EnquiryForm() {
     }
   };
 
+  const emailSubject = `Project Enquiry: ${formData.division} - ${formData.company || formData.name}`;
+  const emailBody = `Name: ${formData.name}
+Company: ${formData.company || "N/A"}
+Email: ${formData.email}
+Phone: ${formData.phone || "N/A"}
+Division: ${formData.division}
+Timeline: ${formData.timeline}
+Budget: ${formData.budget}
+
+Project Description:
+${formData.description}`;
+
+  const mailtoUrl = `mailto:prasadshishir1@gmail.com?subject=${encodeURIComponent(
+    emailSubject
+  )}&body=${encodeURIComponent(emailBody)}`;
+
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=prasadshishir1@gmail.com&su=${encodeURIComponent(
+    emailSubject
+  )}&body=${encodeURIComponent(emailBody)}`;
+
+  const whatsappText = `Hello ANSTAT team, I would like to discuss a project:\n\n*Name:* ${formData.name}\n*Company:* ${formData.company || "N/A"}\n*Division:* ${formData.division}\n*Timeline:* ${formData.timeline}\n*Budget:* ${formData.budget}\n*Project Details:* ${formData.description}`;
+
+  const whatsappUrl = `https://wa.me/919019731057?text=${encodeURIComponent(whatsappText)}`;
+
+  const handleCopySummary = () => {
+    const textToCopy = `To: prasadshishir1@gmail.com\nSubject: ${emailSubject}\n\n${emailBody}`;
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+  };
+
+  const handleDispatchEmail = () => {
+    // Attempt standard mailto protocol
+    window.location.href = mailtoUrl;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
     setSubmitted(true);
+    try {
+      window.location.href = mailtoUrl;
+    } catch {
+      // safe fallback
+    }
   };
-
-  const mailtoUrl = `mailto:prasadshishir1@gmail.com?subject=${encodeURIComponent(
-    `Project Enquiry: ${formData.division} - ${formData.company || formData.name}`
-  )}&body=${encodeURIComponent(
-    `Name: ${formData.name}\nCompany: ${formData.company || "N/A"}\nEmail: ${
-      formData.email
-    }\nPhone: ${formData.phone || "N/A"}\nDivision: ${
-      formData.division
-    }\nTimeline: ${formData.timeline}\nBudget: ${
-      formData.budget
-    }\n\nProject Description:\n${formData.description}`
-  )}`;
 
   return (
     <section id="enquiry" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E1E9E2]">
@@ -80,7 +110,7 @@ export default function EnquiryForm() {
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-8"
+              className="text-center py-6"
               role="status"
               aria-live="polite"
             >
@@ -94,42 +124,95 @@ export default function EnquiryForm() {
                 </svg>
               </div>
 
-              <h3 className="text-2xl font-bold text-[#18372A] mb-3">
-                Enquiry Details Compiled
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#18372A] mb-3">
+                Project Summary Prepared
               </h3>
-              <p className="text-sm sm:text-base text-[#435149] max-w-lg mx-auto mb-8">
-                Thank you, <strong>{formData.name}</strong>. Your project summary has been prepared.
-                Click below to dispatch your message directly to our engineering mailbox, or connect with us immediately via phone or WhatsApp.
+              <p className="text-sm sm:text-base text-[#435149] max-w-lg mx-auto mb-6">
+                Thank you, <strong>{formData.name}</strong>. Your enquiry details have been compiled for direct dispatch to <strong>prasadshishir1@gmail.com</strong>.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              {/* Summary Card */}
+              <div className="bg-white border border-[#E1E9E2] rounded-2xl p-5 mb-8 max-w-xl mx-auto text-left shadow-xs text-xs sm:text-sm space-y-2">
+                <div className="flex justify-between border-b border-[#E1E9E2] pb-2 font-medium">
+                  <span className="text-[#68766E]">Recipient:</span>
+                  <span className="font-bold text-[#16804A]">prasadshishir1@gmail.com</span>
+                </div>
+                <div className="flex justify-between border-b border-[#E1E9E2] pb-2 font-medium">
+                  <span className="text-[#68766E]">Subject:</span>
+                  <span className="font-semibold text-[#18372A] text-right truncate max-w-[280px]">{emailSubject}</span>
+                </div>
+                <div className="flex justify-between text-[#435149] pt-1">
+                  <span className="text-[#68766E]">Division:</span>
+                  <span>{formData.division}</span>
+                </div>
+                <div className="flex justify-between text-[#435149]">
+                  <span className="text-[#68766E]">Timeline / Budget:</span>
+                  <span>{formData.timeline} &bull; {formData.budget}</span>
+                </div>
+              </div>
+
+              {/* Multi-channel dispatch buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-6 max-w-xl mx-auto">
                 <a
                   href={mailtoUrl}
-                  className="btn-primary w-full sm:w-auto text-sm py-3 px-6 shadow-sm"
+                  onClick={handleDispatchEmail}
+                  className="btn-primary w-full sm:w-auto text-sm py-3.5 px-6 shadow-sm flex items-center justify-center gap-2"
                 >
-                  <span>Dispatch Email to prasadshishir1@gmail.com</span>
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
                     <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
                   </svg>
+                  <span>Dispatch via Email App</span>
                 </a>
 
                 <a
-                  href="tel:+919019731057"
-                  className="btn-secondary w-full sm:w-auto text-sm py-3 px-6"
+                  href={gmailUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full sm:w-auto text-sm py-3.5 px-6 border-[#C4DFC9] bg-white hover:bg-[#E8F3EB] text-[#18372A] flex items-center justify-center gap-2"
                 >
-                  <span>Call +91 90197 31057</span>
+                  <svg className="w-4 h-4 text-[#EA4335]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.49l8.073-5.997C21.69 2.28 24 3.434 24 5.457z"/>
+                  </svg>
+                  <span>Open in Web Gmail</span>
+                </a>
+              </div>
+
+              {/* Secondary actions: WhatsApp, Copy, Phone */}
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366]/20 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+                >
+                  <span>💬 Chat on WhatsApp</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleCopySummary}
+                  className="px-4 py-2 bg-white border border-[#E1E9E2] text-[#18372A] hover:bg-[#F4F7F4] font-semibold rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+                >
+                  <span>{copied ? "✓ Copied to Clipboard!" : "📋 Copy Details"}</span>
+                </button>
+
+                <a
+                  href="tel:+919019731057"
+                  className="px-4 py-2 bg-white border border-[#E1E9E2] text-[#18372A] hover:bg-[#F4F7F4] font-semibold rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+                >
+                  <span>📞 Call +91 90197 31057</span>
                 </a>
               </div>
 
               <div className="pt-6 border-t border-[#E1E9E2] text-xs text-[#68766E]">
-                <span>Want to submit another inquiry? </span>
+                <span>Want to edit details or submit another inquiry? </span>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
                   className="text-[#16804A] font-bold underline hover:text-[#12693C]"
                 >
-                  Reset form
+                  Edit inquiry form
                 </button>
               </div>
             </motion.div>
