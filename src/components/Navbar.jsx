@@ -16,12 +16,12 @@ const divisions = [
   {
     name: "ANSTAT Growth & Media",
     desc: "Marketing strategy, ad campaigns & videography",
-    href: "/services#growth",
+    href: "/services#growth-media",
   },
   {
     name: "ANSTAT Business Solutions",
     desc: "Business analysis, process improvement & operations",
-    href: "/services#business",
+    href: "/services#business-solutions",
   },
 ];
 

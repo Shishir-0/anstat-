@@ -72,7 +72,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/services#growth"
+                  to="/services#growth-media"
                   className="hover:text-[#16804A] transition-colors"
                 >
                   ANSTAT Growth & Media
@@ -80,7 +80,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/services#business"
+                  to="/services#business-solutions"
                   className="hover:text-[#16804A] transition-colors"
                 >
                   ANSTAT Business Solutions

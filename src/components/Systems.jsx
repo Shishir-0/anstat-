@@ -61,7 +61,7 @@ const divisions = [
       "Conversion tracking & marketing attribution",
     ],
     ctaText: "Explore Growth & Media",
-    ctaLink: "/services#growth",
+    ctaLink: "/services#growth-media",
     icon: (
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="23 7 16 12 23 17 23 7" />
@@ -70,7 +70,7 @@ const divisions = [
     ),
   },
   {
-    id: "business",
+    id: "business-solutions",
     name: "ANSTAT Business Solutions",
     headline: "Process Analysis, Operations & Implementation Support",
     description:
@@ -83,7 +83,7 @@ const divisions = [
       "Project implementation management & QA oversight",
     ],
     ctaText: "Explore Business Solutions",
-    ctaLink: "/services#business",
+    ctaLink: "/services#business-solutions",
     icon: (
       <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />

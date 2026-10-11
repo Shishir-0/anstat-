@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../components/Navbar";
+
+export const normalizeDivisionId = (hashOrId) => {
+  if (!hashOrId) return null;
+  const clean = hashOrId.replace(/^#/, "").toLowerCase().trim();
+  if (clean === "technology") return "technology";
+  if (clean === "ai") return "ai";
+  if (clean === "growth" || clean === "growth-media") return "growth-media";
+  if (clean === "business" || clean === "business-solutions") return "business-solutions";
+  return null;
+};
 
 const divisions = [
   {
@@ -146,7 +156,8 @@ const divisions = [
     ],
   },
   {
-    id: "growth",
+    id: "growth-media",
+    aliasId: "growth",
     badge: "Division 03",
     name: "ANSTAT Growth & Media",
     headline: "Marketing Strategy, Campaign Execution & Advertisement Videography",
@@ -216,7 +227,8 @@ const divisions = [
     ],
   },
   {
-    id: "business",
+    id: "business-solutions",
+    aliasId: "business",
     badge: "Division 04",
     name: "ANSTAT Business Solutions",
     headline: "Business Analysis, Operational Improvement & Implementation Management",
@@ -278,15 +290,181 @@ const divisions = [
 ];
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState("technology");
+  const location = useLocation();
 
-  const scrollToDivision = (id) => {
-    setActiveTab(id);
-    const el = document.getElementById(id);
+  // Initialize active division from URL hash if valid, otherwise default to first division
+  const [activeDivision, setActiveDivision] = useState(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const initial = normalizeDivisionId(window.location.hash);
+      if (initial) return initial;
+    }
+    return "technology";
+  });
+
+  const activeDivisionRef = useRef(activeDivision);
+  const isManualScrollingRef = useRef(false);
+  const manualScrollTimeoutRef = useRef(null);
+  const intersectingEntriesRef = useRef(new Map());
+
+  // Helper to update active division state only when it actually changes
+  const updateActiveDivision = useCallback((newId) => {
+    if (!newId) return;
+    if (activeDivisionRef.current !== newId) {
+      activeDivisionRef.current = newId;
+      setActiveDivision(newId);
+    }
+  }, []);
+
+  // Programmatic smooth scroll to division
+  const scrollToDivision = useCallback((id, updateHash = true) => {
+    const targetId = normalizeDivisionId(id) || id;
+
+    // 1. Immediately update active state
+    updateActiveDivision(targetId);
+
+    // 2. Set manual scrolling lock to prevent observer flicker during animation
+    isManualScrollingRef.current = true;
+    if (manualScrollTimeoutRef.current) {
+      clearTimeout(manualScrollTimeoutRef.current);
+    }
+    manualScrollTimeoutRef.current = setTimeout(() => {
+      isManualScrollingRef.current = false;
+    }, 750);
+
+    // 3. Update URL hash without polluting browser history
+    if (updateHash && typeof window !== "undefined" && window.history?.replaceState) {
+      window.history.replaceState(null, "", `#${targetId}`);
+    }
+
+    // 4. Smooth scroll to element
+    const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }, [updateActiveDivision]);
+
+  // Evaluates which section is active based on position and observer entries
+  const evaluateActiveSection = useCallback(() => {
+    if (isManualScrollingRef.current) return;
+
+    // 1. Bottom of page check: ensures final division (Business Solutions) activates
+    const scrollBottom = window.innerHeight + window.scrollY;
+    const pageHeight = document.documentElement.scrollHeight;
+    if (pageHeight - scrollBottom < 80) {
+      updateActiveDivision(divisions[divisions.length - 1].id);
+      return;
+    }
+
+    // 2. Top of page check: ensures first division (Technology) activates
+    if (window.scrollY < 200) {
+      updateActiveDivision(divisions[0].id);
+      return;
+    }
+
+    // 3. Activation threshold: ~160px from top of viewport (clearing fixed navbar + sticky tabs)
+    const activationThreshold = 160;
+
+    // Find the division that is currently active:
+    // The latest division in DOM order whose top is at or above the activation line
+    let activeId = divisions[0].id;
+    for (let i = 0; i < divisions.length; i++) {
+      const div = divisions[i];
+      const el = document.getElementById(div.id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= activationThreshold) {
+        activeId = div.id;
+      } else {
+        break;
+      }
+    }
+
+    updateActiveDivision(activeId);
+  }, [updateActiveDivision]);
+
+  // Set up IntersectionObserver and scroll detection
+  useEffect(() => {
+    // 1. Configure IntersectionObserver
+    // rootMargin skips the 140px fixed/sticky header zone and focuses on the upper viewport reading band
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersectingEntriesRef.current.set(entry.target.id, entry);
+          } else {
+            intersectingEntriesRef.current.delete(entry.target.id);
+          }
+        });
+
+        evaluateActiveSection();
+      },
+      {
+        root: null,
+        rootMargin: "-140px 0px -55% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1.0],
+      }
+    );
+
+    // Register all 4 division section elements
+    divisions.forEach((div) => {
+      const el = document.getElementById(div.id);
+      if (el) observer.observe(el);
+    });
+
+    // 2. Optimized scroll listener for fast wheel scrolling and end-of-page fallback
+    let ticking = false;
+    const handleScroll = () => {
+      if (isManualScrollingRef.current) return;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          evaluateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    // User gesture cancels manual scrolling lock immediately
+    const handleUserGesture = () => {
+      if (isManualScrollingRef.current) {
+        isManualScrollingRef.current = false;
+        if (manualScrollTimeoutRef.current) {
+          clearTimeout(manualScrollTimeoutRef.current);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("wheel", handleUserGesture, { passive: true });
+    window.addEventListener("touchmove", handleUserGesture, { passive: true });
+
+    // Initial evaluation on mount
+    evaluateActiveSection();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleUserGesture);
+      window.removeEventListener("touchmove", handleUserGesture);
+      if (manualScrollTimeoutRef.current) {
+        clearTimeout(manualScrollTimeoutRef.current);
+      }
+    };
+  }, [evaluateActiveSection]);
+
+  // Handle URL hash changes or incoming navigation (e.g. from Navbar dropdown)
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = normalizeDivisionId(location.hash);
+      if (targetId) {
+        // Small delay to ensure layout has stabilized
+        const timer = setTimeout(() => {
+          scrollToDivision(targetId, false);
+        }, 80);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location.hash, scrollToDivision]);
 
   return (
     <div className="bg-white min-h-screen text-[#435149]">
@@ -400,23 +578,39 @@ export default function Services() {
           </div>
 
           {/* Quick-Jump Navigation Tabs */}
-          <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md py-4 mb-16 border-b border-[#E1E9E2]">
-            <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
-              {divisions.map((div) => (
-                <button
-                  key={div.id}
-                  onClick={() => scrollToDivision(div.id)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
-                    activeTab === div.id
-                      ? "bg-[#16804A] text-white shadow-xs"
-                      : "bg-[#F4F7F4] text-[#18372A] hover:bg-[#E8F3EB] border border-[#E1E9E2]"
-                  }`}
-                >
-                  {div.name}
-                </button>
-              ))}
+          <nav
+            aria-label="Service Divisions"
+            className="sticky top-20 z-30 bg-white/95 backdrop-blur-md py-4 mb-16 border-b border-[#E1E9E2]"
+          >
+            <div
+              role="tablist"
+              aria-label="Service division selection"
+              className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto"
+            >
+              {divisions.map((div) => {
+                const isActive = activeDivision === div.id;
+                return (
+                  <button
+                    key={div.id}
+                    id={`tab-${div.id}`}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-current={isActive ? "location" : undefined}
+                    aria-controls={div.id}
+                    tabIndex={0}
+                    onClick={() => scrollToDivision(div.id)}
+                    className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16804A] focus-visible:ring-offset-2 ${
+                      isActive
+                        ? "bg-[#16804A] text-white border border-[#16804A] shadow-xs"
+                        : "bg-[#F4F7F4] text-[#18372A] hover:bg-[#E8F3EB] border border-[#E1E9E2]"
+                    }`}
+                  >
+                    {div.name}
+                  </button>
+                );
+              })}
             </div>
-          </div>
+          </nav>
 
           {/* Divisions Content */}
           <div className="space-y-28">
@@ -424,14 +618,28 @@ export default function Services() {
               <section
                 key={div.id}
                 id={div.id}
-                className="scroll-mt-36 pt-4 border-t border-[#E1E9E2] first:border-t-0"
+                tabIndex={-1}
+                aria-labelledby={`heading-${div.id}`}
+                className="scroll-mt-36 pt-4 border-t border-[#E1E9E2] first:border-t-0 focus:outline-none"
               >
+                {/* Legacy Anchor Alias for backward compatibility */}
+                {div.aliasId && div.aliasId !== div.id && (
+                  <span
+                    id={div.aliasId}
+                    className="block relative -top-36 invisible pointer-events-none"
+                    aria-hidden="true"
+                  />
+                )}
+
                 {/* Division Header Banner */}
                 <div className="bg-[#F4F7F4]/80 border border-[#E1E9E2] rounded-3xl p-8 sm:p-12 mb-12">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                     <div className="max-w-3xl">
                       <div className="badge-emerald mb-3">{div.badge}</div>
-                      <h2 className="text-3xl sm:text-4xl font-extrabold text-[#18372A] mb-3">
+                      <h2
+                        id={`heading-${div.id}`}
+                        className="text-3xl sm:text-4xl font-extrabold text-[#18372A] mb-3"
+                      >
                         {div.name}
                       </h2>
                       <p className="text-base sm:text-lg font-semibold text-[#16804A] mb-3">

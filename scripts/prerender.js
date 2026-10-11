@@ -129,12 +129,12 @@ const routePages = [
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT Growth & Media</h2>
             <p class="text-sm text-[#435149] mb-4">Go-to-market strategy, targeted paid ad campaigns, 4K commercial videography, and conversion optimization.</p>
-            <a href="/services#growth" class="text-sm font-bold text-[#16804A]">Explore Growth Media &rarr;</a>
+            <a href="/services#growth-media" class="text-sm font-bold text-[#16804A]">Explore Growth Media &rarr;</a>
           </div>
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT Business Solutions</h2>
             <p class="text-sm text-[#435149] mb-4">Operational bottleneck audits, standard operating procedures (SOPs), and agile implementation management.</p>
-            <a href="/services#business" class="text-sm font-bold text-[#16804A]">Explore Business Solutions &rarr;</a>
+            <a href="/services#business-solutions" class="text-sm font-bold text-[#16804A]">Explore Business Solutions &rarr;</a>
           </div>
         </div>
         <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center max-w-2xl mx-auto">
@@ -217,7 +217,8 @@ const routePages = [
               <li>&bull; <strong>Voice AI & Telephony:</strong> Ultra-low latency voice synthesis and automated call routing.</li>
             </ul>
           </section>
-          <section id="growth" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+          <section id="growth-media" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+            <span id="growth"></span>
             <h2 class="text-3xl font-bold text-[#18372A] mb-4">3. ANSTAT Growth & Media</h2>
             <p class="text-base text-[#435149] mb-6">Marketing strategy, cinema-grade commercial videography, and multi-channel paid acquisition.</p>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
@@ -227,7 +228,8 @@ const routePages = [
               <li>&bull; <strong>Conversion Optimization (CRO):</strong> Landing page friction audits and multi-step inquiry funnels.</li>
             </ul>
           </section>
-          <section id="business" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+          <section id="business-solutions" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+            <span id="business"></span>
             <h2 class="text-3xl font-bold text-[#18372A] mb-4">4. ANSTAT Business Solutions</h2>
             <p class="text-base text-[#435149] mb-6">Operational audits, standard operating procedures, and technical project management.</p>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
