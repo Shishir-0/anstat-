@@ -65,16 +65,18 @@ export default function Research() {
         />
         <meta name="twitter:image" content="https://anstat.co.in/res-assets/og-ai-architecture.png" />
 
-        {/* Structured Data: ResearchReport */}
+        {/* Structured Data: TechArticle & BreadcrumbList */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ResearchReport",
+            "@type": "TechArticle",
+            "@id": "https://anstat.co.in/research/ai-startup-architecture#article",
             "headline":
               "The Architecture of Scalable AI Startups: A Blueprint for Development, Monetization, and Human-Centric Scaling",
             "description":
-              "A comprehensive analysis of the AI economy, engineering lifecycle, and organizational scaling models for 2026.",
+              "A comprehensive engineering analysis of the AI economy, Agentic SDLC, and organizational scaling models.",
             "image": "https://anstat.co.in/res-assets/og-ai-architecture.png",
+            "url": "https://anstat.co.in/research/ai-startup-architecture",
             "author": {
               "@type": "Organization",
               "name": "ANSTAT Research & Development",
@@ -83,15 +85,34 @@ export default function Research() {
             "publisher": {
               "@type": "Organization",
               "name": "ANSTAT",
+              "url": "https://anstat.co.in",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://anstat.co.in/AnLogo.png"
               }
             },
             "datePublished": "2026-04-26",
+            "dateModified": "2026-10-11",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://anstat.co.in/research/ai-startup-architecture"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://anstat.co.in/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Research",
+                  "item": "https://anstat.co.in/research/ai-startup-architecture"
+                }
+              ]
             }
           })}
         </script>

@@ -1,0 +1,220 @@
+# ANSTAT: Full Context Knowledge Base & Systems Architecture
+
+> Canonical URL: https://anstat.co.in/
+> Last Updated: 2026-10-11
+> Contact: prasadshishir1@gmail.com | +91 90197 31057
+> Organization: ANSTAT (Integrated Technology, AI, Growth & Business Solutions)
+
+---
+
+## 1. Company Identity & Mission
+
+ANSTAT is an integrated technology and growth engineering company headquartered in India, delivering solutions globally. The firm was established to solve a recurring market failure: businesses consistently struggle to coordinate separate software agencies, AI experimenters, marketing firms, and management consultants. 
+
+By unifying software engineering, artificial intelligence, creative video and marketing distribution, and operational analysis under one cohesive execution team, ANSTAT guarantees that technical platforms drive commercial revenue and operational efficiency.
+
+### Core Operating Principles:
+1. **Empirical Outcomes Over Speculative Hype**: Software must solve measurable business bottlenecks; marketing must generate paying clients; AI must produce verifiable unit economic gains.
+2. **Full Client Ownership**: Clients retain 100% intellectual property rights, database schemas, codebases, and media assets upon project completion.
+3. **Data Security & Privacy**: Client data is never fed into public foundation models for training. All proprietary vector databases and integrations operate in private VPCs.
+4. **Modern, Maintainable Tech Stacks**: Avoiding brittle legacy monoliths and unnecessary vendor dependencies in favor of clean React/Vite/Node/Python architectures.
+
+---
+
+## 2. Division Breakdown & Complete Service Capabilities
+
+### Division 1: ANSTAT Technology
+Canonical: https://anstat.co.in/services#technology
+
+#### Capabilities:
+1. **Website & Web Application Development**
+   - High-performance web applications built on React 19, Vite, Next.js, and TypeScript.
+   - Core Web Vitals optimization (sub-second LCP, zero CLS, sub-50ms INP).
+   - Component-driven architecture using tailored CSS design systems.
+   - Fully accessible semantic HTML, keyboard-navigable dialogs, and ARIA compliance.
+
+2. **Custom Software Engineering**
+   - Bespoke business applications, back-office tooling, and data transformation engines.
+   - Relational database schema design (PostgreSQL, Supabase) and document stores.
+   - Multi-tenant role-based access control (RBAC), SSO, and audit logging.
+   - Cloud deployment on AWS, Google Cloud, and containerized Docker environments.
+
+3. **ERP Development & Customization**
+   - Modular Enterprise Resource Planning tailored to client-specific operational loops.
+   - Real-time inventory tracking, warehouse fulfillment, and barcode scanning.
+   - Vendor invoice management, multi-currency accounting reconciliation, and tax exports.
+   - Granular permission hierarchies preventing unauthorized data exposure.
+
+4. **API Development & System Integrations**
+   - High-throughput REST and GraphQL API gateways with OpenAPI/Swagger specifications.
+   - Webhook ingress and egress handlers with idempotency keys and exponential backoff retry policies.
+   - Third-party connectors: Stripe, Razorpay, WhatsApp Business API, Salesforce, HubSpot, Zoho.
+
+5. **Application Modernization & SLA Maintenance**
+   - Codebase health audits, vulnerability scanning, and technical debt deprecation.
+   - Migration from legacy frameworks to modern React and serverless backends.
+   - SLA-backed support packages including security patches, dependency upgrades, and 24/7 uptime monitoring.
+
+6. **Internal Business Systems & Portals**
+   - Executive KPI dashboards and operational command centers.
+   - Multi-tier approval workflows automating manual paper or email sign-offs.
+   - Data analytics visualization with real-time exportable audit reporting.
+
+---
+
+### Division 2: ANSTAT AI
+Canonical: https://anstat.co.in/services#ai
+
+#### Capabilities:
+1. **Customized AI Solutions for Business**
+   - Feasibility assessments evaluating whether heuristic algorithms, machine learning, or LLMs are mathematically and economically suitable.
+   - Private model hosting and fine-tuning using LoRA/PEFT on dedicated enterprise infrastructure.
+   - Strict data sanitization pipelines ensuring PII and proprietary formulas remain confidential.
+
+2. **AI Agents & Autonomous Workflow Automation**
+   - Multi-agent architectures utilizing deterministic state machines and tool calling.
+   - Automated document validation, customer support triage, and invoice cross-referencing.
+   - Human-in-the-loop (HITL) fallback interfaces for edge-case exceptions and high-value approvals.
+
+3. **LLM Application Development**
+   - Commercial applications leveraging state-of-the-art models (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro).
+   - Prompt engineering, automated regression testing, and evaluation harnesses.
+   - Semantic response caching and token budget governors reducing inference costs by up to 70%.
+
+4. **Retrieval-Augmented Generation (RAG) & Knowledge Assistants**
+   - Production RAG pipelines utilizing hybrid retrieval (dense vector embeddings + BM25 sparse keyword search).
+   - Advanced chunking strategies (semantic boundary chunking, parent-child document relationships).
+   - Strict hallucination mitigations: citations with exact sentence attribution, confidence score cutoffs, and out-of-context refusal boundaries.
+
+5. **Voice AI & Telephony Applications**
+   - Real-time conversational voice agents combining ultra-low latency speech-to-text (STT), streaming LLM generation, and realistic text-to-speech (TTS).
+   - Telephony SIP trunking integration for inbound customer inquiry dispatching and appointment scheduling.
+
+---
+
+### Division 3: ANSTAT Growth & Media
+Canonical: https://anstat.co.in/services#growth
+
+#### Capabilities:
+1. **Marketing Strategy & Market Positioning**
+   - Thorough competitor audits and value proposition differentiation.
+   - Ideal Customer Profile (ICP) mapping and buyer persona journey engineering.
+   - Multi-channel go-to-market roadmaps with clear CAC and LTV benchmarks.
+
+2. **Paid Advertising Campaigns**
+   - Performance marketing campaigns across Meta (Facebook & Instagram), Google Search/Display, and LinkedIn Ads.
+   - Account structuring using high-intent keyword clustering and dynamic creative optimization.
+   - Rigorous weekly budget pacing and bid adjustments based on down-funnel sales pipeline performance.
+
+3. **Commercial Videography & Production**
+   - Concept development, scriptwriting, and storyboard visualization.
+   - Professional cinema-grade filming (4K+, multi-camera setups, professional lighting and audio).
+   - Post-production: color grading, sound design, motion graphics, and short-form social adaptation.
+
+4. **Conversion Rate Optimization (CRO)**
+   - Systematic UX heuristic audits, heatmaps, and session recording analysis.
+   - Landing page rebuilds focused on messaging clarity, social proof positioning, and zero friction.
+   - Multi-step interactive inquiry forms that increase completion rates without reducing lead qualification.
+
+5. **Marketing Attribution Analytics**
+   - Google Tag Manager (GTM) and GA4 enterprise implementations.
+   - Server-Side Conversion API (CAPI) setups bypassing browser ad-blockers and cookie restrictions.
+   - Consolidated lead source attribution dashboards measuring true customer acquisition cost (CAC).
+
+---
+
+### Division 4: ANSTAT Business Solutions
+Canonical: https://anstat.co.in/services#business
+
+#### Capabilities:
+1. **Business Process Analysis & Workflow Audits**
+   - End-to-end operational mapping of administrative and delivery workflows.
+   - Identification of manual data handoff bottlenecks and duplicated labor.
+   - Prioritized operational restructuring roadmaps ranked by cost-saving impact.
+
+2. **Business Development Support**
+   - Enterprise sales collateral, technical capability briefs, and pitch decks.
+   - Inbound lead qualification scorecards and discovery call frameworks.
+   - CRM configuration (HubSpot, Pipedrive, Zoho) with automated deal stage transitions.
+
+3. **Corporate Event Management & Technical Coordination**
+   - Technical production for conferences, executive summits, and commercial product launches.
+   - Stage management, live broadcasting, multi-track audio engineering, and attendee registration desks.
+   - Automated post-event attendee lead routing and follow-up sequences.
+
+4. **Standard Operating Procedures (SOPs)**
+   - Clear, step-by-step SOP authoring for technical and non-technical teams.
+   - Cross-functional handoff protocols ensuring operational consistency.
+   - Digital training modules and employee onboarding documentation.
+
+---
+
+## 3. Empirical Case Studies & Client Track Record
+Canonical: https://anstat.co.in/case-studies
+
+### Case Study 1: UK GradLink Admissions Platform & Document Assistant
+- **Sector**: International Higher Education & Admissions Consultancy
+- **Challenge**: Advisors were overwhelmed with thousands of unformatted academic transcripts, passport scans, and English language test scores, resulting in 7-10 day turnaround times during peak university application windows.
+- **Solution**: Developed a custom React/Vite portal connected to a secure document intake engine with automated compliance verification, counselor triage workflows, and applicant notification triggers.
+- **Outcome**: Reduced initial application review times from 7 days to under 4 hours; eliminated document ingestion bottlenecks.
+
+### Case Study 2: LVBL Digital Commerce & Brand Infrastructure
+- **Sector**: Premium Lifestyle & Digital Retail
+- **Challenge**: A rapidly scaling consumer lifestyle brand lacked centralized catalog management, had high bounce rates on mobile, and needed unified customer acquisition across paid channels.
+- **Solution**: Built a mobile-first digital storefront, structured inventory synchronization, and implemented high-converting social acquisition campaigns.
+- **Outcome**: Established immediate digital brand authority, unified online retail fulfillment, and delivered sustainable return on ad spend (ROAS).
+
+### Case Study 3: Coastal Catch Co. Commercial Videography & Funnel
+- **Sector**: Commercial Food & Beverage Supply
+- **Challenge**: Premium seafood wholesaler with superior product quality relied exclusively on word-of-mouth and struggled to land high-volume restaurant and hotel accounts.
+- **Solution**: Produced documentary-style commercial video highlighting sourcing, quality controls, and supply chain speed, integrated into an enterprise B2B inquiry funnel.
+- **Outcome**: Doubled qualified inbound commercial inquiries within 60 days of launch.
+
+### Case Study 4: Universal PU College Ramanagara
+- **Canonical Portal**: https://upuc.in/
+- **Sector**: Higher Secondary Academic Institution
+- **Challenge**: Universal PU College required an authoritative digital institutional portal to showcase academic streams, campus facilities, and drive prospective student admissions.
+- **Solution**: Engineered a modern, mobile-responsive web platform with streamlined admissions inquiry workflows, faculty profiles, and institutional credibility assets.
+- **Outcome**: Provided prospective students and parents with instant digital prospectus access, driving record online admission inquiries.
+
+### Case Study 5: NEB Real Estate Agency
+- **Sector**: Real Estate Brokerage & Property Investment
+- **Challenge**: A new property brokerage required commercial brand positioning, premium collateral, and targeted local buyer acquisition to establish initial market presence.
+- **Solution**: Formulated brand identity, digital marketing campaigns, and buyer presentation decks.
+- **Outcome**: Landed 14 enterprise clients during initial launch phase.
+
+---
+
+## 4. Technical Research: The Architecture of Scalable AI Startups
+Canonical: https://anstat.co.in/research/ai-startup-architecture
+
+ANSTAT publishes foundational research on applied AI systems engineering. Our flagship paper, *"The Architecture of Scalable AI Startups: A Blueprint for Development, Monetization, and Human-Centric Scaling"*, formalizes:
+1. **The Agentic Software Development Life Cycle (A-SDLC)**: Shifting from static feature development to continuous behavioral evaluation, prompt regression testing, and autonomous tool-use sandboxing.
+2. **Hybrid Unit Economics**: Architectural strategies for combining small, fast open-source models (SLMs) for 80% of routine classifications with expensive frontier models for complex multi-step reasoning, driving margin preservation.
+3. **Data Governance & Zero-Trust Inference**: Methods for enterprise RAG deployments that prevent data exfiltration, ensure role-based document access, and provide auditable cryptographic tracing of generative responses.
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+Canonical: https://anstat.co.in/faq
+
+1. **How does ANSTAT differ from traditional agencies?**
+   ANSTAT unites engineering, artificial intelligence, marketing, and operational analysis into a single delivery team. Clients avoid the friction and cost of managing multiple disparate vendors.
+
+2. **Can clients hire ANSTAT for a single division?**
+   Yes. Clients regularly engage ANSTAT for specific projects—such as a custom web platform, a video production campaign, or an AI RAG pipeline—or as an integrated growth partner.
+
+3. **What is ANSTAT's core technology stack?**
+   Frontend: React 19, Vite, Next.js, TypeScript, Tailwind CSS.
+   Backend: Node.js, Python (FastAPI/Django), PostgreSQL, Redis, Supabase.
+   AI/ML: OpenAI, Anthropic, LangChain/LlamaIndex, pgvector, Hugging Face.
+   Cloud: AWS, Google Cloud, Cloudflare, Docker.
+
+4. **Who owns the code and intellectual property?**
+   The client retains 100% intellectual property rights, source code, repositories, and media files upon milestone sign-off.
+
+5. **How does project pricing work?**
+   Pricing is milestone-based and scoped transparently based on functional deliverables and architectural complexity. No hidden hourly surprises.
+
+6. **How do we get started?**
+   Submit an inquiry via our project form at https://anstat.co.in/#enquiry or email prasadshishir1@gmail.com. We schedule a 30-minute discovery consultation to audit requirements and determine fit.

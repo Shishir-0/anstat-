@@ -301,6 +301,85 @@ export default function Services() {
           content="software development, web applications, custom AI, AI agents, videography, marketing strategy, business process improvement, ERP, ANSTAT"
         />
         <link rel="canonical" href="https://anstat.co.in/services" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anstat.co.in/services" />
+        <meta property="og:title" content="Services & Solutions Directory | ANSTAT" />
+        <meta
+          property="og:description"
+          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+        />
+        <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://anstat.co.in/services" />
+        <meta name="twitter:title" content="Services & Solutions Directory | ANSTAT" />
+        <meta
+          name="twitter:description"
+          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+        />
+        <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Structured Data: WebPage & BreadcrumbList */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://anstat.co.in/services#webpage",
+            "url": "https://anstat.co.in/services",
+            "name": "Services & Solutions Directory | ANSTAT",
+            "description":
+              "Complete directory of ANSTAT's 24 specialized service deliverables across Custom Software, Applied AI, Growth Media, and Business Solutions.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://anstat.co.in/#website",
+              "name": "ANSTAT",
+              "url": "https://anstat.co.in"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://anstat.co.in/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://anstat.co.in/services"
+                }
+              ]
+            },
+            "mainEntity": divisions.map((div) => ({
+              "@type": "Service",
+              "name": div.name,
+              "description": div.overview,
+              "provider": {
+                "@type": "Organization",
+                "name": "ANSTAT",
+                "url": "https://anstat.co.in"
+              },
+              "serviceType": div.headline,
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": `${div.name} Deliverables`,
+                "itemListElement": div.services.map((s) => ({
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": s.title,
+                    "description": s.description
+                  }
+                }))
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

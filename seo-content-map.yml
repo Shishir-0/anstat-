@@ -1,0 +1,171 @@
+# ==============================================================================
+# ANSTAT — Master SEO, GEO & AEO Content Architecture Map
+# Purpose: Internal single source of truth for route metadata, keyword intent,
+#          structured data, and automated build-time validation.
+# Canonical Domain: https://anstat.co.in
+# Contact: prasadshishir1@gmail.com
+# Version: 1.0.0
+# Last Updated: 2026-10-11
+# ==============================================================================
+
+organization:
+  name: "ANSTAT"
+  legal_name: "ANSTAT"
+  domain: "https://anstat.co.in"
+  email: "prasadshishir1@gmail.com"
+  phone: "+919019731057"
+  logo: "https://anstat.co.in/AnLogo.png"
+  brand_colors:
+    primary_emerald: "#16804A"
+    deep_forest: "#18372A"
+    canvas_white: "#FFFFFF"
+    surface_neutral: "#F4F7F4"
+    border_neutral: "#E1E9E2"
+  divisions:
+    - id: "technology"
+      name: "ANSTAT Technology"
+      focus: "Custom Software, Web Platforms & System Integrations"
+    - id: "ai"
+      name: "ANSTAT AI"
+      focus: "Applied AI Solutions, Autonomous Agents & Workflow Automation"
+    - id: "growth"
+      name: "ANSTAT Growth & Media"
+      focus: "Marketing Strategy, Campaign Execution & Advertisement Videography"
+    - id: "business"
+      name: "ANSTAT Business Solutions"
+      focus: "Business Analysis, Operational Improvement & Implementation Management"
+
+routes:
+  - path: "/"
+    canonical_url: "https://anstat.co.in/"
+    title: "ANSTAT | Technology, AI & Business Growth Solutions"
+    meta_description: "From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes."
+    primary_h1: "Technology. Intelligence. Growth."
+    primary_intent: "Commercial / Navigational"
+    target_keywords:
+      primary: "integrated technology and growth solutions company"
+      secondary:
+        - "custom software development company"
+        - "custom AI solutions for business"
+        - "performance marketing and videography agency"
+        - "business process improvement services"
+    schema_types:
+      - "Organization"
+      - "WebSite"
+      - "OfferCatalog"
+    indexable: true
+    priority: 1.0
+    changefreq: "weekly"
+    conversion_goal: "Primary discovery consultation inquiry via #enquiry"
+
+  - path: "/services"
+    canonical_url: "https://anstat.co.in/services"
+    title: "Services & Solutions Directory | ANSTAT"
+    meta_description: "Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+    primary_h1: "Engineering & Growth Solutions"
+    primary_intent: "Commercial Investigation"
+    target_keywords:
+      primary: "custom software and AI development services"
+      secondary:
+        - "web application development React"
+        - "bespoke ERP software development"
+        - "RAG knowledge assistant development"
+        - "commercial videography and ad campaigns"
+        - "business process workflow audits"
+    schema_types:
+      - "WebPage"
+      - "Service"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "Direct service tier selection to project enquiry"
+
+  - path: "/case-studies"
+    canonical_url: "https://anstat.co.in/case-studies"
+    title: "Case Studies & Selected Work | ANSTAT"
+    meta_description: "Explore ANSTAT's client engagements and internal R&D demonstrations across custom software engineering, applied AI, media production, and operations."
+    primary_h1: "Our Work & Technical Case Studies"
+    primary_intent: "Informational / Commercial Proof"
+    target_keywords:
+      primary: "ANSTAT case studies and client results"
+      secondary:
+        - "software development portfolio proof"
+        - "AI engineering case studies"
+        - "education admissions portal UK GradLink"
+        - "institutional college portal universal pu college"
+        - "commercial videography B2B case study"
+    schema_types:
+      - "WebPage"
+      - "ItemList"
+      - "CreativeWork"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.90
+    changefreq: "monthly"
+    conversion_goal: "Consultation booking based on empirical client outcome"
+
+  - path: "/research/ai-startup-architecture"
+    canonical_url: "https://anstat.co.in/research/ai-startup-architecture"
+    title: "The Architecture of Scalable AI Startups | ANSTAT Research"
+    meta_description: "ANSTAT R&D Report: A technical blueprint for architecting, governing, and scaling commercial AI applications featuring the Agentic SDLC and hybrid unit economics."
+    primary_h1: "The Architecture of Scalable AI Startups"
+    primary_intent: "Informational / High Authority"
+    target_keywords:
+      primary: "scalable AI startup architecture"
+      secondary:
+        - "agentic SDLC software development life cycle"
+        - "AI startup hybrid unit economics"
+        - "RAG architecture enterprise governance"
+        - "LLM latency token optimization"
+    schema_types:
+      - "TechArticle"
+      - "ScholarlyArticle"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.85
+    changefreq: "monthly"
+    conversion_goal: "Enterprise technical advisory and AI engineering inquiry"
+
+  - path: "/faq"
+    canonical_url: "https://anstat.co.in/faq"
+    title: "Frequently Asked Questions | ANSTAT"
+    meta_description: "Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+    primary_h1: "Frequently Asked Questions"
+    primary_intent: "Informational / Commercial Clarification"
+    target_keywords:
+      primary: "ANSTAT FAQ and engagement questions"
+      secondary:
+        - "custom software development pricing and timelines"
+        - "who owns code in custom software development"
+        - "how safe is enterprise AI implementation"
+        - "SLA post-launch software maintenance packages"
+    schema_types:
+      - "WebPage"
+      - "FAQPage"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.80
+    changefreq: "monthly"
+    conversion_goal: "Removing buyer friction and driving inquiry form completion"
+
+  - path: "/about"
+    canonical_url: "https://anstat.co.in/about"
+    title: "About ANSTAT | Integrated Technology & Growth Solutions"
+    meta_description: "Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+    primary_h1: "Engineering the Systems That Move Businesses Forward"
+    primary_intent: "Navigational / Brand Credibility"
+    target_keywords:
+      primary: "about ANSTAT technology and growth solutions"
+      secondary:
+        - "integrated software and marketing agency team"
+        - "ANSTAT founders and engineering leadership"
+        - "India technology growth solutions company"
+    schema_types:
+      - "AboutPage"
+      - "Organization"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.75
+    changefreq: "monthly"
+    conversion_goal: "Direct leadership consultation booking"

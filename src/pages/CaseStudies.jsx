@@ -153,6 +153,80 @@ export default function CaseStudies() {
           content="ANSTAT case studies, software portfolio, AI projects, web development client work, real projects"
         />
         <link rel="canonical" href="https://anstat.co.in/case-studies" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anstat.co.in/case-studies" />
+        <meta property="og:title" content="Case Studies & Selected Work | ANSTAT" />
+        <meta
+          property="og:description"
+          content="Explore ANSTAT's client engagements and internal R&D demonstrations across custom software engineering, applied AI, media production, and operations."
+        />
+        <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://anstat.co.in/case-studies" />
+        <meta name="twitter:title" content="Case Studies & Selected Work | ANSTAT" />
+        <meta
+          name="twitter:description"
+          content="Explore ANSTAT's client engagements and internal R&D demonstrations across custom software engineering, applied AI, media production, and operations."
+        />
+        <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Structured Data: WebPage, BreadcrumbList & ItemList */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://anstat.co.in/case-studies#webpage",
+            "url": "https://anstat.co.in/case-studies",
+            "name": "Case Studies & Selected Work | ANSTAT",
+            "description":
+              "Documented commercial case studies and technical demonstrations across software development, AI systems, commercial videography, and growth marketing.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://anstat.co.in/#website",
+              "name": "ANSTAT",
+              "url": "https://anstat.co.in"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://anstat.co.in/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Case Studies",
+                  "item": "https://anstat.co.in/case-studies"
+                }
+              ]
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": clientWork.map((item, idx) => ({
+                "@type": "ListItem",
+                "position": idx + 1,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": item.title,
+                  "about": item.sector,
+                  "description": item.overview,
+                  "creator": {
+                    "@type": "Organization",
+                    "name": "ANSTAT",
+                    "url": "https://anstat.co.in"
+                  }
+                }
+              }))
+            }
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

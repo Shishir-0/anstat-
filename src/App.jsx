@@ -80,6 +80,15 @@ const Home = () => (
             "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
           "email": "prasadshishir1@gmail.com",
           "telephone": "+919019731057",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+919019731057",
+              "contactType": "sales",
+              "email": "prasadshishir1@gmail.com",
+              "availableLanguage": ["English", "Hindi", "Kannada"]
+            }
+          ],
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "India"

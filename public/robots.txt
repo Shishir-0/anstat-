@@ -1,43 +1,116 @@
-# ANSTAT robots.txt — Allow all crawlers including AI engines
-# Last updated: 2026-04-26
+# ==============================================================================
+# ANSTAT — Official Crawling and Access Policy
+# Canonical Host: https://anstat.co.in
+# Primary Sitemap: https://anstat.co.in/sitemap.xml
+# Policy: Permissive public access for search indexing, AI search/grounding, and AI model training.
+# Machine-Readable Signals: search=yes, ai-input=yes, ai-train=yes
+# ==============================================================================
 
+# Global Default Policy for All Legitimate Web Crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_temp/
 
-# Explicitly allow Google
+# ------------------------------------------------------------------------------
+# 1. Search Engine Crawlers (Traditional Organic Search)
+# ------------------------------------------------------------------------------
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
 
-User-agent: AdsBot-Google
+User-agent: GoogleOther
 Allow: /
 
-# Explicitly allow Bing
 User-agent: Bingbot
-Allow: /
-
-# Explicitly allow AI crawlers (GEO)
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: CCBot
 Allow: /
 
 User-agent: Applebot
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 2. AI Search, Retrieval & Grounding Crawlers (AEO / GEO Citation Discovery)
+# ------------------------------------------------------------------------------
+# OpenAI Search & Real-Time Retrieval
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic User Browsing & Citations
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity Search & Direct Retrieval
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Meta AI Fetcher
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 3. AI Model Training & Dataset Crawlers (Explicitly Permitted)
+# ------------------------------------------------------------------------------
+# Google Gemini & Extended AI Training
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI GPT Training
+User-agent: GPTBot
+Allow: /
+
+# Anthropic Claude Model Training
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Apple Intelligence Training
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta External Training Agent
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon Web Services & Alexa Training
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance AI Training
+User-agent: Bytespider
+Allow: /
+
+# Cohere Language Models
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl Open Dataset
+User-agent: CCBot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# Sitemaps & Technical Feeds
+# ------------------------------------------------------------------------------
 Sitemap: https://anstat.co.in/sitemap.xml

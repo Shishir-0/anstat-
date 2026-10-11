@@ -1,0 +1,66 @@
+# ANSTAT
+
+> ANSTAT is an integrated technology and growth solutions company. We design and deliver custom software engineering, applied artificial intelligence, creative media production, and operational business solutions for growing enterprises and ambitious startups.
+
+## Corporate Overview
+- **Legal & Operating Identity**: ANSTAT
+- **Canonical Website**: [https://anstat.co.in/](https://anstat.co.in/)
+- **Core Positioning**: Integrated systems engineering and commercial growth solutions under a unified technical delivery team.
+- **Operating Aesthetic**: Modern White and Emerald Green, structured, performant, and accessible.
+- **Primary Contact**: [prasadshishir1@gmail.com](mailto:prasadshishir1@gmail.com) | +91 90197 31057
+- **Full LLM Context**: [https://anstat.co.in/llms-full.txt](https://anstat.co.in/llms-full.txt)
+
+## Four Integrated Service Divisions
+
+### 1. ANSTAT Technology
+Bespoke software applications, web platforms, and enterprise data integrations engineered with maintainable architectures.
+- [Website & Web Application Development](https://anstat.co.in/services#technology): Fast, accessible React, Next.js, and Vite web applications.
+- [Custom Software Engineering](https://anstat.co.in/services#technology): Tailored backends, secure multi-tenant architectures, and scalable PostgreSQL/Node/Python systems.
+- [ERP Development & Customization](https://anstat.co.in/services#technology): Bespoke operational resource planning, inventory control, and ledger reconciliation modules.
+- [API Development & System Integrations](https://anstat.co.in/services#technology): Secure RESTful and GraphQL endpoints, webhook dispatchers, payment pipelines, and CRM synchronizers.
+- [Application Modernization & SLA Support](https://anstat.co.in/services#technology): Refactoring legacy systems, optimizing cloud infrastructure costs, and ongoing uptime maintenance.
+
+### 2. ANSTAT AI
+Applied machine intelligence, autonomous workflows, and domain-specific knowledge retrieval systems designed for economic return and data security.
+- [Custom AI Business Solutions](https://anstat.co.in/services#ai): Proprietary model fine-tuning and task-specific AI pipelines hosted on secure private clouds.
+- [AI Agents & Autonomous Workflow Automation](https://anstat.co.in/services#ai): Multi-step agentic systems for document triage, customer support escalation, and validation.
+- [LLM Application Engineering](https://anstat.co.in/services#ai): Enterprise applications with disciplined prompt governance, latency caching, and token-cost optimization.
+- [RAG & Enterprise Knowledge Assistants](https://anstat.co.in/services#ai): Retrieval-Augmented Generation connecting internal vector indexes to foundation models with zero hallucination guardrails.
+- [Voice AI & Conversational Agents](https://anstat.co.in/services#ai): Low-latency voice pipelines (STT, LLM, TTS) for automated inbound scheduling and service routing.
+
+### 3. ANSTAT Growth & Media
+Full-funnel commercial distribution, creative production, and performance marketing that convert qualified prospects into paying clients.
+- [Marketing Strategy & Brand Positioning](https://anstat.co.in/services#growth): ICP definition, competitor differentiation, and multi-channel acquisition roadmaps.
+- [Paid Advertising Campaigns](https://anstat.co.in/services#growth): Targeted performance marketing on Meta, Google Search, and LinkedIn optimized for customer acquisition cost (CAC).
+- [Commercial Videography & Creative Production](https://anstat.co.in/services#growth): High-definition brand documentaries, product reels, and authentic customer stories.
+- [Conversion Rate Optimization (CRO)](https://anstat.co.in/services#growth): Systematic UX auditing, landing page speed improvements, and form conversion optimization.
+- [Attribution Analytics](https://anstat.co.in/services#growth): Server-side tracking, GA4, and pipeline revenue dashboards.
+
+### 4. ANSTAT Business Solutions
+Operational discipline and commercial management ensuring technology translates into reliable, profitable business execution.
+- [Business Process Analysis & Audits](https://anstat.co.in/services#business): Workflow mapping, operational bottleneck detection, and organizational optimization roadmaps.
+- [Business Development Support](https://anstat.co.in/services#business): Sales qualification frameworks, proposal architectures, and CRM pipeline structures.
+- [Corporate Event Management](https://anstat.co.in/services#business): Technical AV, streaming coordination, and attendee registration pipelines for conferences and launches.
+- [Standard Operating Procedures (SOPs)](https://anstat.co.in/services#business): Documented workflows and cross-departmental handover guidelines.
+- [Implementation & Project Management](https://anstat.co.in/services#business): Agile sprint oversight, vendor management, and user acceptance testing (UAT).
+
+## Key Public URLs & Resources
+- **Homepage**: [https://anstat.co.in/](https://anstat.co.in/) — Overview of capabilities, methodology, and client proof.
+- **Services Directory**: [https://anstat.co.in/services](https://anstat.co.in/services) — Comprehensive catalog of all 24 deliverables across the 4 divisions.
+- **Case Studies & Evidence**: [https://anstat.co.in/case-studies](https://anstat.co.in/case-studies) — Documented commercial client engagements and internal R&D demonstrators.
+- **R&D Technical Paper**: [https://anstat.co.in/research/ai-startup-architecture](https://anstat.co.in/research/ai-startup-architecture) — Architecture of Scalable AI Startups (Agentic SDLC, hybrid unit economics, model governance).
+- **About Company**: [https://anstat.co.in/about](https://anstat.co.in/about) — Corporate origins, engineering principles, and operating standards.
+- **Frequently Asked Questions**: [https://anstat.co.in/faq](https://anstat.co.in/faq) — Transparent answers regarding scoping, technology stacks, IP ownership, pricing, and SLAs.
+- **Project Inquiry / CTA**: [https://anstat.co.in/#enquiry](https://anstat.co.in/#enquiry) — Discovery consultation intake form.
+
+## Verified Client Case Studies
+1. **UK GradLink** (Education & Admissions): Centralized applicant portal and intake document review assistant eliminating international admission review bottlenecks.
+2. **LVBL** (Lifestyle & Digital Commerce): Scalable e-commerce infrastructure, automated catalog sync, and acquisition ad funnels.
+3. **Coastal Catch Co.** (Premium Food Distribution): High-definition commercial videography and B2B buyer acquisition funnels.
+4. **Universal PU College Ramanagara** (`upuc.in`): High-speed institutional admissions portal, academic curriculum showcase, and student inquiry routing.
+5. **NEB Real Estate Agency** (Property & Land): Brand positioning, commercial collateral, and multi-channel campaign driving 14 enterprise client acquisitions.
+
+## Commercial Policies & IP Terms
+- **Intellectual Property**: Clients retain 100% ownership of all custom code, repositories, media files, and production assets upon milestone signoff.
+- **Data Privacy**: Client proprietary data is strictly isolated and never utilized for public AI model training.
+- **Pricing**: Transparent milestones based on defined technical deliverables with no surprise maintenance fees.

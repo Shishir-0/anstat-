@@ -73,11 +73,59 @@ export default function FAQ() {
         />
         <link rel="canonical" href="https://anstat.co.in/faq" />
 
-        {/* Structured Data: FAQPage */}
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anstat.co.in/faq" />
+        <meta property="og:title" content="Frequently Asked Questions | ANSTAT" />
+        <meta
+          property="og:description"
+          content="Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+        />
+        <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://anstat.co.in/faq" />
+        <meta name="twitter:title" content="Frequently Asked Questions | ANSTAT" />
+        <meta
+          name="twitter:description"
+          content="Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+        />
+        <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Structured Data: FAQPage & BreadcrumbList */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
+            "@id": "https://anstat.co.in/faq#faqpage",
+            "name": "Frequently Asked Questions | ANSTAT",
+            "url": "https://anstat.co.in/faq",
+            "description":
+              "Transparent answers to client questions regarding custom software development, AI systems, timelines, intellectual property ownership, and support SLAs.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://anstat.co.in/#website",
+              "name": "ANSTAT",
+              "url": "https://anstat.co.in"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://anstat.co.in/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "FAQ",
+                  "item": "https://anstat.co.in/faq"
+                }
+              ]
+            },
             "mainEntity": faqs.map((f) => ({
               "@type": "Question",
               "name": f.q,

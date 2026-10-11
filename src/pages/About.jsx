@@ -56,20 +56,73 @@ export default function About() {
         />
         <link rel="canonical" href="https://anstat.co.in/about" />
 
-        {/* Structured Data: AboutPage */}
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anstat.co.in/about" />
+        <meta property="og:title" content="About ANSTAT | Integrated Technology & Growth Solutions" />
+        <meta
+          property="og:description"
+          content="Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+        />
+        <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://anstat.co.in/about" />
+        <meta name="twitter:title" content="About ANSTAT | Integrated Technology & Growth Solutions" />
+        <meta
+          name="twitter:description"
+          content="Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+        />
+        <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
+
+        {/* Structured Data: AboutPage & BreadcrumbList */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
+            "@id": "https://anstat.co.in/about#webpage",
             "name": "About ANSTAT",
             "url": "https://anstat.co.in/about",
+            "description":
+              "Background, multidisciplinary team, and engineering principles behind ANSTAT's integrated software, AI, media, and business systems.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://anstat.co.in/#website",
+              "name": "ANSTAT",
+              "url": "https://anstat.co.in"
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://anstat.co.in/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About",
+                  "item": "https://anstat.co.in/about"
+                }
+              ]
+            },
             "mainEntity": {
               "@type": "Organization",
+              "@id": "https://anstat.co.in/#organization",
               "name": "ANSTAT",
+              "url": "https://anstat.co.in",
+              "logo": "https://anstat.co.in/AnLogo.png",
               "description":
                 "Integrated technology and growth solutions company providing software development, applied AI, media production, and business operations.",
               "email": "prasadshishir1@gmail.com",
-              "telephone": "+919019731057"
+              "telephone": "+919019731057",
+              "sameAs": [
+                "https://linkedin.com/company/anstat",
+                "https://twitter.com/anstat"
+              ]
             }
           })}
         </script>
