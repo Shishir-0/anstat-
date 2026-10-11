@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
-const outDir = path.resolve(rootDir, '.out');
+const outDir = path.resolve(rootDir, 'dist');
 const publicDir = path.resolve(rootDir, 'public');
 
 console.log('🔍 ANSTAT SEO & Crawler Discovery Automated Validation Suite');
@@ -130,9 +130,9 @@ if (fs.existsSync(seoMapPath)) {
 }
 
 // -----------------------------------------------------------------------------
-// 5. Validate Prerendered Production Build Artifacts (.out/)
+// 5. Validate Prerendered Production Build Artifacts (dist/)
 // -----------------------------------------------------------------------------
-console.log('\n[5/5] Validating Prerendered HTML Outputs in .out/...');
+console.log('\n[5/5] Validating Prerendered HTML Outputs in dist/...');
 const routesToCheck = [
   { path: 'index.html', title: 'ANSTAT | Technology, AI & Business Growth Solutions', canonical: 'https://anstat.co.in/' },
   { path: 'services/index.html', title: 'Services & Solutions Directory | ANSTAT', canonical: 'https://anstat.co.in/services' },
@@ -145,15 +145,15 @@ const routesToCheck = [
 for (const r of routesToCheck) {
   const targetFile = path.join(outDir, r.path);
   const fileExists = fs.existsSync(targetFile);
-  assert(fileExists, `Prerendered file exists: .out/${r.path}`);
+  assert(fileExists, `Prerendered file exists: dist/${r.path}`);
 
   if (fileExists) {
     const html = fs.readFileSync(targetFile, 'utf8');
-    assert(html.includes(`<title>${r.title}</title>`), `Correct <title> tag in .out/${r.path}`);
-    assert(html.includes(`<link rel="canonical" href="${r.canonical}" />`), `Correct canonical tag in .out/${r.path}`);
-    assert(html.includes('type="application/ld+json"'), `Contains JSON-LD schema in .out/${r.path}`);
-    assert(html.includes('<h1'), `Contains crawlable <h1> heading in .out/${r.path}`);
-    assert(!html.includes('contact@anstat.co.in') && !html.includes('connect@anstat.co.in'), `No old emails in .out/${r.path}`);
+    assert(html.includes(`<title>${r.title}</title>`), `Correct <title> tag in dist/${r.path}`);
+    assert(html.includes(`<link rel="canonical" href="${r.canonical}" />`), `Correct canonical tag in dist/${r.path}`);
+    assert(html.includes('type="application/ld+json"'), `Contains JSON-LD schema in dist/${r.path}`);
+    assert(html.includes('<h1'), `Contains crawlable <h1> heading in dist/${r.path}`);
+    assert(!html.includes('contact@anstat.co.in') && !html.includes('connect@anstat.co.in'), `No old emails in dist/${r.path}`);
   }
 }
 

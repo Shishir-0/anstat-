@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
-const outDir = path.resolve(rootDir, '.out');
+const outDir = path.resolve(rootDir, 'dist');
 
 console.log('🚀 Running ANSTAT Static Prerendering Pipeline...');
 
