@@ -62,6 +62,26 @@ const clientWork = [
       "Established verified commercial brand presence and activated a predictable stream of qualified wholesale restaurant inquiries.",
   },
   {
+    title: "Universal PU College Admissions Portal & Academic Platform",
+    category: "Client Engagement",
+    sector: "Higher Secondary Education & Karnataka State Board",
+    image: "/upuc.jpg",
+    website: "https://upuc.in",
+    overview:
+      "Modern academic portal and admissions pipeline engineered for Universal Pre University College Ramanagara (upuc.in).",
+    problem:
+      "The institution lacked a centralized digital presence to communicate its PCMB, PCMC, and Commerce academic streams, integrated NEET/JEE competitive coaching, and modern laboratory facilities to prospective students and parents across the Ramanagara region.",
+    scope: [
+      "Mobile-first, responsive academic web application built with React, Vite, and Tailwind CSS",
+      "Interactive course stream discovery modules detailing PCMB, PCMC, Commerce, and competitive exam tracks",
+      "Integrated instant admissions counseling inquiry capture with automated WhatsApp and phone routing",
+      "Local search engine optimization (SEO) architecture targeting Karnataka state board PU college queries",
+    ],
+    technologies: ["React", "Vite", "Tailwind CSS", "Technical SEO", "Lead Ingestion APIs", "Local Search"],
+    outcome:
+      "Established top-ranked organic search visibility for PU admissions in Ramanagara, streamlined student inquiry processing, and delivered an authoritative digital home for the college at upuc.in.",
+  },
+  {
     title: "NEB Agency Inbound Portal & Targeted Acquisition",
     category: "Client Engagement",
     sector: "Real Estate & Professional Services",
@@ -251,13 +271,23 @@ export default function CaseStudies() {
                     </div>
                   </div>
 
-                  <div className="px-8 pb-8 pt-0">
+                  <div className="px-8 pb-8 pt-0 flex flex-col sm:flex-row items-center gap-3">
                     <Link
                       to="/#enquiry"
-                      className="btn-primary text-xs py-2.5 px-5 w-full justify-center shadow-xs"
+                      className="btn-primary text-xs py-2.5 px-5 flex-1 w-full justify-center shadow-xs"
                     >
                       Discuss a Similar Project
                     </Link>
+                    {project.website && (
+                      <a
+                        href={project.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary text-xs py-2.5 px-4 w-full sm:w-auto justify-center"
+                      >
+                        Visit Website ↗
+                      </a>
+                    )}
                   </div>
                 </motion.article>
               ))}

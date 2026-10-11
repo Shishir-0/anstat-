@@ -45,6 +45,21 @@ const projects = [
       "Established verified brand authority in targeted commercial markets and activated continuous inbound inquiry flow.",
   },
   {
+    title: "Universal PU College Admissions & Digital Portal",
+    type: "Higher Secondary Education & Academic Portal",
+    image: "/upuc.jpg",
+    website: "https://upuc.in",
+    problem:
+      "Universal Pre University College needed a modern, high-performance web platform to showcase academic streams (PCMB, PCMC, Commerce), integrated NEET/JEE coaching, and capture admissions inquiries.",
+    contribution:
+      "Designed and developed the official web application (upuc.in), structured interactive course exploration, and deployed direct student inquiry capture workflows.",
+    solution:
+      "Responsive, mobile-first academic platform featuring stream syllabi, campus facility showcases, direct WhatsApp counseling routing, and local SEO dominance.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Technical SEO", "Lead Ingestion"],
+    outcome:
+      "Established top regional search presence, streamlined student application intake, and accelerated admissions counseling workflows.",
+  },
+  {
     title: "NEB Agency Acquisition & Digital Presence",
     type: "Professional Services & Inbound Systems",
     image: "/NEB.jpeg",
@@ -160,16 +175,31 @@ export default function SelectedWork() {
                 </div>
               </div>
 
-              <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-0">
+              <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-0 flex flex-wrap items-center justify-between gap-3">
                 <Link
                   to="/case-studies"
                   className="text-xs font-bold text-[#16804A] hover:text-[#12693C] inline-flex items-center"
                 >
-                  <span>Read Detailed Case Breakdown</span>
+                  <span>Detailed Case Breakdown</span>
                   <svg className="w-3.5 h-3.5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
                   </svg>
                 </Link>
+
+                {p.website && (
+                  <a
+                    href={p.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-[#18372A] hover:text-[#16804A] inline-flex items-center gap-1 bg-[#F4F7F4] hover:bg-[#E8F3EB] px-2.5 py-1 rounded-lg border border-[#E1E9E2] transition-colors"
+                  >
+                    <span>Visit upuc.in</span>
+                    <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </motion.article>
           ))}
