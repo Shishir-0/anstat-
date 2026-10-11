@@ -1,55 +1,195 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 border-t border-white/5 pt-24 pb-12 px-6">
+    <footer className="bg-[#F4F7F4] border-t border-[#E1E9E2] pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-[#435149]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
-          {/* Brand Info */}
-          <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="inline-block mb-8">
-              <img src="/AnLogo.png" alt="ANSTAT Logo" className="h-10 w-auto invert opacity-80" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+          {/* Brand Info (2 cols on lg) */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="inline-flex items-center gap-3 mb-4 group">
+              <img
+                src="/AnLogo.png"
+                alt="ANSTAT Logo"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-extrabold text-xl text-[#18372A] tracking-tight">
+                ANSTAT
+              </span>
             </Link>
-            <p className="text-neutral-500 max-w-sm text-sm leading-relaxed mb-8">
-              ANSTAT is a Growth Infrastructure entity engineering the high-fidelity foundations of the AI economy. We build the systems that build the future.
+            <p className="text-sm text-[#435149] max-w-sm leading-relaxed mb-6">
+              ANSTAT is an integrated technology and growth solutions company.
+              We engineer custom software, applied artificial intelligence,
+              creative marketing campaigns, and operational business solutions
+              that deliver practical commercial outcomes.
             </p>
-            <div className="flex gap-6">
-              <a href="https://linkedin.com/company/anstat" className="text-neutral-600 hover:text-green-500 transition-colors text-xs font-bold tracking-widest uppercase">LinkedIn</a>
-              <a href="https://twitter.com/anstat" className="text-neutral-600 hover:text-green-500 transition-colors text-xs font-bold tracking-widest uppercase">Twitter</a>
+            <div className="space-y-1.5 text-xs text-[#435149]">
+              <div>
+                <strong className="text-[#18372A]">Email:</strong>{" "}
+                <a
+                  href="mailto:contact@anstat.co.in"
+                  className="text-[#16804A] hover:underline"
+                >
+                  contact@anstat.co.in
+                </a>
+              </div>
+              <div>
+                <strong className="text-[#18372A]">Phone:</strong>{" "}
+                <a
+                  href="tel:+919019731057"
+                  className="text-[#16804A] hover:underline"
+                >
+                  +91 90197 31057
+                </a>
+              </div>
+              <div>
+                <strong className="text-[#18372A]">Location:</strong> India
+              </div>
             </div>
           </div>
 
-          {/* Core Systems */}
+          {/* Service Divisions */}
           <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">Systems</h4>
-            <ul className="space-y-4">
-              <li><Link to="/services" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">Production</Link></li>
-              <li><Link to="/services" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">Scaling</Link></li>
-              <li><Link to="/research/ai-startup-architecture" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">Research Hub</Link></li>
-              <li><Link to="/case-studies" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">Case Studies</Link></li>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-4">
+              Service Divisions
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  to="/services#technology"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  ANSTAT Technology
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services#ai"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  ANSTAT AI
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services#growth"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  ANSTAT Growth & Media
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services#business"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  ANSTAT Business Solutions
+                </Link>
+              </li>
+              <li className="pt-1">
+                <Link
+                  to="/services"
+                  className="text-xs font-bold text-[#16804A] hover:underline"
+                >
+                  View All Services →
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Intelligence */}
+          {/* Company & Portfolio */}
           <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">Intelligence</h4>
-            <ul className="space-y-4">
-              <li><Link to="/faq" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">FAQ</Link></li>
-              <li><Link to="/about" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">Methodology</Link></li>
-              <li><Link to="/about" className="text-neutral-500 hover:text-white transition-colors text-xs font-bold tracking-widest uppercase">About ANSTAT</Link></li>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-4">
+              Company & Work
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/about" className="hover:text-[#16804A] transition-colors">
+                  About ANSTAT
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/case-studies"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Selected Client Work
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/research/ai-startup-architecture"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Research & Architecture
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-[#16804A] transition-colors">
+                  Frequently Asked Questions
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/#enquiry"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Project Enquiry
+                </a>
+              </li>
             </ul>
+          </div>
+
+          {/* Connect & Legal */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-4">
+              Connect
+            </h3>
+            <ul className="space-y-2.5 text-sm mb-6">
+              <li>
+                <a
+                  href="https://linkedin.com/company/anstat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/anstat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  X (Twitter)
+                </a>
+              </li>
+            </ul>
+
+            <div className="bg-white border border-[#E1E9E2] p-3.5 rounded-xl text-xs">
+              <span className="font-bold text-[#18372A] block mb-1">
+                Ready to talk?
+              </span>
+              <a
+                href="/#enquiry"
+                className="text-[#16804A] font-bold hover:underline"
+              >
+                Start an enquiry →
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-neutral-600 text-[10px] font-bold uppercase tracking-widest">
-            &copy; 2026 ANSTAT R&D Division. All Rights Reserved.
-          </p>
-          <div className="flex gap-8 sr-only" aria-hidden="false">
-             <span className="text-neutral-700 text-[9px] font-bold uppercase tracking-widest">Topical Authority: AI Growth Infrastructure</span>
-             <span className="text-neutral-700 text-[9px] font-bold uppercase tracking-widest">Sentiment: High Fidelity</span>
+        {/* Bottom bar */}
+        <div className="border-t border-[#E1E9E2] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#68766E]">
+          <div>
+            &copy; {new Date().getFullYear()} ANSTAT. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
+            <span>Integrated Technology & Growth Solutions</span>
+            <span>Made with precision</span>
           </div>
         </div>
       </div>
