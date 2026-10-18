@@ -22,7 +22,7 @@ const sharedNavbarHtml = (activeRoute = '/') => `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16804A] rounded-lg" aria-label="ANSTAT Home">
-          <img src="/AnLogo.png" alt="ANSTAT Logo" width="44" height="44" fetchpriority="high" class="h-9 md:h-11 w-auto object-contain" />
+          <img src="/AnLogo.png" alt="ANSTAT Logo" width="44" height="44" class="h-9 md:h-11 w-auto object-contain" />
           <div class="flex flex-col">
             <span class="font-extrabold text-lg md:text-xl text-[#18372A] tracking-tight leading-none">ANSTAT</span>
             <span class="text-[10px] uppercase font-semibold text-[#68766E] tracking-widest mt-0.5">Technology & Growth</span>

@@ -104,7 +104,6 @@ export default function Navbar() {
               alt="ANSTAT Logo"
               width="44"
               height="44"
-              fetchpriority="high"
               className="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105 duration-200"
             />
             <div className="flex flex-col">
