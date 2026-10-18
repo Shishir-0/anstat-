@@ -71,7 +71,7 @@ const routePages = [
         }
       ],
       "sameAs": [
-        "https://linkedin.com/company/anstat",
+        "https://www.linkedin.com/company/anstat-in",
         "https://twitter.com/anstat"
       ],
       "hasOfferCatalog": {
@@ -631,7 +631,7 @@ const routePages = [
           { "@type": "Country", "name": "India" }
         ],
         "sameAs": [
-          "https://linkedin.com/company/anstat",
+          "https://www.linkedin.com/company/anstat-in",
           "https://twitter.com/anstat"
         ]
       }

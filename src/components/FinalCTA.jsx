@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { trackConsultationClick } from "../utils/analytics";
 
 export default function FinalCTA() {
   const scrollToEnquiry = (e) => {
+    trackConsultationClick("final_cta");
     const el = document.getElementById("enquiry");
     if (el) {
       e.preventDefault();

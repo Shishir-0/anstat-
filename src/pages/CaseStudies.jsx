@@ -491,8 +491,11 @@ export default function CaseStudies() {
                     <img
                       src={project.image}
                       alt={`${project.title} interface showcase`}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+                      width="800"
+                      height="450"
                       loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
                     />
                     <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                       <span className="text-xs font-bold uppercase tracking-wider bg-white/95 backdrop-blur-xs text-[#16804A] px-3 py-1 rounded-full border border-[#E1E9E2] shadow-xs">

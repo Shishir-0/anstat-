@@ -57,20 +57,66 @@
 ## 4. Google Tag Manager & Google Analytics 4 (GA4)
 
 **Priority:** P1 (Activates the codebase's telemetry suite)
+**Configured GTM Container ID:** `GTM-KLWZSR8N`
+**Configured GA4 Measurement ID:** `G-5VF3DXFB6R`
+**Environment Variables:**
+- `VITE_GTM_ID=GTM-KLWZSR8N` / `NEXT_PUBLIC_GTM_ID=GTM-KLWZSR8N`
+- `VITE_GA_MEASUREMENT_ID=G-5VF3DXFB6R` / `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-5VF3DXFB6R`
 
-### Steps:
-1. Log into [Google Tag Manager](https://tagmanager.google.com/).
-2. In Container Settings, ensure Container ID matches your tracking tag.
-3. Create a **GA4 Configuration Tag** using your Measurement ID (`G-XXXXXXXXXX`).
-4. Set up Custom Event Triggers for the events implemented in `src/utils/analytics.js`:
-   - `generate_lead`
-   - `contact_form_submit`
-   - `book_consultation`
-   - `whatsapp_click`
-   - `email_click`
-   - `phone_click`
-5. In GA4, navigate to **Admin > Events** and mark `generate_lead` and `book_consultation` as **Key Events (Conversions)**.
-6. Test in Preview Mode and publish the GTM container version.
+### Step-by-Step GTM & GA4 Setup Checklist:
+1. **Open GTM Container:**
+   - Log into [Google Tag Manager](https://tagmanager.google.com/) and open container **`GTM-KLWZSR8N`**.
+   - Verify web container target domain: `https://anstat.co.in/`.
+
+2. **Configure the GA4 Google Tag (Base Configuration):**
+   - In **Tags**, click **New** > **Google Tag**.
+   - **Tag ID:** Enter `G-5VF3DXFB6R`.
+   - **Triggering:** Select **Initialization - All Pages**.
+   - Save the tag as `GA4 - Google Tag - G-5VF3DXFB6R`.
+   - *Note on Enhanced Measurement:* In GA4 (Admin > Data Streams > Web Stream `G-5VF3DXFB6R`), ensure **Enhanced Measurement** is enabled. By default, it captures page views, outbound clicks, and browser history changes without manual code.
+
+3. **Create Custom Event Triggers:**
+   In **Triggers** > **New** > **Custom Event**, configure:
+   - `Trigger - Form Submit Attempt`: Event name `contact_form_submit`
+   - `Trigger - Form Success`: Event name `contact_form_success`
+   - `Trigger - Book Consultation`: Event name `book_consultation`
+   - `Trigger - WhatsApp Click`: Event name `whatsapp_click`
+   - `Trigger - Email Click`: Event name `email_click`
+   - `Trigger - Phone Click`: Event name `phone_click`
+   - `Trigger - Virtual Page View`: Event name `virtual_page_view`
+
+4. **Create GA4 Event Tags (Conversion & Telemetry):**
+   - **Primary Lead Tag:**
+     - Tag Type: **Google Analytics: GA4 Event**
+     - Measurement ID: `G-5VF3DXFB6R`
+     - Event Name: `generate_lead`
+     - Trigger: `Trigger - Form Success` (`contact_form_success`)
+     - Event Parameters: Add `service_division` (Variable: Data Layer Variable `service_division`) and `submission_method` (Variable: Data Layer Variable `submission_method`).
+   - **Form Submit Attempt Tag:**
+     - Event Name: `contact_form_submit`
+     - Trigger: `Trigger - Form Submit Attempt`
+   - **Consultation Action Tag:**
+     - Event Name: `book_consultation`
+     - Trigger: `Trigger - Book Consultation`
+     - Event Parameters: `click_source` (Data Layer Variable `click_source`).
+   - **Contact Channels (WhatsApp, Email, Phone):**
+     - Create GA4 Event tags for `whatsapp_click`, `email_click`, `phone_click` mapped to their respective triggers.
+
+5. **Prevent Duplicate Conversion Counting in GA4:**
+   - In Google Analytics 4, go to **Admin > Data display > Events**.
+   - Under **Key Events**, mark **`generate_lead`** (or `contact_form_success`) as a Key Event.
+   - **DO NOT** mark both `contact_form_success` and `generate_lead` as Key Events. Only mark one.
+   - You may also mark `book_consultation` and `whatsapp_click` as secondary key events if desired.
+
+6. **Validate with Google Tag Assistant & GA4 DebugView:**
+   - Click **Preview** in GTM to launch Tag Assistant (`https://tagassistant.google.com/`).
+   - Enter `https://anstat.co.in/` (or `http://localhost:5173/`).
+   - Confirm container `GTM-KLWZSR8N` connects successfully.
+   - Test submitting the enquiry form, clicking consultation CTAs, WhatsApp, email, and phone links.
+   - In GA4, open **Admin > DebugView** to inspect real-time events arriving with clean, non-PII parameters.
+
+7. **Publish GTM Container:**
+   - In GTM, click **Submit** > name the version (e.g., `v2 - GA4 G-5VF3DXFB6R Implementation`) > click **Publish**.
 
 ---
 
@@ -80,6 +126,6 @@
 
 Submit accurate, consistent Name, Address, and Phone (NAP) details across authoritative industry directories:
 1. **Clutch.co:** Register an agency profile under Marketing & IT Services, linking verified client case studies.
-2. **LinkedIn Company Page:** Ensure the [ANSTAT LinkedIn](https://linkedin.com/company/anstat) profile lists Bengaluru headquarters, links to `anstat.co.in`, and features verified team members.
+2. **LinkedIn Company Page:** Ensure the [ANSTAT LinkedIn](https://www.linkedin.com/company/anstat-in) profile lists Bengaluru headquarters, links to `anstat.co.in`, and features verified team members.
 3. **GoodFirms & Crunchbase:** Create verified corporate entity profiles.
 4. **Local Business Communities:** Engage in Bengaluru startup ecosystems (NASSCOM, TiE Bangalore, Karnataka Digital Economy Mission).

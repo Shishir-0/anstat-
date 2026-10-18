@@ -30,7 +30,7 @@ function assert(condition, testName, errorDetails = '') {
 // -----------------------------------------------------------------------------
 // 1. Validate robots.txt
 // -----------------------------------------------------------------------------
-console.log('\n[1/5] Validating robots.txt...');
+console.log('\n[1/6] Validating robots.txt...');
 const robotsPath = path.join(publicDir, 'robots.txt');
 assert(fs.existsSync(robotsPath), 'public/robots.txt exists');
 
@@ -52,7 +52,7 @@ if (fs.existsSync(robotsPath)) {
 // -----------------------------------------------------------------------------
 // 2. Validate sitemap.xml
 // -----------------------------------------------------------------------------
-console.log('\n[2/5] Validating sitemap.xml...');
+console.log('\n[2/6] Validating sitemap.xml...');
 const sitemapPath = path.join(publicDir, 'sitemap.xml');
 assert(fs.existsSync(sitemapPath), 'public/sitemap.xml exists');
 
@@ -87,7 +87,7 @@ if (fs.existsSync(sitemapPath)) {
 // -----------------------------------------------------------------------------
 // 3. Validate llms.txt & llms-full.txt
 // -----------------------------------------------------------------------------
-console.log('\n[3/5] Validating AI Discovery Files (llms.txt & llms-full.txt)...');
+console.log('\n[3/6] Validating AI Discovery Files (llms.txt & llms-full.txt)...');
 const llmsPath = path.join(publicDir, 'llms.txt');
 const llmsFullPath = path.join(publicDir, 'llms-full.txt');
 
@@ -114,7 +114,7 @@ if (fs.existsSync(llmsFullPath)) {
 // -----------------------------------------------------------------------------
 // 4. Validate seo-content-map.yml
 // -----------------------------------------------------------------------------
-console.log('\n[4/5] Validating seo-content-map.yml...');
+console.log('\n[4/6] Validating seo-content-map.yml...');
 const seoMapPath = path.join(rootDir, 'seo-content-map.yml');
 assert(fs.existsSync(seoMapPath), 'seo-content-map.yml exists in repository root');
 
@@ -134,7 +134,7 @@ if (fs.existsSync(seoMapPath)) {
 // -----------------------------------------------------------------------------
 // 5. Validate Prerendered Production Build Artifacts (dist/)
 // -----------------------------------------------------------------------------
-console.log('\n[5/5] Validating Prerendered HTML Outputs in dist/...');
+console.log('\n[5/6] Validating Prerendered HTML Outputs in dist/...');
 const routesToCheck = [
   { path: 'index.html', title: 'ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru', canonical: 'https://anstat.co.in/' },
   { path: 'services/index.html', title: 'Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI', canonical: 'https://anstat.co.in/services' },
@@ -157,6 +157,11 @@ for (const r of routesToCheck) {
     assert(html.includes('type="application/ld+json"'), `Contains JSON-LD schema in dist/${r.path}`);
     assert(html.includes('<h1'), `Contains crawlable <h1> heading in dist/${r.path}`);
     assert(!html.includes('prasadshishir1@gmail.com'), `No old prasadshishir1 email in dist/${r.path}`);
+    assert(html.includes('https://www.googletagmanager.com/gtm.js?id='), `Contains GTM head script in dist/${r.path}`);
+    assert(html.includes('https://www.googletagmanager.com/ns.html?id='), `Contains GTM noscript iframe in dist/${r.path}`);
+    assert(html.includes('id=GTM-KLWZSR8N'), `Verified GTM container ID GTM-KLWZSR8N in dist/${r.path}`);
+    assert(!html.includes('%VITE_GTM_ID%') && !html.includes('%NEXT_PUBLIC_GTM_ID%'), `GTM ID properly interpolated in dist/${r.path}`);
+    assert(!html.includes('https://www.googletagmanager.com/gtag/js'), `No duplicate direct gtag.js script in dist/${r.path}`);
   }
 }
 
@@ -168,6 +173,31 @@ assert(indexHtml.includes('Bengaluru'), 'dist/index.html references Bengaluru en
 const contactHtml = fs.readFileSync(path.join(outDir, 'contact', 'index.html'), 'utf8');
 assert(contactHtml.includes('PostalAddress'), 'dist/contact/index.html includes PostalAddress schema');
 assert(contactHtml.includes('Bengaluru'), 'dist/contact/index.html references Bengaluru entity ground');
+
+// Check official social profile links
+assert(indexHtml.includes('https://www.linkedin.com/company/anstat-in'), 'dist/index.html references verified LinkedIn company profile');
+
+// -----------------------------------------------------------------------------
+// 6. Validate Telemetry & Analytics Architecture
+// -----------------------------------------------------------------------------
+console.log('\n[6/6] Validating Telemetry & Analytics Architecture (src/utils/analytics.js)...');
+const analyticsPath = path.join(rootDir, 'src', 'utils', 'analytics.js');
+assert(fs.existsSync(analyticsPath), 'src/utils/analytics.js exists');
+
+if (fs.existsSync(analyticsPath)) {
+  const analyticsCode = fs.readFileSync(analyticsPath, 'utf8');
+  assert(analyticsCode.includes('export const trackEvent'), 'Exports trackEvent function');
+  assert(analyticsCode.includes('export const trackFormSubmit'), 'Exports trackFormSubmit function');
+  assert(analyticsCode.includes('export const trackFormSuccess'), 'Exports trackFormSuccess function');
+  assert(analyticsCode.includes('export const trackGenerateLead'), 'Exports trackGenerateLead function');
+  assert(analyticsCode.includes('export const trackConsultationClick'), 'Exports trackConsultationClick function');
+  assert(analyticsCode.includes('export const trackWhatsAppClick'), 'Exports trackWhatsAppClick function');
+  assert(analyticsCode.includes('export const trackEmailClick'), 'Exports trackEmailClick function');
+  assert(analyticsCode.includes('export const trackPhoneClick'), 'Exports trackPhoneClick function');
+  assert(analyticsCode.includes('export const trackPageView'), 'Exports trackPageView function');
+  assert(analyticsCode.includes('PII_DENYLIST'), 'Includes strict PII sanitization denylist');
+  assert(analyticsCode.includes('isGtmActive'), 'Implements anti-duplication guard bypassing direct gtag when GTM is active');
+}
 
 // -----------------------------------------------------------------------------
 // Validation Summary

@@ -33,8 +33,11 @@ export default function ResearchTeaser() {
                 <img
                   src="/res-assets/ai-architecture.png"
                   alt="AI Architecture System Diagram"
-                  className="max-h-full max-w-full object-contain"
+                  width="400"
+                  height="300"
                   loading="lazy"
+                  decoding="async"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
 

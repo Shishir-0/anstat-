@@ -12,6 +12,10 @@ export default function Footer() {
               <img
                 src="/AnLogo.png"
                 alt="ANSTAT Logo"
+                width="40"
+                height="40"
+                loading="lazy"
+                decoding="async"
                 className="h-10 w-auto object-contain"
               />
               <span className="font-extrabold text-xl text-[#18372A] tracking-tight">
@@ -151,7 +155,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm mb-6">
               <li>
                 <a
-                  href="https://linkedin.com/company/anstat"
+                  href="https://www.linkedin.com/company/anstat-in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#16804A] transition-colors"

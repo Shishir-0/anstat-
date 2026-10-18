@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { trackConsultationClick } from "../utils/analytics";
 
 const divisions = [
@@ -103,6 +102,9 @@ export default function Navbar() {
             <img
               src="/AnLogo.png"
               alt="ANSTAT Logo"
+              width="44"
+              height="44"
+              fetchpriority="high"
               className="h-9 md:h-11 w-auto object-contain transition-transform group-hover:scale-105 duration-200"
             />
             <div className="flex flex-col">
@@ -162,51 +164,45 @@ export default function Navbar() {
                 </svg>
               </button>
 
-              <AnimatePresence>
-                {servicesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                    transition={{ duration: 0.18, ease: "easeOut" }}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
-                    className="absolute left-0 mt-1 w-80 rounded-2xl bg-white border border-[#E1E9E2] shadow-xl p-3 z-50"
-                  >
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#68766E] px-3 py-1.5 border-b border-[#E1E9E2]">
-                      Four Integrated Divisions
-                    </div>
-                    <div className="py-1">
-                      {divisions.map((div) => (
-                        <Link
-                          key={div.name}
-                          to={div.href}
-                          onClick={() => setServicesDropdownOpen(false)}
-                          className="block p-2.5 rounded-xl hover:bg-[#F4F7F4] transition-colors group"
-                        >
-                          <div className="text-sm font-bold text-[#18372A] group-hover:text-[#16804A] transition-colors">
-                            {div.name}
-                          </div>
-                          <div className="text-xs text-[#68766E] mt-0.5 leading-snug">
-                            {div.desc}
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="pt-2 border-t border-[#E1E9E2] px-1">
+              {servicesDropdownOpen && (
+                <div
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                  className="absolute left-0 mt-1 w-80 rounded-2xl bg-white border border-[#E1E9E2] shadow-xl p-3 z-50 transition-all duration-200"
+                >
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#68766E] px-3 py-1.5 border-b border-[#E1E9E2]">
+                    Four Integrated Divisions
+                  </div>
+                  <div className="py-1">
+                    {divisions.map((div) => (
                       <Link
-                        to="/services"
+                        key={div.name}
+                        to={div.href}
                         onClick={() => setServicesDropdownOpen(false)}
-                        className="flex items-center justify-between p-2 rounded-xl text-xs font-bold text-[#16804A] hover:bg-[#E8F3EB] transition-colors"
+                        className="block p-2.5 rounded-xl hover:bg-[#F4F7F4] transition-colors group"
                       >
-                        <span>View Complete Services Directory</span>
-                        <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                        </svg>
+                        <div className="text-sm font-bold text-[#18372A] group-hover:text-[#16804A] transition-colors">
+                          {div.name}
+                        </div>
+                        <div className="text-xs text-[#68766E] mt-0.5 leading-snug">
+                          {div.desc}
+                        </div>
                       </Link>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    ))}
+                  </div>
+                  <div className="pt-2 border-t border-[#E1E9E2] px-1">
+                    <Link
+                      to="/services"
+                      onClick={() => setServicesDropdownOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl text-xs font-bold text-[#16804A] hover:bg-[#E8F3EB] transition-colors"
+                    >
+                      <span>View Complete Services Directory</span>
+                      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
             <Link
@@ -294,133 +290,127 @@ export default function Navbar() {
       </div>
 
       {/* Accessible Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            id="mobile-nav-panel"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="lg:hidden bg-white border-b border-[#E1E9E2] shadow-xl overflow-hidden"
-          >
-            <div className="max-w-7xl mx-auto px-5 pt-3 pb-6 space-y-4">
-              <nav aria-label="Mobile Navigation" className="space-y-1">
-                <Link
-                  to="/"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname === "/"
-                      ? "text-[#16804A] bg-[#E8F3EB]"
-                      : "text-[#18372A] hover:bg-[#F4F7F4]"
-                  }`}
-                >
-                  Home
-                </Link>
+      {mobileMenuOpen && (
+        <div
+          id="mobile-nav-panel"
+          className="lg:hidden bg-white border-b border-[#E1E9E2] shadow-xl overflow-hidden transition-all duration-200"
+        >
+          <div className="max-w-7xl mx-auto px-5 pt-3 pb-6 space-y-4">
+            <nav aria-label="Mobile Navigation" className="space-y-1">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname === "/"
+                    ? "text-[#16804A] bg-[#E8F3EB]"
+                    : "text-[#18372A] hover:bg-[#F4F7F4]"
+                }`}
+              >
+                Home
+              </Link>
 
-                <div className="pt-1 pb-1">
-                  <div className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#68766E]">
-                    Services
-                  </div>
-                  <div className="grid grid-cols-1 gap-1 pl-2">
-                    {divisions.map((div) => (
-                      <Link
-                        key={div.name}
-                        to={div.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="px-3 py-2 rounded-lg text-sm font-semibold text-[#435149] hover:text-[#16804A] hover:bg-[#F4F7F4] flex items-center justify-between"
-                      >
-                        <span>{div.name}</span>
-                        <span className="text-xs text-[#16804A]">→</span>
-                      </Link>
-                    ))}
-                    <Link
-                      to="/services"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="px-3 py-2 rounded-lg text-xs font-bold text-[#16804A] hover:bg-[#E8F3EB]"
-                    >
-                      All Services Directory →
-                    </Link>
-                  </div>
+              <div className="pt-1 pb-1">
+                <div className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#68766E]">
+                  Services
                 </div>
-
-                <Link
-                  to="/case-studies"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname === "/case-studies"
-                      ? "text-[#16804A] bg-[#E8F3EB]"
-                      : "text-[#18372A] hover:bg-[#F4F7F4]"
-                  }`}
-                >
-                  Our Work & Case Studies
-                </Link>
-
-                <Link
-                  to="/about"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname === "/about"
-                      ? "text-[#16804A] bg-[#E8F3EB]"
-                      : "text-[#18372A] hover:bg-[#F4F7F4]"
-                  }`}
-                >
-                  About ANSTAT
-                </Link>
-
-                <Link
-                  to="/research/ai-startup-architecture"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname.startsWith("/research")
-                      ? "text-[#16804A] bg-[#E8F3EB]"
-                      : "text-[#18372A] hover:bg-[#F4F7F4]"
-                  }`}
-                >
-                  Research & Insights
-                </Link>
-
-                <Link
-                  to="/faq"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname === "/faq"
-                      ? "text-[#16804A] bg-[#E8F3EB]"
-                      : "text-[#18372A] hover:bg-[#F4F7F4]"
-                  }`}
-                >
-                  FAQ
-                </Link>
-              </nav>
-
-              <div className="pt-2 border-t border-[#E1E9E2]">
-                <Link
-                  to={location.pathname === "/" ? "#enquiry" : "/contact"}
-                  onClick={handleEnquiryClick}
-                  className="btn-primary w-full text-center py-3 text-sm justify-center"
-                >
-                  Discuss a Project
-                </Link>
-                <div className="mt-3 text-center">
-                  <a
-                    href="mailto:connect@anstat.co.in"
-                    className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
+                <div className="grid grid-cols-1 gap-1 pl-2">
+                  {divisions.map((div) => (
+                    <Link
+                      key={div.name}
+                      to={div.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-3 py-2 rounded-lg text-sm font-semibold text-[#435149] hover:text-[#16804A] hover:bg-[#F4F7F4] flex items-center justify-between"
+                    >
+                      <span>{div.name}</span>
+                      <span className="text-xs text-[#16804A]">→</span>
+                    </Link>
+                  ))}
+                  <Link
+                    to="/services"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-xs font-bold text-[#16804A] hover:bg-[#E8F3EB]"
                   >
-                    connect@anstat.co.in
-                  </a>
-                  <span className="mx-2 text-[#E1E9E2]">|</span>
-                  <a
-                    href="tel:+919019731057"
-                    className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
-                  >
-                    +91 90197 31057
-                  </a>
+                    All Services Directory →
+                  </Link>
                 </div>
               </div>
+
+              <Link
+                to="/case-studies"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname === "/case-studies"
+                    ? "text-[#16804A] bg-[#E8F3EB]"
+                    : "text-[#18372A] hover:bg-[#F4F7F4]"
+                }`}
+              >
+                Our Work & Case Studies
+              </Link>
+
+              <Link
+                to="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname === "/about"
+                    ? "text-[#16804A] bg-[#E8F3EB]"
+                    : "text-[#18372A] hover:bg-[#F4F7F4]"
+                }`}
+              >
+                About ANSTAT
+              </Link>
+
+              <Link
+                to="/research/ai-startup-architecture"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname.startsWith("/research")
+                    ? "text-[#16804A] bg-[#E8F3EB]"
+                    : "text-[#18372A] hover:bg-[#F4F7F4]"
+                }`}
+              >
+                Research & Insights
+              </Link>
+
+              <Link
+                to="/faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname === "/faq"
+                    ? "text-[#16804A] bg-[#E8F3EB]"
+                    : "text-[#18372A] hover:bg-[#F4F7F4]"
+                }`}
+              >
+                FAQ
+              </Link>
+            </nav>
+
+            <div className="pt-2 border-t border-[#E1E9E2]">
+              <Link
+                to={location.pathname === "/" ? "#enquiry" : "/contact"}
+                onClick={handleEnquiryClick}
+                className="btn-primary w-full text-center py-3 text-sm justify-center"
+              >
+                Discuss a Project
+              </Link>
+              <div className="mt-3 text-center">
+                <a
+                  href="mailto:connect@anstat.co.in"
+                  className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
+                >
+                  connect@anstat.co.in
+                </a>
+                <span className="mx-2 text-[#E1E9E2]">|</span>
+                <a
+                  href="tel:+919019731057"
+                  className="text-xs font-semibold text-[#68766E] hover:text-[#16804A]"
+                >
+                  +91 90197 31057
+                </a>
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

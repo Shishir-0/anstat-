@@ -138,8 +138,11 @@ export default function SelectedWork() {
                   <img
                     src={p.image}
                     alt={`${p.title} representation`}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
+                    width="800"
+                    height="450"
                     loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-102"
                   />
                   <div className="absolute top-3 left-3">
                     <span className="text-[11px] font-bold uppercase tracking-wider bg-white/95 backdrop-blur-xs text-[#18372A] px-3 py-1 rounded-full border border-[#E1E9E2] shadow-xs">

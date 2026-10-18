@@ -7,20 +7,35 @@
 
 ## 1. Analytics Event Architecture & Tracking Schema
 
-Conversion telemetry has been implemented directly in `src/utils/analytics.js` using dual-dispatch (`dataLayer.push` for GTM and `window.gtag` for GA4).
+### 1.1 Core Architecture & Container Mapping
+- **Primary Tag Management Engine:** Google Tag Manager container **`GTM-KLWZSR8N`** installed once in `<head>` and `<body>` of `index.html`.
+- **Google Analytics 4 Measurement ID:** **`G-5VF3DXFB6R`** configured as a Google Tag inside GTM with trigger *Initialization - All Pages* (or *Container Loaded*).
+- **Anti-Duplication Safeguard:** Telemetry is dispatched through `src/utils/analytics.js` directly to `window.dataLayer`. When GTM is active (`window.google_tag_manager`), direct calls to `window.gtag` are deliberately bypassed. This prevents duplicate event ingestion in GA4.
+- **Privacy & PII Compliance:** All telemetry payloads pass through an automatic sanitization denylist stripping names, email addresses, phone numbers, and message bodies before reaching the dataLayer.
 
-### 1.1 Implemented Event Definitions
+### 1.2 Implemented Event Definitions
 
-| Event Name | Trigger Condition | Dispatched Parameters | Commercial Value |
+| Event Name | Trigger Condition | Dispatched Parameters | Commercial Intent |
 |---|---|---|---|
-| `generate_lead` | User submits the project enquiry form with verified email and phone number. | `event_category: "Conversion"`, `form_name: "Project Inquiry Form"`, `service_division: "<selected_division>"` | High (Primary Web Conversion) |
-| `contact_form_submit` | Alias event fired simultaneously with `generate_lead` for legacy GTM triggers. | `form_id: "enquiry"` | High |
-| `book_consultation` | User clicks any primary "Discuss a Project" consultation CTA (Navbar, Hero, Services). | `cta_location: "<navbar|hero|services>"` | Medium (High-Intent Engagement) |
-| `whatsapp_click` | User clicks the direct WhatsApp consultation link (`+91 90197 31057`). | `contact_method: "WhatsApp"`, `click_location: "<contact_page|enquiry_form>"` | High (Immediate Mobile Inbound) |
-| `email_click` | User clicks any `mailto:connect@anstat.co.in` link. | `contact_method: "Email"`, `destination: "connect@anstat.co.in"` | Medium (B2B RFP / Direct Inbound) |
-| `phone_click` | User clicks the direct phone link (`tel:+919019731057`). | `contact_method: "Phone"` | High (Direct Telephony Inbound) |
+| `contact_form_submit` | User submits the project enquiry form (submission attempt). | `service_division`, `timeline`, `budget_range`, `page_location` | Medium (High-Intent Lead Attempt) |
+| `contact_form_success` | Confirmed successful dispatch of project enquiry (API success or client prepared). | `service_division`, `submission_method`, `page_location` | High (Primary Confirmed Web Conversion) |
+| `generate_lead` | Standard GA4 recommended lead event (available for direct GTM tag mapping). | `service_division`, `submission_method`, `value`, `currency`, `page_location` | High (Standard GA4 Lead Conversion) |
+| `book_consultation` | User clicks any primary "Discuss a Project" consultation CTA (Navbar, Hero, Services, FinalCTA). | `click_source: "<navbar|hero|services|final_cta>"`, `target_section: "#enquiry"` | Medium (High-Intent Engagement) |
+| `whatsapp_click` | User clicks the direct WhatsApp consultation link (`+91 90197 31057`). | `click_source: "<source>"`, `destination: "https://wa.me/..."` | High (Immediate Mobile Inbound) |
+| `email_click` | User clicks any `mailto:connect@anstat.co.in` link. | `click_source: "<source>"`, `destination: "connect@anstat.co.in"` | Medium (B2B RFP / Direct Inbound) |
+| `phone_click` | User clicks the direct phone link (`tel:+919019731057`). | `click_source: "<source>"`, `destination: "+919019731057"` | High (Direct Telephony Inbound) |
+| `virtual_page_view` | React Router client-side route navigation (deduplicated: skipped on initial page load). | `page_path`, `page_title`, `page_location` | Analytical (SPA Page Navigation) |
 
-### 1.2 Qualified Lead Definition (`qualified_lead`)
+### 1.3 Lead De-Duplication Protocol (`contact_form_success` vs `generate_lead`)
+> **CRITICAL RULE:** Do NOT mark both `contact_form_success` AND `generate_lead` as Key Events (conversions) in Google Analytics 4.
+> 
+> In GTM, choose **ONE** of the following mapping patterns:
+> - **Pattern A (Recommended):** In GTM, create a GA4 Event Tag with Event Name `generate_lead` triggered by Custom Event `contact_form_success`. In GA4, mark `generate_lead` as a Key Event.
+> - **Pattern B:** In GTM, pass `contact_form_success` directly to GA4 and mark `contact_form_success` as a Key Event.
+> 
+> Marking both as Key Events will double-count incoming inquiries in executive dashboards.
+
+### 1.4 Qualified Lead Definition (`qualified_lead`)
 > **CRITICAL RULE:** Do NOT mark every button click or initial form submission as a qualified lead.
 
 A lead is strictly classified as a `qualified_lead` only when all of the following criteria are verified during post-submission qualification:

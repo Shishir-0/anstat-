@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   trackFormSubmit,
+  trackFormSuccess,
   trackWhatsAppClick,
   trackEmailClick,
   trackPhoneClick,
@@ -119,6 +120,7 @@ ${formData.description}`;
         });
 
         if (response.ok) {
+          trackFormSuccess({ division: formData.division, method: "api_endpoint" });
           setSubmissionStatus("network_success");
           setSubmitted(true);
           setIsSubmitting(false);
@@ -138,6 +140,7 @@ ${formData.description}`;
     }
 
     // Default static deployment workflow: compile and present verified dispatch actions
+    trackFormSuccess({ division: formData.division, method: "client_dispatch" });
     setSubmissionStatus("client_prepared");
     setSubmitted(true);
     setIsSubmitting(false);

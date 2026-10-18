@@ -22,40 +22,25 @@ export default function Hero() {
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
         {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 bg-[#E8F3EB] border border-[#C4DFC9] px-4 py-1.5 rounded-full"
-        >
+        <div className="mb-6 inline-flex items-center gap-2 bg-[#E8F3EB] border border-[#C4DFC9] px-4 py-1.5 rounded-full">
           <span className="w-2 h-2 rounded-full bg-[#16804A] animate-pulse" />
           <span className="text-[#16804A] text-xs font-bold tracking-[0.2em] uppercase">
             ANSTAT | Technology, AI and Business Growth
           </span>
-        </motion.div>
+        </div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#18372A] tracking-tight leading-[1.08] mb-6"
-        >
+        {/* Headline (Critical LCP Element - Renders instantly with zero opacity delay) */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#18372A] tracking-tight leading-[1.08] mb-6">
           Technology. Intelligence. <br className="hidden sm:block" />
           <span className="text-[#16804A]">Growth.</span>
-        </motion.h1>
+        </h1>
 
-        {/* Alternative supporting message from prompt */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl md:text-2xl text-[#435149] max-w-3xl mx-auto mb-10 font-normal leading-relaxed"
-        >
+        {/* Supporting message */}
+        <p className="text-lg sm:text-xl md:text-2xl text-[#435149] max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
           From custom software and intelligent AI solutions to marketing campaigns
           and business execution, ANSTAT helps organizations turn ideas into
           practical outcomes.
-        </motion.p>
+        </p>
 
         {/* Primary & Secondary Actions */}
         <motion.div

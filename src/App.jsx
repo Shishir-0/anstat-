@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { trackPageView } from "./utils/analytics";
 
 // Import Components
 import Navbar from "./components/Navbar";
@@ -29,6 +30,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     if (hash) {
@@ -47,10 +49,24 @@ const ScrollToTop = () => {
       };
 
       scrollToElement();
-      return;
+    } else {
+      window.scrollTo(0, 0);
     }
 
-    window.scrollTo(0, 0);
+    // Client-side route change tracking (virtual_page_view)
+    // Avoid double counting on initial page load (handled by GTM container load)
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    } else {
+      const timer = setTimeout(() => {
+        trackPageView({
+          page_path: pathname,
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      }, 50);
+      return () => clearTimeout(timer);
+    }
   }, [pathname, hash]);
 
   return null;
@@ -136,7 +152,7 @@ const Home = () => (
             }
           ],
           "sameAs": [
-            "https://linkedin.com/company/anstat",
+            "https://www.linkedin.com/company/anstat-in",
             "https://twitter.com/anstat"
           ],
           "hasOfferCatalog": {
