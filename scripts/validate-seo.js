@@ -136,13 +136,13 @@ if (fs.existsSync(seoMapPath)) {
 // -----------------------------------------------------------------------------
 console.log('\n[5/5] Validating Prerendered HTML Outputs in dist/...');
 const routesToCheck = [
-  { path: 'index.html', title: 'ANSTAT | Technology, AI & Business Growth Solutions', canonical: 'https://anstat.co.in/' },
-  { path: 'services/index.html', title: 'Services & Solutions Directory | ANSTAT', canonical: 'https://anstat.co.in/services' },
+  { path: 'index.html', title: 'ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru', canonical: 'https://anstat.co.in/' },
+  { path: 'services/index.html', title: 'Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI', canonical: 'https://anstat.co.in/services' },
   { path: 'case-studies/index.html', title: 'Case Studies & Selected Work | ANSTAT', canonical: 'https://anstat.co.in/case-studies' },
   { path: 'research/ai-startup-architecture/index.html', title: 'The Architecture of Scalable AI Startups | ANSTAT Research', canonical: 'https://anstat.co.in/research/ai-startup-architecture' },
-  { path: 'faq/index.html', title: 'Frequently Asked Questions | ANSTAT', canonical: 'https://anstat.co.in/faq' },
-  { path: 'about/index.html', title: 'About ANSTAT | Integrated Technology & Growth Solutions', canonical: 'https://anstat.co.in/about' },
-  { path: 'contact/index.html', title: 'Contact ANSTAT | Project Enquiries & Technical Consultations', canonical: 'https://anstat.co.in/contact' }
+  { path: 'faq/index.html', title: 'Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ', canonical: 'https://anstat.co.in/faq' },
+  { path: 'about/index.html', title: 'About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru', canonical: 'https://anstat.co.in/about' },
+  { path: 'contact/index.html', title: 'Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru', canonical: 'https://anstat.co.in/contact' }
 ];
 
 for (const r of routesToCheck) {
@@ -159,6 +159,15 @@ for (const r of routesToCheck) {
     assert(!html.includes('prasadshishir1@gmail.com'), `No old prasadshishir1 email in dist/${r.path}`);
   }
 }
+
+// Check local entity signals
+const indexHtml = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
+assert(indexHtml.includes('ProfessionalService'), 'dist/index.html includes ProfessionalService schema');
+assert(indexHtml.includes('Bengaluru'), 'dist/index.html references Bengaluru entity ground');
+
+const contactHtml = fs.readFileSync(path.join(outDir, 'contact', 'index.html'), 'utf8');
+assert(contactHtml.includes('PostalAddress'), 'dist/contact/index.html includes PostalAddress schema');
+assert(contactHtml.includes('Bengaluru'), 'dist/contact/index.html references Bengaluru entity ground');
 
 // -----------------------------------------------------------------------------
 // Validation Summary

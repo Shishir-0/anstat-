@@ -45,34 +45,34 @@ export default function About() {
   return (
     <div className="bg-white min-h-screen text-[#435149]">
       <Helmet>
-        <title>About ANSTAT | Integrated Technology & Growth Solutions</title>
+        <title>About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru</title>
         <meta
           name="description"
-          content="Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+          content="Learn about ANSTAT's background, multidisciplinary engineering team in Bengaluru, and integrated approach to custom software, AI engineering, digital marketing, and operations."
         />
         <meta
           name="keywords"
-          content="about ANSTAT, software engineering company, AI development partner, business growth solutions, India technology agency"
+          content="about ANSTAT, software engineering company Bengaluru, AI development partner, digital marketing agency Bangalore, business growth solutions, India technology agency"
         />
         <link rel="canonical" href="https://anstat.co.in/about" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://anstat.co.in/about" />
-        <meta property="og:title" content="About ANSTAT | Integrated Technology & Growth Solutions" />
+        <meta property="og:title" content="About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru" />
         <meta
           property="og:description"
-          content="Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+          content="Learn about ANSTAT's background, multidisciplinary engineering team in Bengaluru, and integrated approach to custom software, AI engineering, digital marketing, and operations."
         />
         <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://anstat.co.in/about" />
-        <meta name="twitter:title" content="About ANSTAT | Integrated Technology & Growth Solutions" />
+        <meta name="twitter:title" content="About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru" />
         <meta
           name="twitter:description"
-          content="Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+          content="Learn about ANSTAT's background, multidisciplinary engineering team in Bengaluru, and integrated approach to custom software, AI engineering, digital marketing, and operations."
         />
         <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
 
@@ -85,7 +85,7 @@ export default function About() {
             "name": "About ANSTAT",
             "url": "https://anstat.co.in/about",
             "description":
-              "Background, multidisciplinary team, and engineering principles behind ANSTAT's integrated software, AI, media, and business systems.",
+              "Background, multidisciplinary team, and engineering principles behind ANSTAT's integrated software, AI, media, and business systems in Bengaluru, Karnataka, India.",
             "isPartOf": {
               "@type": "WebSite",
               "@id": "https://anstat.co.in/#website",
@@ -110,7 +110,7 @@ export default function About() {
               ]
             },
             "mainEntity": {
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               "@id": "https://anstat.co.in/#organization",
               "name": "ANSTAT",
               "url": "https://anstat.co.in",
@@ -119,6 +119,18 @@ export default function About() {
                 "Integrated technology and growth solutions company providing software development, applied AI, media production, and business operations.",
               "email": "connect@anstat.co.in",
               "telephone": "+919019731057",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bengaluru",
+                "addressRegion": "Karnataka",
+                "addressCountry": "IN"
+              },
+              "areaServed": [
+                { "@type": "City", "name": "Bengaluru" },
+                { "@type": "City", "name": "Bangalore" },
+                { "@type": "AdministrativeArea", "name": "Karnataka" },
+                { "@type": "Country", "name": "India" }
+              ],
               "sameAs": [
                 "https://linkedin.com/company/anstat",
                 "https://twitter.com/anstat"
@@ -261,6 +273,14 @@ export default function About() {
                 >
                   +91 90197 31057
                 </a>
+              </div>
+              <div className="sm:col-span-2 pt-2 border-t border-[#E1E9E2]">
+                <span className="text-xs uppercase font-bold text-[#68766E] block mb-1">
+                  Location & Operating Model
+                </span>
+                <span className="font-semibold text-[#18372A]">
+                  Bengaluru, Karnataka, India &bull; Remote-First delivery serving clients across Bengaluru, pan-India, and globally
+                </span>
               </div>
             </div>
           </section>

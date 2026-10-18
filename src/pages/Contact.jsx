@@ -3,19 +3,20 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import EnquiryForm from "../components/EnquiryForm";
+import { trackEmailClick, trackPhoneClick, trackWhatsAppClick } from "../utils/analytics";
 
 export default function Contact() {
   return (
     <div className="bg-white min-h-screen text-[#435149]">
       <Helmet>
-        <title>Contact ANSTAT | Project Enquiries & Technical Consultations</title>
+        <title>Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru</title>
         <meta
           name="description"
-          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT. We review scope and provide actionable technical guidance."
+          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru. We review scope and provide actionable technical guidance."
         />
         <meta
           name="keywords"
-          content="contact ANSTAT, software inquiry, hire AI engineers, project scoping, technical consultation, ANSTAT email"
+          content="contact ANSTAT, software inquiry, hire AI engineers Bengaluru, project scoping, technical consultation, digital marketing agency Bangalore, ANSTAT email"
         />
         <link rel="canonical" href="https://anstat.co.in/contact" />
 
@@ -24,11 +25,11 @@ export default function Contact() {
         <meta property="og:url" content="https://anstat.co.in/contact" />
         <meta
           property="og:title"
-          content="Contact ANSTAT | Project Enquiries & Technical Consultations"
+          content="Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru"
         />
         <meta
           property="og:description"
-          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT."
+          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru."
         />
         <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
@@ -37,15 +38,15 @@ export default function Contact() {
         <meta name="twitter:url" content="https://anstat.co.in/contact" />
         <meta
           name="twitter:title"
-          content="Contact ANSTAT | Project Enquiries & Technical Consultations"
+          content="Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru"
         />
         <meta
           name="twitter:description"
-          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT."
+          content="Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru."
         />
         <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
 
-        {/* Structured Data: ContactPage & BreadcrumbList */}
+        {/* Structured Data: ContactPage, LocalBusiness & BreadcrumbList */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -54,7 +55,7 @@ export default function Contact() {
             "url": "https://anstat.co.in/contact",
             "name": "Contact ANSTAT",
             "description":
-              "Official project inquiry and technical consultation destination for ANSTAT.",
+              "Official project inquiry and technical consultation destination for ANSTAT in Bengaluru, Karnataka, India.",
             "isPartOf": {
               "@type": "WebSite",
               "@id": "https://anstat.co.in/#website",
@@ -79,20 +80,39 @@ export default function Contact() {
               ]
             },
             "mainEntity": {
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               "@id": "https://anstat.co.in/#organization",
               "name": "ANSTAT",
               "url": "https://anstat.co.in",
               "logo": "https://anstat.co.in/AnLogo.png",
               "email": "connect@anstat.co.in",
               "telephone": "+919019731057",
+              "priceRange": "₹₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bengaluru",
+                "addressRegion": "Karnataka",
+                "addressCountry": "IN"
+              },
+              "areaServed": [
+                { "@type": "City", "name": "Bengaluru" },
+                { "@type": "City", "name": "Bangalore" },
+                { "@type": "AdministrativeArea", "name": "Karnataka" },
+                { "@type": "Country", "name": "India" }
+              ],
               "contactPoint": [
                 {
                   "@type": "ContactPoint",
                   "telephone": "+919019731057",
                   "contactType": "sales",
                   "email": "connect@anstat.co.in",
-                  "availableLanguage": ["English", "Hindi", "Kannada"]
+                  "availableLanguage": ["English", "Hindi", "Kannada"],
+                  "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
                 }
               ]
             }
@@ -113,7 +133,7 @@ export default function Contact() {
             <p className="text-base sm:text-lg text-[#435149] leading-relaxed">
               Whether you are planning a new software platform, deploying practical AI agents,
               launching an advertising campaign, or streamlining operations, our engineering desk
-              is ready to assist.
+              in Bengaluru is ready to assist.
             </p>
           </div>
 
@@ -125,6 +145,7 @@ export default function Contact() {
               </span>
               <a
                 href="mailto:connect@anstat.co.in"
+                onClick={() => trackEmailClick("contact_card_email")}
                 className="text-sm font-bold text-[#18372A] hover:text-[#16804A] transition-colors break-all"
               >
                 connect@anstat.co.in
@@ -138,6 +159,7 @@ export default function Contact() {
               </span>
               <a
                 href="tel:+919019731057"
+                onClick={() => trackPhoneClick("contact_card_phone")}
                 className="text-sm font-bold text-[#18372A] hover:text-[#16804A] transition-colors"
               >
                 +91 90197 31057
@@ -153,6 +175,7 @@ export default function Contact() {
                 href="https://wa.me/919019731057"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("contact_card_whatsapp")}
                 className="text-sm font-bold text-[#18372A] hover:text-[#16804A] transition-colors"
               >
                 Chat via WhatsApp ↗
@@ -165,9 +188,9 @@ export default function Contact() {
                 Headquarters
               </span>
               <span className="text-sm font-bold text-[#18372A] block">
-                India (Remote-First)
+                Bengaluru, India
               </span>
-              <p className="text-xs text-[#68766E] mt-1">Serving clients worldwide</p>
+              <p className="text-xs text-[#68766E] mt-1">Remote-first delivery serving clients across Bengaluru & globally</p>
             </div>
           </div>
 

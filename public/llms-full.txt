@@ -9,9 +9,9 @@
 
 ## 1. Company Identity & Mission
 
-ANSTAT is an integrated technology and growth engineering company headquartered in India, delivering solutions globally. The firm was established to solve a recurring market failure: businesses consistently struggle to coordinate separate software agencies, AI experimenters, marketing firms, and management consultants. 
+ANSTAT is an integrated technology and growth engineering company headquartered in Bengaluru (Bangalore), Karnataka, India, delivering solutions across India and globally. The firm was established to solve a recurring market failure: businesses consistently struggle to coordinate separate software agencies, AI experimenters, marketing firms, and management consultants. 
 
-By unifying software engineering, artificial intelligence, creative video and marketing distribution, and operational analysis under one cohesive execution team, ANSTAT guarantees that technical platforms drive commercial revenue and operational efficiency.
+By unifying custom software engineering, artificial intelligence, creative video and marketing distribution, and operational analysis under one cohesive execution team, ANSTAT guarantees that technical platforms drive commercial revenue and operational efficiency.
 
 ### Core Operating Principles:
 1. **Empirical Outcomes Over Speculative Hype**: Software must solve measurable business bottlenecks; marketing must generate paying clients; AI must produce verifiable unit economic gains.
@@ -96,12 +96,12 @@ Canonical: https://anstat.co.in/services#ai
 Canonical: https://anstat.co.in/services#growth
 
 #### Capabilities:
-1. **Marketing Strategy & Market Positioning**
+1. **Digital Marketing Strategy & Market Positioning**
    - Thorough competitor audits and value proposition differentiation.
    - Ideal Customer Profile (ICP) mapping and buyer persona journey engineering.
-   - Multi-channel go-to-market roadmaps with clear CAC and LTV benchmarks.
+   - Multi-channel go-to-market roadmaps with clear CAC, LTV, and ROAS benchmarks.
 
-2. **Paid Advertising Campaigns**
+2. **Paid Advertising Campaigns & Performance Marketing**
    - Performance marketing campaigns across Meta (Facebook & Instagram), Google Search/Display, and LinkedIn Ads.
    - Account structuring using high-intent keyword clustering and dynamic creative optimization.
    - Rigorous weekly budget pacing and bid adjustments based on down-funnel sales pipeline performance.
@@ -111,12 +111,22 @@ Canonical: https://anstat.co.in/services#growth
    - Professional cinema-grade filming (4K+, multi-camera setups, professional lighting and audio).
    - Post-production: color grading, sound design, motion graphics, and short-form social adaptation.
 
-4. **Conversion Rate Optimization (CRO)**
+4. **Social Media Management & Creative Operations**
+   - Strategic editorial calendars tailored for brand authority and buyer engagement.
+   - Short-form Reels, TikTok/Instagram video creation, and multi-slide carousels.
+   - Executive branding, audience community management, and multi-platform distribution across LinkedIn, Instagram, and YouTube.
+
+5. **Search Engine Optimization (SEO & Local SEO)**
+   - Technical SEO audits: Core Web Vitals, SSR/prerendering, crawl budget, and canonical integrity.
+   - Semantic content architecture and Schema.org JSON-LD entity graph integration.
+   - Local SEO optimization for Bengaluru/Bangalore and Karnataka commercial service queries.
+
+6. **Conversion Rate Optimization (CRO)**
    - Systematic UX heuristic audits, heatmaps, and session recording analysis.
    - Landing page rebuilds focused on messaging clarity, social proof positioning, and zero friction.
    - Multi-step interactive inquiry forms that increase completion rates without reducing lead qualification.
 
-5. **Marketing Attribution Analytics**
+7. **Marketing Attribution Analytics**
    - Google Tag Manager (GTM) and GA4 enterprise implementations.
    - Server-Side Conversion API (CAPI) setups bypassing browser ad-blockers and cookie restrictions.
    - Consolidated lead source attribution dashboards measuring true customer acquisition cost (CAC).

@@ -1,5 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  trackFormSubmit,
+  trackWhatsAppClick,
+  trackEmailClick,
+  trackPhoneClick,
+} from "../utils/analytics";
 
 export default function EnquiryForm() {
   const [formData, setFormData] = useState({
@@ -79,12 +85,20 @@ ${formData.description}`;
   };
 
   const handleDispatchEmail = () => {
+    trackEmailClick("enquiry_form_dispatch_mailto");
     window.location.href = mailtoUrl;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+
+    // Track lead submission event safely
+    trackFormSubmit({
+      division: formData.division,
+      timeline: formData.timeline,
+      budget: formData.budget,
+    });
 
     setIsSubmitting(true);
     const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
@@ -222,6 +236,7 @@ ${formData.description}`;
                   href={gmailUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEmailClick("enquiry_form_web_gmail")}
                   className="btn-secondary w-full sm:w-auto text-sm py-3.5 px-6 border-[#C4DFC9] bg-white hover:bg-[#E8F3EB] text-[#18372A] flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4 text-[#EA4335]" viewBox="0 0 24 24" fill="currentColor">
@@ -237,6 +252,7 @@ ${formData.description}`;
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("enquiry_form_whatsapp")}
                   className="px-4 py-2 bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366]/20 font-bold rounded-xl text-xs flex items-center gap-2 transition-colors shadow-2xs"
                 >
                   <svg className="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24">
@@ -270,6 +286,7 @@ ${formData.description}`;
 
                 <a
                   href="tel:+919019731057"
+                  onClick={() => trackPhoneClick("enquiry_form_phone")}
                   className="px-4 py-2 bg-white border border-[#E1E9E2] text-[#18372A] hover:bg-[#F4F7F4] font-semibold rounded-xl text-xs flex items-center gap-2 transition-colors shadow-2xs"
                 >
                   <svg className="w-3.5 h-3.5 text-[#16804A]" viewBox="0 0 20 20" fill="currentColor">

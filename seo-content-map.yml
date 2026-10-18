@@ -38,18 +38,20 @@ organization:
 routes:
   - path: "/"
     canonical_url: "https://anstat.co.in/"
-    title: "ANSTAT | Technology, AI & Business Growth Solutions"
-    meta_description: "From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes."
+    title: "ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru"
+    meta_description: "Integrated technology and growth solutions company in Bengaluru. We engineer custom software, applied AI solutions, digital marketing campaigns, and business execution for growing companies."
     primary_h1: "Technology. Intelligence. Growth."
     primary_intent: "Commercial / Navigational"
     target_keywords:
-      primary: "integrated technology and growth solutions company"
+      primary: "digital marketing agency and technology solutions company Bengaluru"
       secondary:
-        - "custom software development company"
+        - "digital marketing agency in Bengaluru"
+        - "software development company Bangalore"
         - "custom AI solutions for business"
         - "performance marketing and videography agency"
-        - "business process improvement services"
+        - "business consulting firm in Bengaluru"
     schema_types:
+      - "ProfessionalService"
       - "Organization"
       - "WebSite"
       - "OfferCatalog"
@@ -60,18 +62,18 @@ routes:
 
   - path: "/services"
     canonical_url: "https://anstat.co.in/services"
-    title: "Services & Solutions Directory | ANSTAT"
-    meta_description: "Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+    title: "Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI"
+    meta_description: "Explore ANSTAT's verified service divisions: Digital Marketing, SEO & Videography, Custom Software Engineering, Applied AI & Agents, and Business Consulting in Bengaluru, India."
     primary_h1: "Engineering & Growth Solutions"
     primary_intent: "Commercial Investigation"
     target_keywords:
-      primary: "custom software and AI development services"
+      primary: "digital marketing, software engineering and AI services Bengaluru"
       secondary:
-        - "web application development React"
-        - "bespoke ERP software development"
-        - "RAG knowledge assistant development"
-        - "commercial videography and ad campaigns"
-        - "business process workflow audits"
+        - "digital marketing services Bangalore"
+        - "social media management company in Bengaluru"
+        - "SEO agency in Bengaluru"
+        - "performance marketing agency Bangalore"
+        - "custom software development services"
     schema_types:
       - "WebPage"
       - "Service"
@@ -129,17 +131,18 @@ routes:
 
   - path: "/faq"
     canonical_url: "https://anstat.co.in/faq"
-    title: "Frequently Asked Questions | ANSTAT"
-    meta_description: "Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+    title: "Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ"
+    meta_description: "Clear answers to common questions about ANSTAT's digital marketing, performance advertising, SEO, custom software engineering, AI agents, pricing, and IP ownership in Bengaluru."
     primary_h1: "Frequently Asked Questions"
     primary_intent: "Informational / Commercial Clarification"
     target_keywords:
-      primary: "ANSTAT FAQ and engagement questions"
+      primary: "digital marketing and technology agency FAQ Bengaluru"
       secondary:
+        - "how to choose digital marketing agency Bangalore"
+        - "SEO vs performance marketing difference"
+        - "social media management deliverables"
         - "custom software development pricing and timelines"
         - "who owns code in custom software development"
-        - "how safe is enterprise AI implementation"
-        - "SLA post-launch software maintenance packages"
     schema_types:
       - "WebPage"
       - "FAQPage"
@@ -151,18 +154,21 @@ routes:
 
   - path: "/about"
     canonical_url: "https://anstat.co.in/about"
-    title: "About ANSTAT | Integrated Technology & Growth Solutions"
-    meta_description: "Learn about ANSTAT's background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations."
+    title: "About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru"
+    meta_description: "Learn about ANSTAT's background, multidisciplinary engineering team in Bengaluru, and integrated approach to custom software, AI engineering, digital marketing, and operations."
     primary_h1: "Engineering the Systems That Move Businesses Forward"
     primary_intent: "Navigational / Brand Credibility"
     target_keywords:
-      primary: "about ANSTAT technology and growth solutions"
+      primary: "about ANSTAT technology and digital marketing company Bengaluru"
       secondary:
+        - "digital marketing agency Bangalore team"
+        - "software engineering company Bengaluru"
         - "integrated software and marketing agency team"
-        - "ANSTAT founders and engineering leadership"
+        - "ANSTAT founders and leadership"
         - "India technology growth solutions company"
     schema_types:
       - "AboutPage"
+      - "ProfessionalService"
       - "Organization"
       - "BreadcrumbList"
     indexable: true
@@ -172,19 +178,21 @@ routes:
 
   - path: "/contact"
     canonical_url: "https://anstat.co.in/contact"
-    title: "Contact ANSTAT | Project Enquiries & Technical Consultations"
-    meta_description: "Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT. We review scope and provide actionable technical guidance."
+    title: "Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru"
+    meta_description: "Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru. We review scope and provide actionable technical guidance."
     primary_h1: "Start a Project Conversation"
     primary_intent: "Direct Commercial Enquiry"
     target_keywords:
-      primary: "contact ANSTAT project inquiry"
+      primary: "contact ANSTAT project inquiry Bengaluru"
       secondary:
-        - "hire custom software engineers India"
+        - "hire digital marketing agency Bengaluru"
+        - "hire custom software engineers Bangalore"
         - "custom AI development inquiry"
         - "growth marketing consultation ANSTAT"
         - "ANSTAT contact email and phone"
     schema_types:
       - "ContactPage"
+      - "ProfessionalService"
       - "Organization"
       - "BreadcrumbList"
     indexable: true

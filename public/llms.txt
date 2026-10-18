@@ -5,6 +5,7 @@
 ## Corporate Overview
 - **Legal & Operating Identity**: ANSTAT
 - **Canonical Website**: [https://anstat.co.in/](https://anstat.co.in/)
+- **Headquarters & Primary Market**: Bengaluru (Bangalore), Karnataka, India (Serving clients across India and globally)
 - **Core Positioning**: Integrated systems engineering and commercial growth solutions under a unified technical delivery team.
 - **Operating Aesthetic**: Modern White and Emerald Green, structured, performant, and accessible.
 - **Primary Contact**: [connect@anstat.co.in](mailto:connect@anstat.co.in) | +91 90197 31057
@@ -29,12 +30,13 @@ Applied machine intelligence, autonomous workflows, and domain-specific knowledg
 - [Voice AI & Conversational Agents](https://anstat.co.in/services#ai): Low-latency voice pipelines (STT, LLM, TTS) for automated inbound scheduling and service routing.
 
 ### 3. ANSTAT Growth & Media
-Full-funnel commercial distribution, creative production, and performance marketing that convert qualified prospects into paying clients.
-- [Marketing Strategy & Brand Positioning](https://anstat.co.in/services#growth): ICP definition, competitor differentiation, and multi-channel acquisition roadmaps.
-- [Paid Advertising Campaigns](https://anstat.co.in/services#growth): Targeted performance marketing on Meta, Google Search, and LinkedIn optimized for customer acquisition cost (CAC).
-- [Commercial Videography & Creative Production](https://anstat.co.in/services#growth): High-definition brand documentaries, product reels, and authentic customer stories.
-- [Conversion Rate Optimization (CRO)](https://anstat.co.in/services#growth): Systematic UX auditing, landing page speed improvements, and form conversion optimization.
-- [Attribution Analytics](https://anstat.co.in/services#growth): Server-side tracking, GA4, and pipeline revenue dashboards.
+Full-funnel commercial distribution, creative production, performance marketing, and organic search discoverability that convert qualified prospects into paying clients.
+- [Digital Marketing Strategy & Brand Positioning](https://anstat.co.in/services#growth): ICP definition, competitor differentiation, and multi-channel acquisition roadmaps.
+- [Performance Marketing & Paid Ads](https://anstat.co.in/services#growth): Targeted campaigns across Meta, Google Search, and LinkedIn optimized for customer acquisition cost (CAC) and ROAS.
+- [Commercial Videography & Creative Production](https://anstat.co.in/services#growth): Cinema-grade 4K brand documentaries, product reels, and authentic customer testimonials.
+- [Social Media Management & Content Operations](https://anstat.co.in/services#growth): Monthly editorial calendars, short-form Reels, carousel design, and multi-platform distribution.
+- [Search Engine Optimization (SEO & Local SEO)](https://anstat.co.in/services#growth): Technical SEO, local search visibility for Bengaluru/Bangalore, and Schema.org structured data.
+- [Conversion Rate Optimization (CRO) & Analytics](https://anstat.co.in/services#growth): Systematic UX auditing, high-converting enquiry forms, and privacy-compliant GA4/GTM attribution.
 
 ### 4. ANSTAT Business Solutions
 Operational discipline and commercial management ensuring technology translates into reliable, profitable business execution.

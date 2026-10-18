@@ -6,14 +6,34 @@ import Navbar from "../components/Navbar";
 
 const faqs = [
   {
-    category: "Engagements & Scope",
+    category: "Services & Scope",
     q: "What services does ANSTAT provide?",
-    a: "ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Technology (web applications, custom software, ERP, APIs), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, RAG systems), ANSTAT Growth & Media (marketing strategy, paid advertising, advertisement videography, conversion optimization), and ANSTAT Business Solutions (business analysis, operational process improvement, project management).",
+    a: "ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Growth & Media (digital marketing strategy, performance advertising, commercial videography, social media management, SEO, and conversion analytics), ANSTAT Technology (web applications, custom software, ERP systems, and API integrations), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, and RAG knowledge assistants), and ANSTAT Business Solutions (business analysis, operational process improvement, and implementation management).",
   },
   {
-    category: "Engagements & Scope",
+    category: "Services & Scope",
     q: "Can we engage ANSTAT for a single division, or must we hire all four?",
-    a: "You can engage ANSTAT for a specific standalone service—such as building a custom web portal, producing commercial videography, or implementing an AI workflow assistant—or as an integrated partner managing both engineering and commercial growth.",
+    a: "You can engage ANSTAT for a specific standalone service—such as building a custom web portal, producing commercial videography, managing performance ad campaigns, or implementing an AI workflow assistant—or as an integrated partner managing both engineering and commercial growth.",
+  },
+  {
+    category: "Marketing & Growth",
+    q: "How should a business evaluate a digital marketing agency in Bengaluru?",
+    a: "When evaluating a marketing agency in Bengaluru or India, look for three verifiable signals: First, empirical proof of business outcomes (cost-per-lead, pipeline revenue, conversion rate) rather than vanity metrics like impressions. Second, full-funnel capability—ensuring the team can produce high-quality video/creative assets and handle technical landing page optimization rather than just running ad spend. Third, transparent attribution and reporting so you always know where your qualified customer inquiries originated.",
+  },
+  {
+    category: "Marketing & Growth",
+    q: "What is the difference between SEO and paid performance advertising?",
+    a: "Paid advertising (Meta Ads, Google Search, LinkedIn) delivers immediate pipeline velocity and allows precise audience targeting, but stops generating traffic once the budget is paused. Search Engine Optimization (SEO) builds durable organic discoverability, domain authority, and qualified inbound inquiries over time with compounding returns. Most growing companies benefit from a hybrid approach: using performance ads for immediate pipeline while building SEO foundations for sustainable long-term acquisition.",
+  },
+  {
+    category: "Marketing & Growth",
+    q: "What is included in ANSTAT's social media management and media production?",
+    a: "Our social media and media services combine strategic narrative with cinema-grade creative execution. Deliverables include monthly editorial content calendars, short-form Reels and video production, carousel designs, copywriting, community engagement protocols, and cross-platform distribution across Instagram, LinkedIn, and YouTube.",
+  },
+  {
+    category: "Marketing & Growth",
+    q: "How does ANSTAT track marketing attribution and lead qualification?",
+    a: "We configure clean, privacy-compliant tracking architectures using Google Tag Manager (GTM), GA4, server-side conversion APIs, and custom CRM pipelines. Every enquiry is tagged with acquisition channel and source parameters, allowing leadership to attribute discovery calls, proposals, and closed clients directly to marketing initiatives.",
   },
   {
     category: "Technology & Engineering",
@@ -24,6 +44,11 @@ const faqs = [
     category: "Technology & Engineering",
     q: "How does ANSTAT approach AI implementations safely?",
     a: "We prioritize practical business outcomes and data security. We design systems that run on secure enterprise APIs or private cloud deployments where your proprietary business data is never used to train public foundation models. We implement deterministic fallback logic, structured prompt evaluation, and strict human review checkpoints.",
+  },
+  {
+    category: "Business Consulting",
+    q: "What happens during an ANSTAT operational process analysis and business audit?",
+    a: "Our business solutions team maps your current operational workflows, interviewing key stakeholders to identify manual bottlenecks, communication silos, and software gaps. We then deliver a prioritized optimization roadmap with documented Standard Operating Procedures (SOPs) and recommended software or AI automations.",
   },
   {
     category: "Delivery & Process",
@@ -62,36 +87,36 @@ export default function FAQ() {
   return (
     <div className="bg-white min-h-screen text-[#435149]">
       <Helmet>
-        <title>Frequently Asked Questions | ANSTAT</title>
+        <title>Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ</title>
         <meta
           name="description"
-          content="Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+          content="Clear answers to common questions about ANSTAT's digital marketing, performance advertising, SEO, custom software engineering, AI agents, pricing, and IP ownership in Bengaluru."
         />
         <meta
           name="keywords"
-          content="ANSTAT FAQ, software development questions, AI implementation process, pricing, timeline, agency questions"
+          content="digital marketing agency FAQ Bengaluru, SEO vs paid ads, social media management deliverables, custom software development pricing, AI implementation safety, ANSTAT FAQ"
         />
         <link rel="canonical" href="https://anstat.co.in/faq" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://anstat.co.in/faq" />
-        <meta property="og:title" content="Frequently Asked Questions | ANSTAT" />
+        <meta property="og:title" content="Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ" />
         <meta
           property="og:description"
-          content="Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+          content="Clear answers to common questions about ANSTAT's digital marketing, performance advertising, SEO, custom software engineering, AI agents, pricing, and IP ownership in Bengaluru."
         />
         <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://anstat.co.in/faq" />
-        <meta name="twitter:title" content="Frequently Asked Questions | ANSTAT" />
+        <meta name="twitter:title" content="Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ" />
         <meta
           name="twitter:description"
-          content="Find answers to common questions about ANSTAT's project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership."
+          content="Clear answers to common questions about ANSTAT's digital marketing, performance advertising, SEO, custom software engineering, AI agents, pricing, and IP ownership in Bengaluru."
         />
-        <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
+        <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
         {/* Structured Data: FAQPage & BreadcrumbList */}
         <script type="application/ld+json">

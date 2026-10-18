@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { trackConsultationClick } from "../utils/analytics";
 
 export default function Hero() {
   const scrollToEnquiry = (e) => {
     e.preventDefault();
+    trackConsultationClick("hero_cta");
     const el = document.getElementById("enquiry");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });

@@ -22,20 +22,45 @@ const routePages = [
     route: '/',
     outPath: path.join(outDir, 'index.html'),
     canonical: 'https://anstat.co.in/',
-    title: 'ANSTAT | Technology, AI & Business Growth Solutions',
-    description: 'From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes.',
-    keywords: 'ANSTAT, software development, web applications, custom AI, AI agents, ERP development, digital marketing, business process improvement',
+    title: 'ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru',
+    description: 'Integrated technology and growth solutions company in Bengaluru. We engineer custom software, applied AI solutions, digital marketing campaigns, and business execution for growing companies.',
+    keywords: 'digital marketing agency Bengaluru, software development company Bangalore, custom AI solutions, performance marketing, commercial videography, SEO agency Bengaluru, business consulting, ANSTAT',
     schema: {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "ProfessionalService",
       "@id": "https://anstat.co.in/#organization",
       "name": "ANSTAT",
       "url": "https://anstat.co.in",
       "logo": "https://anstat.co.in/AnLogo.png",
       "image": "https://anstat.co.in/AnLogo.png",
-      "description": "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
+      "description": "Integrated technology and growth solutions company in Bengaluru providing custom software engineering, applied AI, digital marketing, videography, and business consulting.",
       "email": "connect@anstat.co.in",
       "telephone": "+919019731057",
+      "priceRange": "₹₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Bengaluru" },
+        { "@type": "City", "name": "Bangalore" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "knowsAbout": [
+        "Digital Marketing",
+        "Search Engine Optimization (SEO)",
+        "Performance Marketing",
+        "Social Media Management",
+        "Commercial Videography",
+        "Custom Software Development",
+        "Applied Artificial Intelligence",
+        "Autonomous AI Agents",
+        "Business Consulting",
+        "Operations Improvement"
+      ],
       "contactPoint": [
         {
           "@type": "ContactPoint",
@@ -45,10 +70,6 @@ const routePages = [
           "availableLanguage": ["English", "Hindi", "Kannada"]
         }
       ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "India"
-      },
       "sameAs": [
         "https://linkedin.com/company/anstat",
         "https://twitter.com/anstat"
@@ -78,7 +99,7 @@ const routePages = [
             "itemOffered": {
               "@type": "Service",
               "name": "ANSTAT Growth & Media",
-              "description": "Marketing strategy, digital advertising, commercial videography, and analytics."
+              "description": "Digital marketing strategy, performance advertising, commercial videography, social media management, and SEO."
             }
           },
           {
@@ -86,7 +107,7 @@ const routePages = [
             "itemOffered": {
               "@type": "Service",
               "name": "ANSTAT Business Solutions",
-              "description": "Business analysis, operational process improvement, and project management."
+              "description": "Business analysis, operational process improvement, growth strategy, and project management."
             }
           }
         ]
@@ -149,16 +170,16 @@ const routePages = [
     route: '/services',
     outPath: path.join(outDir, 'services', 'index.html'),
     canonical: 'https://anstat.co.in/services',
-    title: 'Services & Solutions Directory | ANSTAT',
-    description: 'Explore ANSTAT\'s four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions.',
-    keywords: 'software development, web applications, custom AI, AI agents, videography, marketing strategy, business process improvement, ERP, ANSTAT',
+    title: 'Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI',
+    description: 'Explore ANSTAT\'s verified service divisions: Digital Marketing, SEO & Videography, Custom Software Engineering, Applied AI & Agents, and Business Consulting in Bengaluru, India.',
+    keywords: 'digital marketing agency Bengaluru, social media management Bangalore, SEO agency Bengaluru, performance marketing, videography, custom software development, AI solutions, business consulting firm Bengaluru',
     schema: {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "@id": "https://anstat.co.in/services#webpage",
       "url": "https://anstat.co.in/services",
-      "name": "Services & Solutions Directory | ANSTAT",
-      "description": "Complete directory of ANSTAT's 24 specialized service deliverables across Custom Software, Applied AI, Growth Media, and Business Solutions.",
+      "name": "Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI",
+      "description": "Complete directory of ANSTAT's 24 specialized service deliverables across Custom Software, Applied AI, Growth Media, and Business Solutions in Bengaluru, India.",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://anstat.co.in/#website",
@@ -220,21 +241,23 @@ const routePages = [
           <section id="growth-media" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
             <span id="growth"></span>
             <h2 class="text-3xl font-bold text-[#18372A] mb-4">3. ANSTAT Growth & Media</h2>
-            <p class="text-base text-[#435149] mb-6">Marketing strategy, cinema-grade commercial videography, and multi-channel paid acquisition.</p>
+            <p class="text-base text-[#435149] mb-6">Digital marketing strategy, cinema-grade commercial videography, performance advertising, social media management, and SEO in Bengaluru.</p>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
-              <li>&bull; <strong>Marketing Strategy:</strong> ICP definition, competitor positioning, and channel pacing.</li>
-              <li>&bull; <strong>Paid Advertising Campaigns:</strong> Performance marketing across Meta, Google Search, and LinkedIn.</li>
-              <li>&bull; <strong>Commercial Videography:</strong> Scriptwriting, on-location 4K filming, and color grading.</li>
-              <li>&bull; <strong>Conversion Optimization (CRO):</strong> Landing page friction audits and multi-step inquiry funnels.</li>
+              <li>&bull; <strong>Digital Marketing Strategy:</strong> Commercial positioning, audience mapping, and acquisition roadmaps.</li>
+              <li>&bull; <strong>Performance Marketing & Paid Ads:</strong> Meta, Google Search & LinkedIn ad campaigns optimized for CPL and ROAS.</li>
+              <li>&bull; <strong>Commercial Videography:</strong> Scriptwriting, on-location 4K filming, product reels, and customer films.</li>
+              <li>&bull; <strong>Social Media Management:</strong> Editorial calendars, short-form reels, carousel assets, and brand design kits.</li>
+              <li>&bull; <strong>Search Engine Optimization (SEO):</strong> Technical SEO audits, local SEO for Bengaluru, and structured Schema architecture.</li>
+              <li>&bull; <strong>Conversion Optimization (CRO):</strong> Landing page UX audits, GA4/GTM setup, and server-side attribution.</li>
             </ul>
           </section>
           <section id="business-solutions" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
             <span id="business"></span>
             <h2 class="text-3xl font-bold text-[#18372A] mb-4">4. ANSTAT Business Solutions</h2>
-            <p class="text-base text-[#435149] mb-6">Operational audits, standard operating procedures, and technical project management.</p>
+            <p class="text-base text-[#435149] mb-6">Operational audits, business growth consulting, standard operating procedures, and technical project management.</p>
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
               <li>&bull; <strong>Business Process Analysis:</strong> Workflow bottleneck mapping and optimization roadmaps.</li>
-              <li>&bull; <strong>Business Development Support:</strong> Lead qualification matrices and CRM pipeline structuring.</li>
+              <li>&bull; <strong>Business Growth Consulting:</strong> Lead qualification matrices, commercial strategy, and CRM pipelines.</li>
               <li>&bull; <strong>Corporate Event Management:</strong> Technical AV production and attendee registration pipelines.</li>
               <li>&bull; <strong>Implementation Management:</strong> Sprint coordination, vendor oversight, and UAT signoff.</li>
             </ul>
@@ -417,23 +440,97 @@ const routePages = [
     route: '/faq',
     outPath: path.join(outDir, 'faq', 'index.html'),
     canonical: 'https://anstat.co.in/faq',
-    title: 'Frequently Asked Questions | ANSTAT',
-    description: 'Find answers to common questions about ANSTAT\'s project scoping, software engineering, AI implementation, timelines, pricing approach, and IP ownership.',
-    keywords: 'ANSTAT FAQ, software development questions, AI implementation process, pricing, timeline, agency questions',
+    title: 'Frequently Asked Questions | ANSTAT | Agency, Tech & Consulting FAQ',
+    description: 'Clear answers to common questions about ANSTAT\'s digital marketing, performance advertising, SEO, custom software engineering, AI agents, pricing, and IP ownership in Bengaluru.',
+    keywords: 'digital marketing agency FAQ Bengaluru, SEO vs paid ads, social media management deliverables, custom software development pricing, AI implementation safety, ANSTAT FAQ',
     schema: {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "@id": "https://anstat.co.in/faq#faqpage",
       "name": "Frequently Asked Questions | ANSTAT",
       "url": "https://anstat.co.in/faq",
-      "description": "Transparent answers to client questions regarding custom software development, AI systems, timelines, intellectual property ownership, and support SLAs.",
+      "description": "Transparent answers to client questions regarding custom software development, digital marketing, AI systems, timelines, intellectual property ownership, and support SLAs.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anstat.co.in/" },
           { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://anstat.co.in/faq" }
         ]
-      }
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does ANSTAT provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Growth & Media (digital marketing strategy, performance advertising, commercial videography, social media management, SEO, and conversion analytics), ANSTAT Technology (web applications, custom software, ERP systems, and API integrations), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, and RAG knowledge assistants), and ANSTAT Business Solutions (business analysis, operational process improvement, and implementation management)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we engage ANSTAT for a single division, or must we hire all four?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can engage ANSTAT for a specific standalone service—such as building a custom web portal, producing commercial videography, managing performance ad campaigns, or implementing an AI workflow assistant—or as an integrated partner managing both engineering and commercial growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How should a business evaluate a digital marketing agency in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When evaluating a marketing agency in Bengaluru or India, look for three verifiable signals: First, empirical proof of business outcomes (cost-per-lead, pipeline revenue, conversion rate) rather than vanity metrics like impressions. Second, full-funnel capability—ensuring the team can produce high-quality video/creative assets and handle technical landing page optimization rather than just running ad spend. Third, transparent attribution and reporting so you always know where your qualified customer inquiries originated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between SEO and paid performance advertising?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paid advertising (Meta Ads, Google Search, LinkedIn) delivers immediate pipeline velocity and allows precise audience targeting, but stops generating traffic once the budget is paused. Search Engine Optimization (SEO) builds durable organic discoverability, domain authority, and qualified inbound inquiries over time with compounding returns. Most growing companies benefit from a hybrid approach: using performance ads for immediate pipeline while building SEO foundations for sustainable long-term acquisition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in ANSTAT's social media management and media production?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our social media and media services combine strategic narrative with cinema-grade creative execution. Deliverables include monthly editorial content calendars, short-form Reels and video production, carousel designs, copywriting, community engagement protocols, and cross-platform distribution across Instagram, LinkedIn, and YouTube."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does ANSTAT track marketing attribution and lead qualification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We configure clean, privacy-compliant tracking architectures using Google Tag Manager (GTM), GA4, server-side conversion APIs, and custom CRM pipelines. Every enquiry is tagged with acquisition channel and source parameters, allowing leadership to attribute discovery calls, proposals, and closed clients directly to marketing initiatives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What tech stack do you use for web and custom software development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We select modern, maintainable technologies that avoid unnecessary vendor lock-in. For web applications, we primarily use React, Vite, Next.js, TypeScript, and modern Tailwind CSS. For backend APIs and data processing, we rely on Node.js, Python (FastAPI/Django), PostgreSQL, and cloud services (AWS, Google Cloud, Supabase)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who owns the code, intellectual property, and media assets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we begin a project conversation with ANSTAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submit an inquiry via our project form or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to understand your objectives and audit technical requirements."
+          }
+        }
+      ]
     },
     bodyHtml: `
       <header class="py-6 px-4 border-b border-[#E1E9E2]">
@@ -456,24 +553,32 @@ const routePages = [
         <div class="text-center mb-16">
           <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Direct Answers</span>
           <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Frequently Asked Questions</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">Honest answers to commercial and technical client questions.</p>
+          <p class="text-lg text-[#435149] leading-relaxed">Honest answers to commercial and technical client questions across digital marketing, software, AI, and business consulting in Bengaluru.</p>
         </div>
         <div class="space-y-8">
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">What services does ANSTAT provide?</h2>
-            <p class="text-sm text-[#435149]">ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Technology (web applications, custom software, ERP, APIs), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, RAG systems), ANSTAT Growth & Media (marketing strategy, paid advertising, advertisement videography, conversion optimization), and ANSTAT Business Solutions (business analysis, operational process improvement, project management).</p>
+            <p class="text-sm text-[#435149]">ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Growth & Media (digital marketing strategy, performance advertising, commercial videography, social media management, SEO, and conversion analytics), ANSTAT Technology (web applications, custom software, ERP systems, and API integrations), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, and RAG knowledge assistants), and ANSTAT Business Solutions (business analysis, operational process improvement, and implementation management).</p>
           </div>
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">Can we engage ANSTAT for a single division?</h2>
-            <p class="text-sm text-[#435149]">Yes. You can engage ANSTAT for a specific standalone service—such as building a custom web portal, producing commercial videography, or implementing an AI workflow assistant—or as an integrated partner managing both engineering and commercial growth.</p>
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">How should a business evaluate a digital marketing agency in Bengaluru?</h2>
+            <p class="text-sm text-[#435149]">When evaluating a marketing agency in Bengaluru or India, look for three verifiable signals: First, empirical proof of business outcomes (cost-per-lead, pipeline revenue, conversion rate) rather than vanity metrics like impressions. Second, full-funnel capability—ensuring the team can produce high-quality video/creative assets and handle technical landing page optimization rather than just running ad spend. Third, transparent attribution and reporting so you always know where your qualified customer inquiries originated.</p>
           </div>
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">Who owns the code and intellectual property?</h2>
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">What is the difference between SEO and paid performance advertising?</h2>
+            <p class="text-sm text-[#435149]">Paid advertising (Meta Ads, Google Search, LinkedIn) delivers immediate pipeline velocity and allows precise audience targeting, but stops generating traffic once the budget is paused. Search Engine Optimization (SEO) builds durable organic discoverability, domain authority, and qualified inbound inquiries over time with compounding returns. Most growing companies benefit from a hybrid approach: using performance ads for immediate pipeline while building SEO foundations for sustainable long-term acquisition.</p>
+          </div>
+          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">What is included in ANSTAT's social media management and media production?</h2>
+            <p class="text-sm text-[#435149]">Our social media and media services combine strategic narrative with cinema-grade creative execution. Deliverables include monthly editorial content calendars, short-form Reels and video production, carousel designs, copywriting, community engagement protocols, and cross-platform distribution across Instagram, LinkedIn, and YouTube.</p>
+          </div>
+          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">How does ANSTAT track marketing attribution and lead qualification?</h2>
+            <p class="text-sm text-[#435149]">We configure clean, privacy-compliant tracking architectures using Google Tag Manager (GTM), GA4, server-side conversion APIs, and custom CRM pipelines. Every enquiry is tagged with acquisition channel and source parameters, allowing leadership to attribute discovery calls, proposals, and closed clients directly to marketing initiatives.</p>
+          </div>
+          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">Who owns the code, intellectual property, and media assets?</h2>
             <p class="text-sm text-[#435149]">You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">How safe is enterprise AI implementation?</h2>
-            <p class="text-sm text-[#435149]">We prioritize practical business outcomes and data security. We design systems that run on secure enterprise APIs or private cloud deployments where your proprietary business data is never used to train public foundation models.</p>
           </div>
           <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
             <h2 class="text-xl font-bold text-[#18372A] mb-2">How do we begin a project conversation with ANSTAT?</h2>
@@ -487,21 +592,47 @@ const routePages = [
     route: '/about',
     outPath: path.join(outDir, 'about', 'index.html'),
     canonical: 'https://anstat.co.in/about',
-    title: 'About ANSTAT | Integrated Technology & Growth Solutions',
-    description: 'Learn about ANSTAT\'s background, multidisciplinary team, and practical approach to custom software, AI engineering, media, and business operations.',
-    keywords: 'about ANSTAT, software engineering company, AI development partner, business growth solutions, India technology agency',
+    title: 'About ANSTAT | Integrated Technology & Growth Solutions | Bengaluru',
+    description: 'Learn about ANSTAT\'s background, multidisciplinary engineering team in Bengaluru, and integrated approach to custom software, AI engineering, digital marketing, and operations.',
+    keywords: 'about ANSTAT, digital marketing agency Bengaluru, software engineering company, AI development partner, business growth solutions, India technology agency',
     schema: {
       "@context": "https://schema.org",
       "@type": "AboutPage",
       "@id": "https://anstat.co.in/about#webpage",
       "name": "About ANSTAT",
       "url": "https://anstat.co.in/about",
-      "description": "Background, multidisciplinary team, and engineering principles behind ANSTAT's integrated software, AI, media, and business systems.",
+      "description": "Background, multidisciplinary team, and engineering principles behind ANSTAT's integrated software, AI, media, and business systems in Bengaluru, Karnataka, India.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anstat.co.in/" },
           { "@type": "ListItem", "position": 2, "name": "About", "item": "https://anstat.co.in/about" }
+        ]
+      },
+      "mainEntity": {
+        "@type": "ProfessionalService",
+        "@id": "https://anstat.co.in/#organization",
+        "name": "ANSTAT",
+        "url": "https://anstat.co.in",
+        "logo": "https://anstat.co.in/AnLogo.png",
+        "description": "Integrated technology and growth solutions company providing software development, applied AI, media production, and business operations.",
+        "email": "connect@anstat.co.in",
+        "telephone": "+919019731057",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Bengaluru" },
+          { "@type": "City", "name": "Bangalore" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" },
+          { "@type": "Country", "name": "India" }
+        ],
+        "sameAs": [
+          "https://linkedin.com/company/anstat",
+          "https://twitter.com/anstat"
         ]
       }
     },
@@ -526,7 +657,7 @@ const routePages = [
         <header class="text-center mb-16 border-b border-[#E1E9E2] pb-14">
           <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">About ANSTAT</span>
           <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Engineering the Systems That Move Businesses Forward</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">ANSTAT unites software engineers, artificial intelligence researchers, media producers, and operational strategists under one roof.</p>
+          <p class="text-lg text-[#435149] leading-relaxed">Headquartered in Bengaluru, Karnataka, ANSTAT unites software engineers, artificial intelligence researchers, media producers, and operational strategists under one roof.</p>
         </header>
         <div class="space-y-10 text-[#435149] leading-relaxed">
           <div>
@@ -544,8 +675,8 @@ const routePages = [
             </div>
           </div>
           <div class="pt-8 border-t border-[#E1E9E2]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">Direct Contact</h2>
-            <p class="text-sm">Email: <a href="mailto:connect@anstat.co.in" class="text-[#16804A] font-bold">connect@anstat.co.in</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
+            <h2 class="text-xl font-bold text-[#18372A] mb-2">Headquarters & Direct Contact</h2>
+            <p class="text-sm">Bengaluru, Karnataka, India | Email: <a href="mailto:connect@anstat.co.in" class="text-[#16804A] font-bold">connect@anstat.co.in</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
           </div>
         </div>
       </main>
@@ -555,16 +686,16 @@ const routePages = [
     route: '/contact',
     outPath: path.join(outDir, 'contact', 'index.html'),
     canonical: 'https://anstat.co.in/contact',
-    title: 'Contact ANSTAT | Project Enquiries & Technical Consultations',
-    description: 'Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT. We review scope and provide actionable technical guidance.',
-    keywords: 'contact ANSTAT, software inquiry, hire AI engineers, project scoping, technical consultation, ANSTAT email',
+    title: 'Contact ANSTAT | Project Enquiries & Technical Consultations | Bengaluru',
+    description: 'Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru. Schedule a consultation or reach our desk.',
+    keywords: 'contact ANSTAT Bengaluru, digital marketing inquiry Bangalore, software inquiry, hire AI engineers, project scoping, technical consultation, ANSTAT email',
     schema: {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       "@id": "https://anstat.co.in/contact#webpage",
       "url": "https://anstat.co.in/contact",
       "name": "Contact ANSTAT",
-      "description": "Official project inquiry and technical consultation destination for ANSTAT.",
+      "description": "Official project inquiry and technical consultation destination for ANSTAT in Bengaluru, Karnataka, India.",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://anstat.co.in/#website",
@@ -589,20 +720,39 @@ const routePages = [
         ]
       },
       "mainEntity": {
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         "@id": "https://anstat.co.in/#organization",
         "name": "ANSTAT",
         "url": "https://anstat.co.in",
         "logo": "https://anstat.co.in/AnLogo.png",
         "email": "connect@anstat.co.in",
         "telephone": "+919019731057",
+        "priceRange": "₹₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Bengaluru" },
+          { "@type": "City", "name": "Bangalore" },
+          { "@type": "AdministrativeArea", "name": "Karnataka" },
+          { "@type": "Country", "name": "India" }
+        ],
         "contactPoint": [
           {
             "@type": "ContactPoint",
             "telephone": "+919019731057",
             "contactType": "sales",
             "email": "connect@anstat.co.in",
-            "availableLanguage": ["English", "Hindi", "Kannada"]
+            "availableLanguage": ["English", "Hindi", "Kannada"],
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
           }
         ]
       }
@@ -626,7 +776,7 @@ const routePages = [
       <main class="max-w-4xl mx-auto py-16 px-4">
         <header class="text-center mb-12">
           <h1 class="text-4xl font-extrabold text-[#18372A] tracking-tight mb-4">Start a Project Conversation</h1>
-          <p class="text-lg text-[#435149]">Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT.</p>
+          <p class="text-lg text-[#435149]">Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru.</p>
         </header>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
@@ -637,12 +787,12 @@ const routePages = [
           <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
             <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Phone & WhatsApp</h2>
             <a href="tel:+919019731057" class="text-lg font-bold text-[#18372A]">+91 90197 31057</a>
-            <p class="text-xs text-[#68766E] mt-1">Mon - Fri, 9:00 AM - 6:00 PM IST</p>
+            <p class="text-xs text-[#68766E] mt-1">Mon - Fri, 9:00 AM - 6:00 PM IST (Bengaluru, India)</p>
           </div>
         </div>
         <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center">
           <h2 class="text-2xl font-bold text-[#18372A] mb-4">Project Inquiry Form</h2>
-          <p class="text-sm text-[#435149] mb-6">Our engineering desk reviews your scope and responds within one business day.</p>
+          <p class="text-sm text-[#435149] mb-6">Our engineering and growth desk in Bengaluru reviews your scope and responds within one business day.</p>
           <a href="mailto:connect@anstat.co.in" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: connect@anstat.co.in</a>
         </div>
       </main>

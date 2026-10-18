@@ -14,11 +14,15 @@
   SetEnvIfNoCase User-Agent "YandexBot"           allow_bot
   SetEnvIfNoCase User-Agent "facebot"             allow_bot
   SetEnvIfNoCase User-Agent "ia_archiver"         allow_bot
+  SetEnvIfNoCase User-Agent "OAI-SearchBot"      allow_bot
   SetEnvIfNoCase User-Agent "GPTBot"              allow_bot
   SetEnvIfNoCase User-Agent "ChatGPT-User"        allow_bot
   SetEnvIfNoCase User-Agent "PerplexityBot"       allow_bot
   SetEnvIfNoCase User-Agent "anthropic-ai"        allow_bot
   SetEnvIfNoCase User-Agent "ClaudeBot"           allow_bot
+  SetEnvIfNoCase User-Agent "Claude-SearchBot"    allow_bot
+  SetEnvIfNoCase User-Agent "Google-Extended"     allow_bot
+  SetEnvIfNoCase User-Agent "Meta-ExternalAgent"  allow_bot
   SetEnvIfNoCase User-Agent "CCBot"               allow_bot
   SetEnvIfNoCase User-Agent "Applebot"            allow_bot
 </IfModule>

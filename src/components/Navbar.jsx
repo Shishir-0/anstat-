@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackConsultationClick } from "../utils/analytics";
 
 const divisions = [
   {
@@ -70,6 +71,7 @@ export default function Navbar() {
   }, []);
 
   const handleEnquiryClick = (e) => {
+    trackConsultationClick("navbar_cta");
     if (location.pathname === "/") {
       const el = document.getElementById("enquiry");
       if (el) {

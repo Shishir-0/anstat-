@@ -50,15 +50,15 @@ const divisions = [
   {
     id: "growth",
     name: "ANSTAT Growth & Media",
-    headline: "Marketing Campaigns, Creative Videography & Acquisition",
+    headline: "Marketing Campaigns, Performance Ads, Videography & SEO",
     description:
-      "We pair technical capability with creative production to drive qualified enquiries. From high-converting digital advertising campaigns to commercial video production, we build the media assets that convert prospective clients.",
+      "We pair technical capability with creative production to drive qualified enquiries. From high-converting performance advertising and social media management to commercial videography and SEO, we build the media assets that convert prospective clients.",
     deliverables: [
-      "Strategic digital marketing & positioning",
+      "Strategic digital marketing & commercial positioning",
       "Paid advertising campaigns (Meta, Google, LinkedIn)",
       "Commercial advertisement videography & editing",
-      "Brand creative direction & visual assets",
-      "Conversion tracking & marketing attribution",
+      "Social media management & brand creative direction",
+      "Search Engine Optimization (SEO) & attribution analytics",
     ],
     ctaText: "Explore Growth & Media",
     ctaLink: "/services#growth-media",
@@ -78,7 +78,7 @@ const divisions = [
     deliverables: [
       "End-to-end business process analysis & audits",
       "Operational workflow mapping & optimization",
-      "Business development support & go-to-market execution",
+      "Business growth consulting & development support",
       "Corporate event management & coordination",
       "Project implementation management & QA oversight",
     ],

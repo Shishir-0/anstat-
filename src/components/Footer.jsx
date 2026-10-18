@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackEmailClick, trackPhoneClick } from "../utils/analytics";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-[#435149] max-w-sm leading-relaxed mb-6">
-              ANSTAT is an integrated technology and growth solutions company.
+              ANSTAT is an integrated technology and growth solutions company in Bengaluru.
               We engineer custom software, applied artificial intelligence,
               creative marketing campaigns, and operational business solutions
               that deliver practical commercial outcomes.
@@ -28,6 +29,7 @@ export default function Footer() {
                 <strong className="text-[#18372A]">Email:</strong>{" "}
                 <a
                   href="mailto:connect@anstat.co.in"
+                  onClick={() => trackEmailClick("footer_email")}
                   className="text-[#16804A] hover:underline"
                 >
                   connect@anstat.co.in
@@ -37,13 +39,14 @@ export default function Footer() {
                 <strong className="text-[#18372A]">Phone:</strong>{" "}
                 <a
                   href="tel:+919019731057"
+                  onClick={() => trackPhoneClick("footer_phone")}
                   className="text-[#16804A] hover:underline"
                 >
                   +91 90197 31057
                 </a>
               </div>
               <div>
-                <strong className="text-[#18372A]">Location:</strong> India
+                <strong className="text-[#18372A]">Headquarters:</strong> Bengaluru, Karnataka, India
               </div>
             </div>
           </div>

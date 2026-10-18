@@ -70,44 +70,71 @@ const GlobalLayout = ({ children }) => (
 const Home = () => (
   <main className="relative flex-grow">
     <Helmet>
-      <title>ANSTAT | Technology, AI & Business Growth Solutions</title>
+      <title>ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru</title>
       <meta
         name="description"
-        content="From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes."
+        content="Integrated technology and growth solutions company in Bengaluru. We engineer custom software, applied AI solutions, digital marketing campaigns, and business execution for growing companies."
       />
       <meta
         name="keywords"
-        content="ANSTAT, software development, web applications, custom AI, AI agents, ERP development, digital marketing, business process improvement"
+        content="digital marketing agency Bengaluru, software development company Bangalore, custom AI solutions, performance marketing, commercial videography, SEO agency Bengaluru, business consulting, ANSTAT"
       />
       <link rel="canonical" href="https://anstat.co.in/" />
 
-      {/* Structured Data: Organization */}
+      {/* Structured Data: Organization & LocalBusiness */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "ProfessionalService",
           "@id": "https://anstat.co.in/#organization",
           "name": "ANSTAT",
           "url": "https://anstat.co.in",
           "logo": "https://anstat.co.in/AnLogo.png",
           "image": "https://anstat.co.in/AnLogo.png",
           "description":
-            "Integrated technology and growth solutions company providing custom software, AI engineering, growth marketing, and operational business solutions.",
+            "Integrated technology and growth solutions company in Bengaluru providing custom software engineering, applied AI, digital marketing, videography, and business consulting.",
           "email": "connect@anstat.co.in",
           "telephone": "+919019731057",
+          "priceRange": "₹₹₹",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Bengaluru" },
+            { "@type": "City", "name": "Bangalore" },
+            { "@type": "AdministrativeArea", "name": "Karnataka" },
+            { "@type": "Country", "name": "India" }
+          ],
+          "knowsAbout": [
+            "Digital Marketing",
+            "Search Engine Optimization (SEO)",
+            "Performance Marketing",
+            "Social Media Management",
+            "Commercial Videography",
+            "Custom Software Development",
+            "Applied Artificial Intelligence",
+            "Autonomous AI Agents",
+            "Business Consulting",
+            "Operations Improvement"
+          ],
           "contactPoint": [
             {
               "@type": "ContactPoint",
               "telephone": "+919019731057",
               "contactType": "sales",
               "email": "connect@anstat.co.in",
-              "availableLanguage": ["English", "Hindi", "Kannada"]
+              "availableLanguage": ["English", "Hindi", "Kannada"],
+              "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
             }
           ],
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "India"
-          },
           "sameAs": [
             "https://linkedin.com/company/anstat",
             "https://twitter.com/anstat"
@@ -137,7 +164,7 @@ const Home = () => (
                 "itemOffered": {
                   "@type": "Service",
                   "name": "ANSTAT Growth & Media",
-                  "description": "Marketing strategy, digital advertising, commercial videography, and analytics."
+                  "description": "Digital marketing strategy, performance advertising, commercial videography, social media management, and SEO."
                 }
               },
               {
@@ -145,7 +172,7 @@ const Home = () => (
                 "itemOffered": {
                   "@type": "Service",
                   "name": "ANSTAT Business Solutions",
-                  "description": "Business analysis, operational process improvement, and project management."
+                  "description": "Business analysis, operational process improvement, growth strategy, and project management."
                 }
               }
             ]
@@ -173,11 +200,11 @@ const Home = () => (
       <meta property="og:url" content="https://anstat.co.in/" />
       <meta
         property="og:title"
-        content="ANSTAT | Technology, AI & Business Growth Solutions"
+        content="ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru"
       />
       <meta
         property="og:description"
-        content="From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes."
+        content="Integrated technology and growth solutions company in Bengaluru. We engineer custom software, applied AI solutions, digital marketing campaigns, and business execution for growing companies."
       />
       <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
@@ -187,11 +214,11 @@ const Home = () => (
       <meta name="twitter:url" content="https://anstat.co.in/" />
       <meta
         name="twitter:title"
-        content="ANSTAT | Technology, AI & Business Growth Solutions"
+        content="ANSTAT | Technology, AI & Business Growth Solutions | Bengaluru"
       />
       <meta
         name="twitter:description"
-        content="From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes."
+        content="Integrated technology and growth solutions company in Bengaluru. We engineer custom software, applied AI solutions, digital marketing campaigns, and business execution for growing companies."
       />
       <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
     </Helmet>

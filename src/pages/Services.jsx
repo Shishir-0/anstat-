@@ -160,14 +160,14 @@ const divisions = [
     aliasId: "growth",
     badge: "Division 03",
     name: "ANSTAT Growth & Media",
-    headline: "Marketing Strategy, Campaign Execution & Advertisement Videography",
+    headline: "Marketing Strategy, Performance Campaigns, Videography & SEO",
     overview:
-      "We connect technology with commercial distribution. Our media and marketing division produces the creative assets, videography, and multi-channel advertising campaigns needed to generate qualified inquiries and acquire paying clients.",
+      "We connect technology with commercial distribution. Our media and marketing division in Bengaluru produces the creative assets, commercial videography, social media management, SEO, and multi-channel advertising campaigns needed to generate qualified inquiries and acquire paying clients.",
     services: [
       {
-        title: "Marketing Strategy & Positioning",
+        title: "Digital Marketing Strategy & Growth Positioning",
         description:
-          "Comprehensive go-to-market strategies that clearly articulate your value proposition, identify high-intent target audiences, and define sustainable acquisition channels.",
+          "Comprehensive go-to-market strategies and commercial positioning tailored for ambitious businesses in Bengaluru and broader markets, aligning brand messaging with high-intent customer acquisition.",
         deliverables: [
           "Market positioning & competitor audit",
           "Ideal customer profile (ICP) definitions",
@@ -175,9 +175,9 @@ const divisions = [
         ],
       },
       {
-        title: "Targeted Advertising Campaigns",
+        title: "Performance Marketing & Paid Advertising",
         description:
-          "End-to-end paid advertising management across Meta (Instagram/Facebook), Google Search & Display, and LinkedIn, optimized for cost-per-lead and pipeline velocity.",
+          "End-to-end paid advertising management across Meta (Instagram/Facebook), Google Search & Display, and LinkedIn, optimized for cost-per-lead, return on ad spend (ROAS), and pipeline velocity.",
         deliverables: [
           "Ad campaign structuring & audience segmentation",
           "A/B creative & copy testing",
@@ -185,9 +185,9 @@ const divisions = [
         ],
       },
       {
-        title: "Advertisement Videography & Production",
+        title: "Advertisement Videography & Commercial Production",
         description:
-          "High-definition commercial video production, product reels, and customer story films that capture attention and build commercial credibility.",
+          "High-definition commercial video production, product reels, and customer story films that capture attention, build commercial credibility, and drive campaign conversions.",
         deliverables: [
           "Scriptwriting, storyboarding & creative direction",
           "On-location or studio professional filming",
@@ -195,33 +195,33 @@ const divisions = [
         ],
       },
       {
-        title: "Brand Campaigns & Digital Presence",
+        title: "Social Media Management & Brand Campaigns",
         description:
-          "Cohesive digital identities, visual assets, and cross-platform creative guidelines that ensure your business looks authoritative and consistent across every touchpoint.",
+          "Strategic social media management, editorial content planning, and creative brand collateral that maintain an engaging, professional presence across Instagram, LinkedIn, and digital channels.",
         deliverables: [
-          "Brand style guides & color typography systems",
-          "Social media creative kits & pitch presentation decks",
-          "Interactive digital collateral",
+          "Social media content calendar & scheduling",
+          "Creative video reels, carousels & graphics",
+          "Brand style guides & digital collateral kits",
         ],
       },
       {
-        title: "Website Conversion Improvement (CRO)",
+        title: "Search Engine Optimization (SEO) & Web Discoverability",
         description:
-          "Iterative UX audits, headline testing, and funnel adjustments that maximize the percentage of website visitors who convert into qualified consultations.",
+          "Technical SEO audits, on-page semantic architecture, local SEO for Bengaluru and target markets, and structured Schema markup to maximize organic search visibility and AI engine retrieval.",
         deliverables: [
-          "Heatmap analysis & user friction audit",
-          "Landing page conversion optimization",
-          "Form simplification & user flow redesign",
+          "Technical SEO & Core Web Vitals audits",
+          "Local SEO & Google Business Profile alignment",
+          "Schema.org structured data & search query mapping",
         ],
       },
       {
-        title: "Marketing Analytics & Attribution Tracking",
+        title: "Conversion Rate Optimization (CRO) & Marketing Analytics",
         description:
-          "Clean analytics setup that tracks where your best inquiries originate, measuring actual customer acquisition cost and marketing ROI without data discrepancies.",
+          "Iterative UX audits, landing page testing, and clean analytics tracking (GA4/GTM) to track where your best inquiries originate, measuring actual customer acquisition cost without discrepancies.",
         deliverables: [
-          "Google Tag Manager & GA4 configuration",
-          "Server-side conversion API tracking",
-          "Executive lead & revenue dashboards",
+          "Landing page conversion optimization & UX audits",
+          "Google Tag Manager & GA4 conversion tracking",
+          "Executive lead & revenue attribution dashboards",
         ],
       },
     ],
@@ -469,34 +469,34 @@ export default function Services() {
   return (
     <div className="bg-white min-h-screen text-[#435149]">
       <Helmet>
-        <title>Services & Solutions Directory | ANSTAT</title>
+        <title>Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI</title>
         <meta
           name="description"
-          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+          content="Explore ANSTAT's verified service divisions: Digital Marketing, SEO & Videography, Custom Software Engineering, Applied AI & Agents, and Business Consulting in Bengaluru, India."
         />
         <meta
           name="keywords"
-          content="software development, web applications, custom AI, AI agents, videography, marketing strategy, business process improvement, ERP, ANSTAT"
+          content="digital marketing agency Bengaluru, social media management Bangalore, SEO agency Bengaluru, performance marketing, videography, custom software development, AI solutions, business consulting firm Bengaluru"
         />
         <link rel="canonical" href="https://anstat.co.in/services" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://anstat.co.in/services" />
-        <meta property="og:title" content="Services & Solutions Directory | ANSTAT" />
+        <meta property="og:title" content="Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI" />
         <meta
           property="og:description"
-          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+          content="Explore ANSTAT's verified service divisions: Digital Marketing, SEO & Videography, Custom Software Engineering, Applied AI & Agents, and Business Consulting in Bengaluru, India."
         />
         <meta property="og:image" content="https://anstat.co.in/AnLogo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://anstat.co.in/services" />
-        <meta name="twitter:title" content="Services & Solutions Directory | ANSTAT" />
+        <meta name="twitter:title" content="Services & Solutions Directory | ANSTAT | Digital Marketing, Software & AI" />
         <meta
           name="twitter:description"
-          content="Explore ANSTAT's four integrated service divisions: Technology & Custom Software, Applied AI & Agents, Growth & Videography, and Business Solutions."
+          content="Explore ANSTAT's verified service divisions: Digital Marketing, SEO & Videography, Custom Software Engineering, Applied AI & Agents, and Business Consulting in Bengaluru, India."
         />
         <meta name="twitter:image" content="https://anstat.co.in/AnLogo.png" />
 
