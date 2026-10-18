@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { trackConsultationClick } from "../utils/analytics";
 
@@ -43,12 +42,7 @@ export default function Hero() {
         </p>
 
         {/* Primary & Secondary Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="#enquiry"
             onClick={scrollToEnquiry}
@@ -74,15 +68,10 @@ export default function Hero() {
           >
             Explore Our Work
           </Link>
-        </motion.div>
+        </div>
 
         {/* Four Division Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="pt-8 border-t border-[#E1E9E2]"
-        >
+        <div className="pt-8 border-t border-[#E1E9E2]">
           <p className="text-xs uppercase tracking-widest font-semibold text-[#68766E] mb-4">
             Unified Solutions Across Four Dedicated Divisions
           </p>
@@ -102,7 +91,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

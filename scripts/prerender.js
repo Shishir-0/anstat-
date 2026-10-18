@@ -17,6 +17,59 @@ if (!fs.existsSync(baseHtmlPath)) {
 
 const baseTemplate = fs.readFileSync(baseHtmlPath, 'utf8');
 
+const sharedNavbarHtml = (activeRoute = '/') => `
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-sm border-b border-[#E1E9E2]/60 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16804A] rounded-lg" aria-label="ANSTAT Home">
+          <img src="/AnLogo.png" alt="ANSTAT Logo" width="44" height="44" fetchpriority="high" class="h-9 md:h-11 w-auto object-contain" />
+          <div class="flex flex-col">
+            <span class="font-extrabold text-lg md:text-xl text-[#18372A] tracking-tight leading-none">ANSTAT</span>
+            <span class="text-[10px] uppercase font-semibold text-[#68766E] tracking-widest mt-0.5">Technology & Growth</span>
+          </div>
+        </a>
+        <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
+          <a href="/" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">Home</a>
+          <a href="/services" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/services' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">Services</a>
+          <a href="/case-studies" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/case-studies' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">Case Studies</a>
+          <a href="/research/ai-startup-architecture" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute.startsWith('/research') ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">Research</a>
+          <a href="/about" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/about' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">About</a>
+          <a href="/faq" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/faq' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">FAQ</a>
+          <a href="/contact" class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${activeRoute === '/contact' ? 'text-[#16804A] bg-[#E8F3EB]' : 'text-[#435149] hover:text-[#18372A]'}">Contact</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="/#enquiry" class="btn-primary text-xs py-2.5 px-5 shadow-xs">
+            <span>Discuss a Project</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+`;
+
+const sharedFooterHtml = `
+  <footer class="bg-white border-t border-[#E1E9E2] text-xs text-[#68766E] py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" class="h-8 w-auto object-contain" />
+        <div>
+          <span class="font-extrabold text-base text-[#18372A] tracking-tight">ANSTAT</span>
+          <p class="text-[11px] text-[#68766E]">Technology, AI & Business Growth Solutions &bull; Bengaluru, India</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6 text-[#435149] font-medium">
+        <a href="/services" class="hover:text-[#16804A]">Services</a>
+        <a href="/case-studies" class="hover:text-[#16804A]">Case Studies</a>
+        <a href="/research/ai-startup-architecture" class="hover:text-[#16804A]">Research</a>
+        <a href="/about" class="hover:text-[#16804A]">About</a>
+        <a href="/faq" class="hover:text-[#16804A]">FAQ</a>
+        <a href="/contact" class="hover:text-[#16804A]">Contact</a>
+      </div>
+      <p>&copy; ${new Date().getFullYear()} ANSTAT. All rights reserved.</p>
+    </div>
+  </footer>
+`;
+
 const routePages = [
   {
     route: '/',
@@ -114,56 +167,74 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Integrated Solutions Partner</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Technology. Intelligence. Growth.</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">ANSTAT unites custom software development, applied artificial intelligence, commercial videography, and operational business solutions under a single engineering delivery team.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT Technology</h2>
-            <p class="text-sm text-[#435149] mb-4">React/Vite web apps, bespoke backends, custom ERP modules, and secure third-party API integrations.</p>
-            <a href="/services#technology" class="text-sm font-bold text-[#16804A]">Explore Technology &rarr;</a>
+      ${sharedNavbarHtml('/')}
+      <main class="relative flex-grow">
+        <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F4F7F4]/70 via-white to-white overflow-hidden">
+          <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="mb-6 inline-flex items-center gap-2 bg-[#E8F3EB] border border-[#C4DFC9] px-4 py-1.5 rounded-full">
+              <span class="w-2 h-2 rounded-full bg-[#16804A] animate-pulse"></span>
+              <span class="text-[#16804A] text-xs font-bold tracking-[0.2em] uppercase">ANSTAT | Technology, AI and Business Growth</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#18372A] tracking-tight leading-[1.08] mb-6">
+              Technology. Intelligence. <br class="hidden sm:block" />
+              <span class="text-[#16804A]">Growth.</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-[#435149] max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+              From custom software and intelligent AI solutions to marketing campaigns and business execution, ANSTAT helps organizations turn ideas into practical outcomes.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+              <a href="#enquiry" class="btn-primary w-full sm:w-auto text-base py-3.5 px-8 shadow-md">
+                <span>Discuss a Project</span>
+                <svg class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h8.638L11.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 11-1.04-1.08l3.158-2.96H5.75A.75.75 0 015 10z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+              <a href="/case-studies" class="btn-secondary w-full sm:w-auto text-base py-3.5 px-8">
+                Explore Our Work
+              </a>
+            </div>
+            <div class="pt-8 border-t border-[#E1E9E2]">
+              <p class="text-xs uppercase tracking-widest font-semibold text-[#68766E] mb-4">
+                Unified Solutions Across Four Dedicated Divisions
+              </p>
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
+                <div class="bg-white/80 backdrop-blur-sm border border-[#E1E9E2] rounded-xl p-3 text-left shadow-xs">
+                  <div class="text-xs font-bold text-[#18372A]">ANSTAT Technology</div>
+                  <div class="text-[11px] text-[#68766E] mt-0.5">Software & Web Platforms</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm border border-[#E1E9E2] rounded-xl p-3 text-left shadow-xs">
+                  <div class="text-xs font-bold text-[#18372A]">ANSTAT AI</div>
+                  <div class="text-[11px] text-[#68766E] mt-0.5">Agents & LLM Automation</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm border border-[#E1E9E2] rounded-xl p-3 text-left shadow-xs">
+                  <div class="text-xs font-bold text-[#18372A]">ANSTAT Growth & Media</div>
+                  <div class="text-[11px] text-[#68766E] mt-0.5">Campaigns & Production</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm border border-[#E1E9E2] rounded-xl p-3 text-left shadow-xs">
+                  <div class="text-xs font-bold text-[#18372A]">ANSTAT Business Solutions</div>
+                  <div class="text-[11px] text-[#68766E] mt-0.5">Process & Execution</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT AI</h2>
-            <p class="text-sm text-[#435149] mb-4">Autonomous agent workflows, enterprise RAG knowledge assistants, and private cloud model deployments.</p>
-            <a href="/services#ai" class="text-sm font-bold text-[#16804A]">Explore AI Solutions &rarr;</a>
+        </section>
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-[#F4F7F4]/60">
+          <div class="max-w-7xl mx-auto text-center mb-16">
+            <div class="badge-emerald mb-3">Enterprise Capabilities</div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-[#18372A] tracking-tight mb-5">Built for Tangible Business Impact</h2>
+            <p class="text-base sm:text-lg text-[#435149] max-w-2xl mx-auto">We engineer custom software systems, deploy practical AI automation, produce commercial videography, and streamline operational workflows.</p>
           </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT Growth & Media</h2>
-            <p class="text-sm text-[#435149] mb-4">Go-to-market strategy, targeted paid ad campaigns, 4K commercial videography, and conversion optimization.</p>
-            <a href="/services#growth-media" class="text-sm font-bold text-[#16804A]">Explore Growth Media &rarr;</a>
+        </section>
+        <section id="enquiry" class="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E1E9E2]">
+          <div class="max-w-4xl mx-auto text-center">
+            <div class="badge-emerald mb-3">Project Enquiries</div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-[#18372A] tracking-tight mb-4">Discuss Your Project</h2>
+            <p class="text-base sm:text-lg text-[#435149] max-w-xl mx-auto mb-8">Share your requirements and our engineering leads in Bengaluru will audit your technical scope within 24 hours.</p>
+            <a href="mailto:connect@anstat.co.in" class="btn-primary text-base py-3.5 px-8">Email: connect@anstat.co.in</a>
           </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">ANSTAT Business Solutions</h2>
-            <p class="text-sm text-[#435149] mb-4">Operational bottleneck audits, standard operating procedures (SOPs), and agile implementation management.</p>
-            <a href="/services#business-solutions" class="text-sm font-bold text-[#16804A]">Explore Business Solutions &rarr;</a>
-          </div>
-        </div>
-        <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center max-w-2xl mx-auto">
-          <h2 class="text-2xl font-bold text-[#18372A] mb-4">Ready to Discuss Your Project?</h2>
-          <p class="text-sm text-[#435149] mb-6">Schedule a 30-minute discovery consultation with our engineering team. We audit requirements and deliver transparent technical scope.</p>
-          <a href="mailto:connect@anstat.co.in" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: connect@anstat.co.in</a>
-        </div>
+        </section>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -195,75 +266,63 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Complete Directory</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Engineering & Growth Solutions</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">ANSTAT delivers 24 distinct capabilities across four coordinated divisions.</p>
-        </div>
-        <div class="space-y-16">
-          <section id="technology" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <h2 class="text-3xl font-bold text-[#18372A] mb-4">1. ANSTAT Technology</h2>
-            <p class="text-base text-[#435149] mb-6">Custom web applications, ERP architectures, backend microservices, and system integrations.</p>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
-              <li>&bull; <strong>Website & Web Application Development:</strong> High-performance React, Vite & Next.js applications.</li>
-              <li>&bull; <strong>Custom Software Engineering:</strong> Bespoke business logic, role-based access, and PostgreSQL data pipelines.</li>
-              <li>&bull; <strong>ERP Development & Customization:</strong> Tailored inventory, ledger reconciliation, and warehouse workflows.</li>
-              <li>&bull; <strong>API Development & Integrations:</strong> Secure RESTful and GraphQL endpoints connecting payment and CRM systems.</li>
-            </ul>
-          </section>
-          <section id="ai" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <h2 class="text-3xl font-bold text-[#18372A] mb-4">2. ANSTAT AI</h2>
-            <p class="text-base text-[#435149] mb-6">Applied machine intelligence, autonomous agentic workflows, and domain knowledge assistants.</p>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
-              <li>&bull; <strong>Custom AI Solutions:</strong> Private model hosting and fine-tuning with strict data isolation.</li>
-              <li>&bull; <strong>Autonomous AI Agents:</strong> Multi-step workflow automation with human-in-the-loop review.</li>
-              <li>&bull; <strong>RAG & Knowledge Assistants:</strong> Vector search indexing over proprietary manuals and contracts.</li>
-              <li>&bull; <strong>Voice AI & Telephony:</strong> Ultra-low latency voice synthesis and automated call routing.</li>
-            </ul>
-          </section>
-          <section id="growth-media" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <span id="growth"></span>
-            <h2 class="text-3xl font-bold text-[#18372A] mb-4">3. ANSTAT Growth & Media</h2>
-            <p class="text-base text-[#435149] mb-6">Digital marketing strategy, cinema-grade commercial videography, performance advertising, social media management, and SEO in Bengaluru.</p>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
-              <li>&bull; <strong>Digital Marketing Strategy:</strong> Commercial positioning, audience mapping, and acquisition roadmaps.</li>
-              <li>&bull; <strong>Performance Marketing & Paid Ads:</strong> Meta, Google Search & LinkedIn ad campaigns optimized for CPL and ROAS.</li>
-              <li>&bull; <strong>Commercial Videography:</strong> Scriptwriting, on-location 4K filming, product reels, and customer films.</li>
-              <li>&bull; <strong>Social Media Management:</strong> Editorial calendars, short-form reels, carousel assets, and brand design kits.</li>
-              <li>&bull; <strong>Search Engine Optimization (SEO):</strong> Technical SEO audits, local SEO for Bengaluru, and structured Schema architecture.</li>
-              <li>&bull; <strong>Conversion Optimization (CRO):</strong> Landing page UX audits, GA4/GTM setup, and server-side attribution.</li>
-            </ul>
-          </section>
-          <section id="business-solutions" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <span id="business"></span>
-            <h2 class="text-3xl font-bold text-[#18372A] mb-4">4. ANSTAT Business Solutions</h2>
-            <p class="text-base text-[#435149] mb-6">Operational audits, business growth consulting, standard operating procedures, and technical project management.</p>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
-              <li>&bull; <strong>Business Process Analysis:</strong> Workflow bottleneck mapping and optimization roadmaps.</li>
-              <li>&bull; <strong>Business Growth Consulting:</strong> Lead qualification matrices, commercial strategy, and CRM pipelines.</li>
-              <li>&bull; <strong>Corporate Event Management:</strong> Technical AV production and attendee registration pipelines.</li>
-              <li>&bull; <strong>Implementation Management:</strong> Sprint coordination, vendor oversight, and UAT signoff.</li>
-            </ul>
-          </section>
+      ${sharedNavbarHtml('/services')}
+      <main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="badge-emerald mb-4">Complete Service Directory</div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight mb-6">Engineering & Growth Solutions</h1>
+            <p class="text-lg text-[#435149] leading-relaxed">ANSTAT delivers 24 distinct capabilities across four coordinated divisions.</p>
+          </div>
+          <div class="space-y-16">
+            <section id="technology" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <h2 class="text-3xl font-bold text-[#18372A] mb-4">1. ANSTAT Technology</h2>
+              <p class="text-base text-[#435149] mb-6">Custom web applications, ERP architectures, backend microservices, and system integrations.</p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
+                <li>&bull; <strong>Website & Web Application Development:</strong> High-performance React, Vite & Next.js applications.</li>
+                <li>&bull; <strong>Custom Software Engineering:</strong> Bespoke business logic, role-based access, and PostgreSQL data pipelines.</li>
+                <li>&bull; <strong>ERP Development & Customization:</strong> Tailored inventory, ledger reconciliation, and warehouse workflows.</li>
+                <li>&bull; <strong>API Development & Integrations:</strong> Secure RESTful and GraphQL endpoints connecting payment and CRM systems.</li>
+              </ul>
+            </section>
+            <section id="ai" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <h2 class="text-3xl font-bold text-[#18372A] mb-4">2. ANSTAT AI</h2>
+              <p class="text-base text-[#435149] mb-6">Applied machine intelligence, autonomous agentic workflows, and domain knowledge assistants.</p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
+                <li>&bull; <strong>Custom AI Solutions:</strong> Private model hosting and fine-tuning with strict data isolation.</li>
+                <li>&bull; <strong>Autonomous AI Agents:</strong> Multi-step workflow automation with human-in-the-loop review.</li>
+                <li>&bull; <strong>RAG & Knowledge Assistants:</strong> Vector search indexing over proprietary manuals and contracts.</li>
+                <li>&bull; <strong>Voice AI & Telephony:</strong> Ultra-low latency voice synthesis and automated call routing.</li>
+              </ul>
+            </section>
+            <section id="growth-media" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <span id="growth"></span>
+              <h2 class="text-3xl font-bold text-[#18372A] mb-4">3. ANSTAT Growth & Media</h2>
+              <p class="text-base text-[#435149] mb-6">Digital marketing strategy, cinema-grade commercial videography, performance advertising, social media management, and SEO in Bengaluru.</p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
+                <li>&bull; <strong>Digital Marketing Strategy:</strong> Commercial positioning, audience mapping, and acquisition roadmaps.</li>
+                <li>&bull; <strong>Performance Marketing & Paid Ads:</strong> Meta, Google Search & LinkedIn ad campaigns optimized for CPL and ROAS.</li>
+                <li>&bull; <strong>Commercial Videography:</strong> Scriptwriting, on-location 4K filming, product reels, and customer films.</li>
+                <li>&bull; <strong>Social Media Management:</strong> Editorial calendars, short-form reels, carousel assets, and brand design kits.</li>
+                <li>&bull; <strong>Search Engine Optimization (SEO):</strong> Technical SEO audits, local SEO for Bengaluru, and structured Schema architecture.</li>
+                <li>&bull; <strong>Conversion Optimization (CRO):</strong> Landing page UX audits, GA4/GTM setup, and server-side attribution.</li>
+              </ul>
+            </section>
+            <section id="business-solutions" class="p-8 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <span id="business"></span>
+              <h2 class="text-3xl font-bold text-[#18372A] mb-4">4. ANSTAT Business Solutions</h2>
+              <p class="text-base text-[#435149] mb-6">Operational audits, business growth consulting, standard operating procedures, and technical project management.</p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-[#18372A]">
+                <li>&bull; <strong>Business Process Analysis:</strong> Workflow bottleneck mapping and optimization roadmaps.</li>
+                <li>&bull; <strong>Business Growth Consulting:</strong> Lead qualification matrices, commercial strategy, and CRM pipelines.</li>
+                <li>&bull; <strong>Corporate Event Management:</strong> Technical AV production and attendee registration pipelines.</li>
+                <li>&bull; <strong>Implementation Management:</strong> Sprint coordination, vendor oversight, and UAT signoff.</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -289,68 +348,56 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Evidence-Based Portfolio</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-4">Our Work</h1>
-          <p class="text-xl font-bold text-[#16804A] mb-3">Selected projects, engineered solutions and measurable outcomes.</p>
-          <p class="text-base text-[#435149] leading-relaxed">ANSTAT delivers production software platforms, applied machine intelligence, creative growth campaigns, and structured operational improvements. Every documented project reflects verified deliverables.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">UK GradLink Admissions Platform</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Education & International Admissions</p>
-            <p class="text-sm text-[#435149] mb-4">Centralized application management portal and document processing assistant eliminating manual application review bottlenecks and establishing live applicant tracking.</p>
-            <div class="text-xs text-[#68766E]">Stack: React, Vite, Node.js, PostgreSQL, Tailwind CSS</div>
-          </article>
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">LVBL Digital Commerce & Infrastructure</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Lifestyle & Digital Commerce</p>
-            <p class="text-sm text-[#435149] mb-4">Full-stack digital commerce storefront, centralized product catalog synchronization, and multi-channel customer acquisition funnels.</p>
-            <div class="text-xs text-[#68766E]">Stack: React, Node.js, Tailwind CSS, Commerce APIs</div>
-          </article>
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">Universal PU College Ramanagara</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Higher Secondary Education | upuc.in</p>
-            <p class="text-sm text-[#435149] mb-4">Authoritative institutional admissions portal and campus curriculum showcase delivering seamless prospective student inquiry routing.</p>
-            <div class="text-xs text-[#68766E]">Stack: React, Vite, Tailwind CSS, Institutional Forms</div>
-          </article>
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">Coastal Catch Co. Commercial Videography</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Food & Beverage Distribution</p>
-            <p class="text-sm text-[#435149] mb-4">Cinema-grade commercial video production and B2B buyer acquisition funnels establishing commercial wholesale brand visibility and inbound buyer inquiries.</p>
-            <div class="text-xs text-[#68766E]">Stack: Commercial Videography, Landing Architecture, Meta & Google Ads</div>
-          </article>
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">NEB Real Estate Agency</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Real Estate & Property Development</p>
-            <p class="text-sm text-[#435149] mb-4">Brand identity formulation, presentation collateral, and targeted acquisition campaigns activating a consistent pipeline of qualified property consultations.</p>
-            <div class="text-xs text-[#68766E]">Stack: Brand Strategy, Campaign Design, Lead Pipelines</div>
-          </article>
-          <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
-            <h2 class="text-2xl font-bold text-[#18372A] mb-2">Dusk Enterprise Digital Platform</h2>
-            <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Software Studio, SaaS & Interactive 3D Platforms | duskenterprise.com</p>
-            <p class="text-sm text-[#435149] mb-4">Modern digital showcase platform and interactive SaaS product demonstration funnels engineered for Dusk Enterprise and its flagship 3D Menu dining platform.</p>
-            <div class="text-xs text-[#68766E]">Stack: React, Vite, Tailwind CSS, Interactive Architecture, Technical SEO</div>
-          </article>
+      ${sharedNavbarHtml('/case-studies')}
+      <main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="badge-emerald mb-4">Evidence-Based Portfolio</div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight mb-4">Our Work</h1>
+            <p class="text-xl sm:text-2xl font-bold text-[#16804A] mb-4">Selected projects, engineered solutions and measurable outcomes.</p>
+            <p class="text-base sm:text-lg text-[#435149] leading-relaxed">ANSTAT delivers production software platforms, applied machine intelligence, creative growth campaigns, and structured operational improvements. Every documented project reflects verified deliverables.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">UK GradLink Admissions Platform</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Education & International Admissions</p>
+              <p class="text-sm text-[#435149] mb-4">Centralized application management portal and document processing assistant eliminating manual application review bottlenecks and establishing live applicant tracking.</p>
+              <div class="text-xs text-[#68766E]">Stack: React, Vite, Node.js, PostgreSQL, Tailwind CSS</div>
+            </article>
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">LVBL Digital Commerce & Infrastructure</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Lifestyle & Digital Commerce</p>
+              <p class="text-sm text-[#435149] mb-4">Full-stack digital commerce storefront, centralized product catalog synchronization, and multi-channel customer acquisition funnels.</p>
+              <div class="text-xs text-[#68766E]">Stack: React, Node.js, Tailwind CSS, Commerce APIs</div>
+            </article>
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">Universal PU College Ramanagara</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Higher Secondary Education | upuc.in</p>
+              <p class="text-sm text-[#435149] mb-4">Authoritative institutional admissions portal and campus curriculum showcase delivering seamless prospective student inquiry routing.</p>
+              <div class="text-xs text-[#68766E]">Stack: React, Vite, Tailwind CSS, Institutional Forms</div>
+            </article>
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">Coastal Catch Co. Commercial Videography</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Food & Beverage Distribution</p>
+              <p class="text-sm text-[#435149] mb-4">Cinema-grade commercial video production and B2B buyer acquisition funnels establishing commercial wholesale brand visibility and inbound buyer inquiries.</p>
+              <div class="text-xs text-[#68766E]">Stack: Commercial Videography, Landing Architecture, Meta & Google Ads</div>
+            </article>
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">NEB Real Estate Agency</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Real Estate & Property Development</p>
+              <p class="text-sm text-[#435149] mb-4">Brand identity formulation, presentation collateral, and targeted acquisition campaigns activating a consistent pipeline of qualified property consultations.</p>
+              <div class="text-xs text-[#68766E]">Stack: Brand Strategy, Campaign Design, Lead Pipelines</div>
+            </article>
+            <article class="p-6 border border-[#E1E9E2] rounded-2xl bg-white shadow-sm">
+              <h2 class="text-2xl font-bold text-[#18372A] mb-2">Dusk Enterprise Digital Platform</h2>
+              <p class="text-xs font-bold uppercase tracking-wider text-[#16804A] mb-4">Software Studio, SaaS & Interactive 3D Platforms | duskenterprise.com</p>
+              <p class="text-sm text-[#435149] mb-4">Modern digital showcase platform and interactive SaaS product demonstration funnels engineered for Dusk Enterprise and its flagship 3D Menu dining platform.</p>
+              <div class="text-xs text-[#68766E]">Stack: React, Vite, Tailwind CSS, Interactive Architecture, Technical SEO</div>
+            </article>
+          </div>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -393,47 +440,35 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-4xl mx-auto">
-        <header class="text-center mb-16 border-b border-[#E1E9E2] pb-14">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">ANSTAT Technical Report</span>
-          <h1 class="text-4xl sm:text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">The Architecture of Scalable AI Startups</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">A Blueprint for Development, Monetization, and Human-Centric Scaling.</p>
-        </header>
-        <div class="space-y-12 text-[#435149] leading-relaxed">
-          <section>
-            <h2 class="text-2xl font-bold text-[#18372A] mb-4">Executive Summary</h2>
-            <p>Artificial intelligence is transitioning from probabilistic curiosity to mission-critical business infrastructure. Winning AI organizations succeed not through larger foundation model parameters alone, but through disciplined software engineering: deterministic guardrails, agentic lifecycle evaluation, and sustainable hybrid unit economics.</p>
-          </section>
-          <section>
-            <h2 class="text-2xl font-bold text-[#18372A] mb-4">The Agentic SDLC (A-SDLC)</h2>
-            <p>Traditional Agile assumes deterministic function outputs. In agentic AI development, prompt regressions, tool calling schemas, and state space drift require continuous behavioral evaluation harnesses, semantic caching, and strict sandbox execution boundaries.</p>
-          </section>
-          <section>
-            <h2 class="text-2xl font-bold text-[#18372A] mb-4">Hybrid Unit Economics</h2>
-            <p>Frontier models (such as GPT-4o or Claude 3.5 Sonnet) should be reserved for complex multi-hop reasoning. Specialized small language models (SLMs) and heuristic regex rules should filter 80% of routine traffic, preserving 70%+ gross margins for AI SaaS companies.</p>
-          </section>
-          <section>
-            <h2 class="text-2xl font-bold text-[#18372A] mb-4">Enterprise Zero-Trust Data Governance</h2>
-            <p>Proprietary enterprise datasets must remain air-gapped from public foundation model training loops. Production RAG architectures must utilize cryptographic audit logs, document chunk permissions, and strict citation attribution.</p>
-          </section>
+      ${sharedNavbarHtml('/research/ai-startup-architecture')}
+      <main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <header class="text-center mb-16 border-b border-[#E1E9E2] pb-14">
+            <div class="badge-emerald mb-4">Strategic Research & Development</div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#18372A] mb-6 leading-tight tracking-tight">The Architecture of <span class="text-[#16804A]">Scalable AI Startups</span></h1>
+            <p class="text-lg sm:text-xl text-[#435149] font-medium max-w-2xl mx-auto mb-10 leading-relaxed">A Blueprint for Development, Monetization, and Human-Centric Scaling.</p>
+          </header>
+          <div class="space-y-12 text-[#435149] leading-relaxed">
+            <section>
+              <h2 class="text-2xl font-bold text-[#18372A] mb-4">Executive Summary</h2>
+              <p>Artificial intelligence is transitioning from probabilistic curiosity to mission-critical business infrastructure. Winning AI organizations succeed not through larger foundation model parameters alone, but through disciplined software engineering: deterministic guardrails, agentic lifecycle evaluation, and sustainable hybrid unit economics.</p>
+            </section>
+            <section>
+              <h2 class="text-2xl font-bold text-[#18372A] mb-4">The Agentic SDLC (A-SDLC)</h2>
+              <p>Traditional Agile assumes deterministic function outputs. In agentic AI development, prompt regressions, tool calling schemas, and state space drift require continuous behavioral evaluation harnesses, semantic caching, and strict sandbox execution boundaries.</p>
+            </section>
+            <section>
+              <h2 class="text-2xl font-bold text-[#18372A] mb-4">Hybrid Unit Economics</h2>
+              <p>Frontier models (such as GPT-4o or Claude 3.5 Sonnet) should be reserved for complex multi-hop reasoning. Specialized small language models (SLMs) and heuristic regex rules should filter 80% of routine traffic, preserving 70%+ gross margins for AI SaaS companies.</p>
+            </section>
+            <section>
+              <h2 class="text-2xl font-bold text-[#18372A] mb-4">Enterprise Zero-Trust Data Governance</h2>
+              <p>Proprietary enterprise datasets must remain air-gapped from public foundation model training loops. Production RAG architectures must utilize cryptographic audit logs, document chunk permissions, and strict citation attribution.</p>
+            </section>
+          </div>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -533,59 +568,47 @@ const routePages = [
       ]
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">Direct Answers</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Frequently Asked Questions</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">Honest answers to commercial and technical client questions across digital marketing, software, AI, and business consulting in Bengaluru.</p>
-        </div>
-        <div class="space-y-8">
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">What services does ANSTAT provide?</h2>
-            <p class="text-sm text-[#435149]">ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Growth & Media (digital marketing strategy, performance advertising, commercial videography, social media management, SEO, and conversion analytics), ANSTAT Technology (web applications, custom software, ERP systems, and API integrations), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, and RAG knowledge assistants), and ANSTAT Business Solutions (business analysis, operational process improvement, and implementation management).</p>
+      ${sharedNavbarHtml('/faq')}
+      <main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="badge-emerald mb-4">Direct Answers</div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight mb-6">Frequently Asked Questions</h1>
+            <p class="text-lg text-[#435149] leading-relaxed">Transparent answers about our engagement models, technical choices, delivery timelines, and operational policies across digital marketing, software, AI, and business consulting in Bengaluru.</p>
           </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">How should a business evaluate a digital marketing agency in Bengaluru?</h2>
-            <p class="text-sm text-[#435149]">When evaluating a marketing agency in Bengaluru or India, look for three verifiable signals: First, empirical proof of business outcomes (cost-per-lead, pipeline revenue, conversion rate) rather than vanity metrics like impressions. Second, full-funnel capability—ensuring the team can produce high-quality video/creative assets and handle technical landing page optimization rather than just running ad spend. Third, transparent attribution and reporting so you always know where your qualified customer inquiries originated.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">What is the difference between SEO and paid performance advertising?</h2>
-            <p class="text-sm text-[#435149]">Paid advertising (Meta Ads, Google Search, LinkedIn) delivers immediate pipeline velocity and allows precise audience targeting, but stops generating traffic once the budget is paused. Search Engine Optimization (SEO) builds durable organic discoverability, domain authority, and qualified inbound inquiries over time with compounding returns. Most growing companies benefit from a hybrid approach: using performance ads for immediate pipeline while building SEO foundations for sustainable long-term acquisition.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">What is included in ANSTAT's social media management and media production?</h2>
-            <p class="text-sm text-[#435149]">Our social media and media services combine strategic narrative with cinema-grade creative execution. Deliverables include monthly editorial content calendars, short-form Reels and video production, carousel designs, copywriting, community engagement protocols, and cross-platform distribution across Instagram, LinkedIn, and YouTube.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">How does ANSTAT track marketing attribution and lead qualification?</h2>
-            <p class="text-sm text-[#435149]">We configure clean, privacy-compliant tracking architectures using Google Tag Manager (GTM), GA4, server-side conversion APIs, and custom CRM pipelines. Every enquiry is tagged with acquisition channel and source parameters, allowing leadership to attribute discovery calls, proposals, and closed clients directly to marketing initiatives.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">Who owns the code, intellectual property, and media assets?</h2>
-            <p class="text-sm text-[#435149]">You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation.</p>
-          </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">How do we begin a project conversation with ANSTAT?</h2>
-            <p class="text-sm text-[#435149]">Submit an inquiry via our project form or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to understand your objectives and audit technical requirements.</p>
+          <div class="space-y-6 mb-20">
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">What services does ANSTAT provide?</h2>
+              <p class="text-sm text-[#435149]">ANSTAT is an integrated technology and growth solutions company operating across four divisions: ANSTAT Growth & Media (digital marketing strategy, performance advertising, commercial videography, social media management, SEO, and conversion analytics), ANSTAT Technology (web applications, custom software, ERP systems, and API integrations), ANSTAT AI (custom AI applications, autonomous agents, LLM integrations, and RAG knowledge assistants), and ANSTAT Business Solutions (business analysis, operational process improvement, and implementation management).</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">How should a business evaluate a digital marketing agency in Bengaluru?</h2>
+              <p class="text-sm text-[#435149]">When evaluating a marketing agency in Bengaluru or India, look for three verifiable signals: First, empirical proof of business outcomes (cost-per-lead, pipeline revenue, conversion rate) rather than vanity metrics like impressions. Second, full-funnel capability—ensuring the team can produce high-quality video/creative assets and handle technical landing page optimization rather than just running ad spend. Third, transparent attribution and reporting so you always know where your qualified customer inquiries originated.</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">What is the difference between SEO and paid performance advertising?</h2>
+              <p class="text-sm text-[#435149]">Paid advertising (Meta Ads, Google Search, LinkedIn) delivers immediate pipeline velocity and allows precise audience targeting, but stops generating traffic once the budget is paused. Search Engine Optimization (SEO) builds durable organic discoverability, domain authority, and qualified inbound inquiries over time with compounding returns. Most growing companies benefit from a hybrid approach: using performance ads for immediate pipeline while building SEO foundations for sustainable long-term acquisition.</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">What is included in ANSTAT's social media management and media production?</h2>
+              <p class="text-sm text-[#435149]">Our social media and media services combine strategic narrative with cinema-grade creative execution. Deliverables include monthly editorial content calendars, short-form Reels and video production, carousel designs, copywriting, community engagement protocols, and cross-platform distribution across Instagram, LinkedIn, and YouTube.</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">How does ANSTAT track marketing attribution and lead qualification?</h2>
+              <p class="text-sm text-[#435149]">We configure clean, privacy-compliant tracking architectures using Google Tag Manager (GTM), GA4, server-side conversion APIs, and custom CRM pipelines. Every enquiry is tagged with acquisition channel and source parameters, allowing leadership to attribute discovery calls, proposals, and closed clients directly to marketing initiatives.</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">Who owns the code, intellectual property, and media assets?</h2>
+              <p class="text-sm text-[#435149]">You do. Upon project completion and milestone sign-off, the client retains 100% intellectual property ownership of all custom code, design files, databases, and produced media assets. We deliver full source repositories and deployment documentation.</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-white shadow-xs">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">How do we begin a project conversation with ANSTAT?</h2>
+              <p class="text-sm text-[#435149]">Submit an inquiry via our project form or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to understand your objectives and audit technical requirements.</p>
+            </div>
           </div>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -637,49 +660,37 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex items-center gap-6 text-sm font-semibold text-[#18372A]">
-            <a href="/services">Services</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/research/ai-startup-architecture">Research</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/#enquiry" class="px-4 py-2 bg-[#16804A] text-white rounded-md">Discuss a Project</a>
-          </nav>
-        </div>
-      </header>
-      <main class="py-20 px-4 max-w-4xl mx-auto">
-        <header class="text-center mb-16 border-b border-[#E1E9E2] pb-14">
-          <span class="inline-block px-3 py-1 bg-[#E8F3EB] text-[#16804A] rounded-full text-xs font-bold mb-4">About ANSTAT</span>
-          <h1 class="text-5xl font-extrabold text-[#18372A] tracking-tight mb-6">Engineering the Systems That Move Businesses Forward</h1>
-          <p class="text-lg text-[#435149] leading-relaxed">Headquartered in Bengaluru, Karnataka, ANSTAT unites software engineers, artificial intelligence researchers, media producers, and operational strategists under one roof.</p>
-        </header>
-        <div class="space-y-10 text-[#435149] leading-relaxed">
-          <div>
-            <h2 class="text-2xl font-bold text-[#18372A] mb-3">Our Core Philosophy</h2>
-            <p>Businesses rarely fail from a shortage of ambition—they fail from fragmented execution. Traditional organizations hire separate software developers, advertising agencies, videographers, and process consultants who operate in silos. ANSTAT engineers the complete commercial system as a unified whole.</p>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-              <h3 class="font-bold text-[#18372A] mb-2">Direct Leadership</h3>
-              <p class="text-sm">You work directly with principal engineers and strategists, not junior account managers.</p>
+      ${sharedNavbarHtml('/about')}
+      <main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <header class="mb-20 text-center sm:text-left">
+            <div class="badge-emerald mb-4">About ANSTAT</div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight leading-tight mb-6">Engineering the Systems That Move Businesses Forward</h1>
+            <p class="text-lg sm:text-xl text-[#435149] font-normal leading-relaxed">Headquartered in Bengaluru, Karnataka, ANSTAT unites software engineers, artificial intelligence researchers, media producers, and operational strategists under one roof.</p>
+          </header>
+          <div class="space-y-10 text-[#435149] leading-relaxed">
+            <div>
+              <h2 class="text-2xl font-bold text-[#18372A] mb-3">Our Core Philosophy</h2>
+              <p>Businesses rarely fail from a shortage of ambition—they fail from fragmented execution. Traditional organizations hire separate software developers, advertising agencies, videographers, and process consultants who operate in silos. ANSTAT engineers the complete commercial system as a unified whole.</p>
             </div>
-            <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
-              <h3 class="font-bold text-[#18372A] mb-2">Verified Operating Standards</h3>
-              <p class="text-sm">100% intellectual property ownership, enterprise data security, and SLA-backed maintenance.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+              <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
+                <h3 class="font-bold text-[#18372A] mb-2">Direct Leadership</h3>
+                <p class="text-sm">You work directly with principal engineers and strategists, not junior account managers.</p>
+              </div>
+              <div class="p-6 border border-[#E1E9E2] rounded-xl bg-[#F4F7F4]">
+                <h3 class="font-bold text-[#18372A] mb-2">Verified Operating Standards</h3>
+                <p class="text-sm">100% intellectual property ownership, enterprise data security, and SLA-backed maintenance.</p>
+              </div>
             </div>
-          </div>
-          <div class="pt-8 border-t border-[#E1E9E2]">
-            <h2 class="text-xl font-bold text-[#18372A] mb-2">Headquarters & Direct Contact</h2>
-            <p class="text-sm">Bengaluru, Karnataka, India | Email: <a href="mailto:connect@anstat.co.in" class="text-[#16804A] font-bold">connect@anstat.co.in</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
+            <div class="pt-8 border-t border-[#E1E9E2]">
+              <h2 class="text-xl font-bold text-[#18372A] mb-2">Headquarters & Direct Contact</h2>
+              <p class="text-sm">Bengaluru, Karnataka, India | Email: <a href="mailto:connect@anstat.co.in" class="text-[#16804A] font-bold">connect@anstat.co.in</a> | Phone: <a href="tel:+919019731057" class="text-[#16804A] font-bold">+91 90197 31057</a></p>
+            </div>
           </div>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   },
   {
@@ -758,44 +769,34 @@ const routePages = [
       }
     },
     bodyHtml: `
-      <header class="py-6 px-4 border-b border-[#E1E9E2]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 font-bold text-xl text-[#18372A]">
-            <img src="/AnLogo.png" alt="ANSTAT Logo" width="32" height="32" />
-            <span>ANSTAT</span>
-          </a>
-          <nav class="flex gap-4 text-sm font-semibold text-[#435149]">
-            <a href="/" class="hover:text-[#16804A]">Home</a>
-            <a href="/services" class="hover:text-[#16804A]">Services</a>
-            <a href="/case-studies" class="hover:text-[#16804A]">Case Studies</a>
-            <a href="/about" class="hover:text-[#16804A]">About</a>
-            <a href="/faq" class="hover:text-[#16804A]">FAQ</a>
-          </nav>
-        </div>
-      </header>
-      <main class="max-w-4xl mx-auto py-16 px-4">
-        <header class="text-center mb-12">
-          <h1 class="text-4xl font-extrabold text-[#18372A] tracking-tight mb-4">Start a Project Conversation</h1>
-          <p class="text-lg text-[#435149]">Discuss your custom software, AI engineering, digital marketing, or business operations project directly with ANSTAT in Bengaluru.</p>
-        </header>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Email</h2>
-            <a href="mailto:connect@anstat.co.in" class="text-lg font-bold text-[#18372A]">connect@anstat.co.in</a>
-            <p class="text-xs text-[#68766E] mt-1">24-hour business day response</p>
+      ${sharedNavbarHtml('/contact')}
+      <main class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <header class="text-center max-w-3xl mx-auto mb-14">
+            <div class="badge-emerald mb-4">Direct Communication</div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-[#18372A] tracking-tight mb-5">Start a Project Conversation</h1>
+            <p class="text-base sm:text-lg text-[#435149] leading-relaxed">Whether you are planning a new software platform, deploying practical AI agents, launching an advertising campaign, or streamlining operations, our engineering desk in Bengaluru is ready to assist.</p>
+          </header>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+            <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Email</h2>
+              <a href="mailto:connect@anstat.co.in" class="text-lg font-bold text-[#18372A]">connect@anstat.co.in</a>
+              <p class="text-xs text-[#68766E] mt-1">24-hour business day response</p>
+            </div>
+            <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
+              <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Phone & WhatsApp</h2>
+              <a href="tel:+919019731057" class="text-lg font-bold text-[#18372A]">+91 90197 31057</a>
+              <p class="text-xs text-[#68766E] mt-1">Mon - Fri, 9:00 AM - 6:00 PM IST (Bengaluru, India)</p>
+            </div>
           </div>
-          <div class="p-6 border border-[#E1E9E2] rounded-2xl bg-[#F4F7F4]">
-            <h2 class="text-xs uppercase font-bold text-[#16804A] mb-1">Direct Phone & WhatsApp</h2>
-            <a href="tel:+919019731057" class="text-lg font-bold text-[#18372A]">+91 90197 31057</a>
-            <p class="text-xs text-[#68766E] mt-1">Mon - Fri, 9:00 AM - 6:00 PM IST (Bengaluru, India)</p>
+          <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center">
+            <h2 class="text-2xl font-bold text-[#18372A] mb-4">Project Inquiry Form</h2>
+            <p class="text-sm text-[#435149] mb-6">Our engineering and growth desk in Bengaluru reviews your scope and responds within one business day.</p>
+            <a href="mailto:connect@anstat.co.in" class="btn-primary text-base py-3.5 px-8">Email: connect@anstat.co.in</a>
           </div>
-        </div>
-        <div id="enquiry" class="p-10 border border-[#E1E9E2] rounded-2xl bg-white text-center">
-          <h2 class="text-2xl font-bold text-[#18372A] mb-4">Project Inquiry Form</h2>
-          <p class="text-sm text-[#435149] mb-6">Our engineering and growth desk in Bengaluru reviews your scope and responds within one business day.</p>
-          <a href="mailto:connect@anstat.co.in" class="inline-block px-6 py-3 bg-[#16804A] text-white font-bold rounded-lg">Email: connect@anstat.co.in</a>
         </div>
       </main>
+      ${sharedFooterHtml}
     `
   }
 ];
