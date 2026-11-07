@@ -94,12 +94,20 @@ if (fs.existsSync(sitemapPath)) {
 console.log('\n[3/10] Validating AI Discovery Protocols (Issues 10, 15)...');
 const llmsPath = path.join(publicDir, 'llms.txt');
 const llmsFullPath = path.join(publicDir, 'llms-full.txt');
-const serverCardPath = path.join(publicDir, '.well-known', 'mcp', 'server-card.json');
+const serverCardCompatPath = path.join(publicDir, '.well-known', 'mcp', 'server-card.json');
+const serverCardModernPath = path.join(publicDir, 'api', 'modern-server-card.json');
+const serverCardPhpPath = path.join(publicDir, 'api', 'server-card.php');
 const aiCatalogPath = path.join(publicDir, '.well-known', 'ai-catalog.json');
+const indexPhpPath = path.join(publicDir, 'index.php');
+const negotiationPhpPath = path.join(publicDir, 'negotiation.php');
 
 assert(fs.existsSync(llmsPath), 'public/llms.txt exists');
 assert(fs.existsSync(llmsFullPath), 'public/llms-full.txt exists');
-assert(fs.existsSync(serverCardPath), 'public/.well-known/mcp/server-card.json exists (SEP-2127)');
+assert(fs.existsSync(serverCardCompatPath), 'public/.well-known/mcp/server-card.json exists (SEP-1649 Compatibility)');
+assert(fs.existsSync(serverCardModernPath), 'public/api/modern-server-card.json exists (SEP-2127 Canonical)');
+assert(fs.existsSync(serverCardPhpPath), 'Canonical Server Card PHP endpoint exists: public/api/server-card.php');
+assert(fs.existsSync(indexPhpPath), 'Root Content Negotiation Controller exists: public/index.php');
+assert(fs.existsSync(negotiationPhpPath), 'Master Content Negotiation Engine exists: public/negotiation.php');
 assert(fs.existsSync(aiCatalogPath), 'public/.well-known/ai-catalog.json exists');
 
 if (fs.existsSync(llmsPath)) {
@@ -113,27 +121,54 @@ if (fs.existsSync(llmsPath)) {
   assert(llms.includes('connect@anstat.co.in'), 'llms.txt contains verified contact email');
 }
 
-if (fs.existsSync(serverCardPath)) {
+// Validate Legacy Compatibility Server Card (SEP-1649 Draft)
+if (fs.existsSync(serverCardCompatPath)) {
   try {
-    const card = JSON.parse(fs.readFileSync(serverCardPath, 'utf8'));
-    assert(card.$schema && card.$schema.includes('server-card.schema.json'), 'Server card has valid $schema URI');
-    assert(typeof card.name === 'string' && card.name.includes('/'), 'Server card declares reverse-DNS style unique name');
-    assert(card.version, 'Server card declares semantic version');
-    assert(card.title, 'Server card declares title');
-    assert(card.description, 'Server card declares description');
-    assert(card.websiteUrl === 'https://anstat.co.in', 'Server card declares websiteUrl');
-    assert(Array.isArray(card.remotes) && card.remotes.length > 0, 'Server card declares remotes array');
-    const remote = card.remotes[0];
-    assert(remote.type === 'streamable-http', 'Server card declares streamable-http remote transport');
-    assert(remote.url === 'https://anstat.co.in/api/mcp', 'Server card declares actual remote endpoint URL');
-    assert(Array.isArray(remote.supportedProtocolVersions) && remote.supportedProtocolVersions.includes('2025-11-25'), 'Server card declares supportedProtocolVersions including 2025-11-25');
-    assert(!card.tools && !card.resources && !card.capabilities, 'Server card does not enumerate static tools/resources (discovered dynamically)');
-    
-    // Check canonical endpoint files
-    const serverCardPhpPath = path.join(publicDir, 'api', 'server-card.php');
-    assert(fs.existsSync(serverCardPhpPath), 'Canonical Server Card PHP endpoint exists: public/api/server-card.php');
+    const card = JSON.parse(fs.readFileSync(serverCardCompatPath, 'utf8'));
+    assert(card.$schema && card.$schema.includes('mcp-server-card'), 'Compatibility card has valid $schema URI');
+    assert(card.protocolVersion === '2024-11-05', 'Compatibility card declares protocolVersion 2024-11-05');
+    assert(card.serverInfo && card.serverInfo.name === 'anstat-public-mcp', 'Compatibility card declares serverInfo with name anstat-public-mcp');
+    assert(card.transport && card.transport.type === 'streamable-http' && card.transport.endpoint === 'https://anstat.co.in/api/mcp', 'Compatibility card declares streamable-http transport');
+    assert(card.capabilities && typeof card.capabilities === 'object', 'Compatibility card declares capabilities object');
+    assert(card.capabilities.tools && typeof card.capabilities.tools === 'object', 'Compatibility card declares capabilities.tools');
+    assert(card.capabilities.resources && typeof card.capabilities.resources === 'object', 'Compatibility card declares capabilities.resources');
+    assert(card.tools === 'dynamic', 'Compatibility card declares tools: "dynamic"');
+    assert(card.resources === 'dynamic', 'Compatibility card declares resources: "dynamic"');
   } catch (err) {
-    assert(false, 'Valid Server Card schema and configuration', err.message);
+    assert(false, 'Valid Compatibility Server Card schema and configuration', err.message);
+  }
+}
+
+// Validate Modern Canonical Server Card (SEP-2127)
+if (fs.existsSync(serverCardModernPath)) {
+  try {
+    const card = JSON.parse(fs.readFileSync(serverCardModernPath, 'utf8'));
+    assert(card.$schema && card.$schema.includes('server-card.schema.json'), 'Modern card has valid $schema URI');
+    assert(typeof card.name === 'string' && card.name.includes('/'), 'Modern card declares reverse-DNS style unique name');
+    assert(card.version, 'Modern card declares semantic version');
+    assert(card.title, 'Modern card declares title');
+    assert(card.description, 'Modern card declares description');
+    assert(card.websiteUrl === 'https://anstat.co.in', 'Modern card declares websiteUrl');
+    assert(Array.isArray(card.remotes) && card.remotes.length > 0, 'Modern card declares remotes array');
+    const remote = card.remotes[0];
+    assert(remote.type === 'streamable-http', 'Modern card declares streamable-http remote transport');
+    assert(remote.url === 'https://anstat.co.in/api/mcp', 'Modern card declares actual remote endpoint URL');
+    assert(Array.isArray(remote.supportedProtocolVersions) && remote.supportedProtocolVersions.includes('2025-11-25'), 'Modern card declares supportedProtocolVersions including 2025-11-25');
+    assert(!card.tools && !card.resources && !card.capabilities, 'Modern card does not enumerate static tools/resources (discovered dynamically)');
+  } catch (err) {
+    assert(false, 'Valid Modern Server Card schema and configuration', err.message);
+  }
+}
+
+// Validate AI Catalog Dual Discovery References
+if (fs.existsSync(aiCatalogPath)) {
+  try {
+    const catalog = JSON.parse(fs.readFileSync(aiCatalogPath, 'utf8'));
+    assert(catalog.endpoints && catalog.endpoints.mcp_server_card, 'AI catalog declares mcp_server_card endpoint');
+    assert(catalog.endpoints.mcp_server_card.canonicalUrl === 'https://anstat.co.in/api/mcp/server-card', 'AI catalog references canonical SEP-2127 card URL');
+    assert(catalog.endpoints.mcp_server_card.compatibilityUrl === 'https://anstat.co.in/.well-known/mcp/server-card.json', 'AI catalog references compatibility card URL');
+  } catch (err) {
+    assert(false, 'Valid AI Catalog schema', err.message);
   }
 }
 

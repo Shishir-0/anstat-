@@ -15,7 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$cardPath = __DIR__ . '/../.well-known/mcp/server-card.json';
+$cardPath = __DIR__ . '/modern-server-card.json';
+if (!file_exists($cardPath)) {
+    $cardPath = __DIR__ . '/../.well-known/mcp/server-card.json';
+}
 if (!file_exists($cardPath)) {
     http_response_code(404);
     header('Content-Type: application/json; charset=utf-8');
@@ -26,7 +29,7 @@ if (!file_exists($cardPath)) {
 $cardContent = file_get_contents($cardPath);
 $etag = md5($cardContent);
 
-// Caching and validation headers
+// Caching, discovery and validation headers
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, HEAD, OPTIONS');
@@ -34,6 +37,9 @@ header('Access-Control-Allow-Headers: Content-Type, Accept');
 header('Cache-Control: public, max-age=3600, must-revalidate');
 header('ETag: "' . $etag . '"');
 header('X-Content-Type-Options: nosniff');
+header('Link: <https://anstat.co.in/api/mcp>; rel="service"');
+header('Link: <https://anstat.co.in/.well-known/mcp/server-card.json>; rel="alternate"; type="application/json"');
+header('Link: <https://anstat.co.in/.well-known/ai-catalog.json>; rel="describedby"');
 
 // ETag conditional check
 $ifNoneMatch = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH'], '"') : '';

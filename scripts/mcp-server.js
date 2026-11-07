@@ -75,8 +75,29 @@ export function createMCPServer() {
 
     const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
 
-    // Server Card Discovery endpoints
-    if (url.pathname === '/api/mcp/server-card' || url.pathname === '/api/mcp/server-card/' || url.pathname === '/.well-known/mcp/server-card.json') {
+    // Server Card Discovery endpoints (Canonical SEP-2127 and Compatibility SEP-1649)
+    if (url.pathname === '/api/mcp/server-card' || url.pathname === '/api/mcp/server-card/') {
+      const cardPath = path.resolve(__dirname, '../public/api/modern-server-card.json');
+      const cardContent = fs.readFileSync(cardPath, 'utf8');
+      const etag = crypto.createHash('md5').update(cardContent).digest('hex');
+      const ifNoneMatch = req.headers['if-none-match']?.replace(/"/g, '');
+      if (ifNoneMatch === etag) {
+        res.writeHead(304);
+        res.end();
+        return;
+      }
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, must-revalidate',
+        'ETag': `"${etag}"`,
+        'Access-Control-Allow-Origin': '*',
+        'Link': '<https://anstat.co.in/api/mcp>; rel="service", <https://anstat.co.in/.well-known/mcp/server-card.json>; rel="alternate"; type="application/json"'
+      });
+      res.end(cardContent);
+      return;
+    }
+
+    if (url.pathname === '/.well-known/mcp/server-card.json') {
       const cardPath = path.resolve(__dirname, '../public/.well-known/mcp/server-card.json');
       const cardContent = fs.readFileSync(cardPath, 'utf8');
       const etag = crypto.createHash('md5').update(cardContent).digest('hex');
@@ -90,7 +111,8 @@ export function createMCPServer() {
         'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, must-revalidate',
         'ETag': `"${etag}"`,
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Link': '<https://anstat.co.in/api/mcp>; rel="service", <https://anstat.co.in/api/mcp/server-card>; rel="canonical"; type="application/json"'
       });
       res.end(cardContent);
       return;

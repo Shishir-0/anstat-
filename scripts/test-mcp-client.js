@@ -381,13 +381,29 @@ try {
   });
   assert.strictEqual(etagRes.status, 304, 'If-None-Match with matching ETag must return HTTP 304 Not Modified');
 
+  // Test Compatibility Server Card (SEP-1649 Draft)
+  const compatUrl = `http://localhost:${port}/.well-known/mcp/server-card.json`;
+  const compatRes = await fetch(compatUrl);
+  assert.strictEqual(compatRes.status, 200, 'Compatibility /.well-known/mcp/server-card.json must return HTTP 200');
+  const compatData = await compatRes.json();
+  assert.strictEqual(compatData.protocolVersion, '2024-11-05', 'Compatibility card declares 2024-11-05');
+  assert.strictEqual(compatData.serverInfo.name, 'anstat-public-mcp');
+  assert.strictEqual(compatData.transport.type, 'streamable-http');
+  assert.strictEqual(compatData.transport.endpoint, 'https://anstat.co.in/api/mcp');
+  assert.ok(compatData.capabilities && typeof compatData.capabilities === 'object', 'Must declare capabilities object');
+  assert.ok(compatData.capabilities.tools && compatData.capabilities.tools.listChanged === false);
+  assert.ok(compatData.capabilities.resources && compatData.capabilities.resources.subscribe === false);
+  assert.strictEqual(compatData.tools, 'dynamic');
+  assert.strictEqual(compatData.resources, 'dynamic');
+
   // Test AI Catalog canonical pointer
   const catalogUrl = `http://localhost:${port}/.well-known/ai-catalog.json`;
   const catRes = await fetch(catalogUrl);
   assert.strictEqual(catRes.status, 200);
   const catData = await catRes.json();
   assert.strictEqual(catData.endpoints.mcp_server_card.url, 'https://anstat.co.in/api/mcp/server-card');
-  console.log('  ✅ PASS: Server Card (canonical & compatibility) and AI Catalog validated successfully');
+  assert.strictEqual(catData.endpoints.mcp_server_card.compatibilityUrl, 'https://anstat.co.in/.well-known/mcp/server-card.json');
+  console.log('  ✅ PASS: Both Canonical Modern Card and Compatibility Server Card validated successfully');
 
   // ---------------------------------------------------------------------------
   // Test 16: Production Endpoint Verification (Live anstat.co.in checks)

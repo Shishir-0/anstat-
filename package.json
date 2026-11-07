@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.js && node scripts/validate-seo.js && node scripts/test-jsonld.js && node scripts/test-links.js && node scripts/test-webmcp.js && node scripts/test-mcp-client.js && node scripts/test-content-negotiation.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/validate-seo.js && node scripts/test-jsonld.js && node scripts/test-links.js && node scripts/test-webmcp.js && node scripts/test-mcp-client.js && node scripts/test-content-negotiation.js && node scripts/test-falling-leaves.js",
     "prerender": "node scripts/prerender.js",
     "validate:seo": "node scripts/validate-seo.js",
-    "test:seo": "node scripts/validate-seo.js && node scripts/test-jsonld.js && node scripts/test-links.js && node scripts/test-webmcp.js && node scripts/test-mcp-client.js && node scripts/test-content-negotiation.js",
+    "test:seo": "node scripts/validate-seo.js && node scripts/test-jsonld.js && node scripts/test-links.js && node scripts/test-webmcp.js && node scripts/test-mcp-client.js && node scripts/test-content-negotiation.js && node scripts/test-falling-leaves.js",
     "preview": "vite preview"
   },
   "dependencies": {
+    "falling-leaves": "^0.1.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",

@@ -16,6 +16,7 @@ import FinalCTA from "./components/FinalCTA";
 import EnquiryForm from "./components/EnquiryForm";
 import Footer from "./components/Footer";
 import AnstatWebMcpTools from "./components/AnstatWebMcpTools";
+import FallingLeavesEffect from "./components/seasonal/FallingLeavesEffect";
 
 import { lazy, Suspense } from "react";
 
@@ -284,6 +285,7 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
         <AnstatWebMcpTools />
+        <FallingLeavesEffect />
         <GlobalLayout>
           <Suspense
             fallback={

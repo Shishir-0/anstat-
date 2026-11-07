@@ -41,6 +41,8 @@
 ErrorDocument 404 /404.html
 
 # --- 4. Routing: Canonical Normalization + Content Negotiation + Prerendering ---
+DirectoryIndex index.php index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -57,14 +59,15 @@ ErrorDocument 404 /404.html
   RewriteRule ^ %1 [R=301,L]
 
   # Content Negotiation: If client requests Markdown (Accept: text/markdown)
+  # Root / and explicit index.html or index.php
   RewriteCond %{HTTP:Accept} text/(?:x-)?markdown [NC]
-  RewriteCond %{REQUEST_URI} ^/?(index(\.html)?)?$
-  RewriteRule ^.*$ markdown/index.md [L,T=text/markdown; charset=utf-8]
+  RewriteCond %{REQUEST_URI} ^/?(index(\.(html|php))?)?$ [NC]
+  RewriteRule ^.*$ index.php [L]
 
+  # For any route when client requests Markdown, route to negotiation engine
   RewriteCond %{HTTP:Accept} text/(?:x-)?markdown [NC]
-  RewriteCond %{DOCUMENT_ROOT}/markdown/$1.md -f [OR]
-  RewriteCond markdown/$1.md -f
-  RewriteRule ^([^.]+)$ markdown/$1.md [L,T=text/markdown; charset=utf-8]
+  RewriteCond %{REQUEST_URI} !^/(markdown|api|assets|\.well-known)/ [NC]
+  RewriteRule ^([^.]+)$ negotiation.php?route=$1 [L,QSA]
 
   # Dual slashless support: If a matching flat prerendered .html file exists, serve it directly
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
@@ -92,10 +95,14 @@ ErrorDocument 404 /404.html
   Header set Content-Signal "search=yes, ai-input=yes, ai-train=no"
   Header set X-Content-Signal "search=yes, ai-input=yes, ai-train=no"
 
+  # Ensure intermediate caches and CDNs always vary by Accept header
+  Header append Vary "Accept"
+
   # RFC 8288 Link Headers for Agent Discovery
   Header add Link '<https://anstat.co.in/llms.txt>; rel="describedby"'
   Header add Link '<https://anstat.co.in/api/mcp/server-card>; rel="service-desc"'
   Header add Link '<https://anstat.co.in/.well-known/mcp/server-card.json>; rel="service-desc"'
+  Header add Link '<https://anstat.co.in/.well-known/ai-catalog.json>; rel="describedby"'
 
   # JSON & Discovery documents delivery with CORS
   <FilesMatch "\.json$">

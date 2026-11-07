@@ -26,6 +26,11 @@
       "contentType": "application/json",
       "description": "Canonical SEP-2127 MCP Server Card for remote AI agent discovery"
     },
+    "mcp_server_card_compatibility": {
+      "url": "https://anstat.co.in/.well-known/mcp/server-card.json",
+      "contentType": "application/json",
+      "description": "Legacy SEP-1649 draft compatibility MCP Server Card with static capabilities object"
+    },
     "sitemap": {
       "url": "https://anstat.co.in/sitemap.xml",
       "contentType": "application/xml",

@@ -1,18 +1,26 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
-  "name": "in.co.anstat/public-mcp",
-  "version": "1.0.0",
-  "title": "ANSTAT Public AI Discovery & Service Server",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "anstat-public-mcp",
+    "title": "ANSTAT Public AI Discovery & Service Server",
+    "version": "1.0.0"
+  },
   "description": "Official Model Context Protocol (MCP) server card for ANSTAT in Bengaluru, India. Exposes verified read-only business intelligence, technical service deliverables, client case study evidence, and direct engineering consultation endpoints for autonomous agents.",
-  "websiteUrl": "https://anstat.co.in",
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://anstat.co.in/api/mcp",
-      "supportedProtocolVersions": [
-        "2025-11-25",
-        "2024-11-05"
-      ]
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://anstat.co.in/api/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
     }
-  ]
+  },
+  "tools": "dynamic",
+  "resources": "dynamic"
 }

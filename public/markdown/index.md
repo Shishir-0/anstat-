@@ -72,3 +72,14 @@ ANSTAT operates on a **milestone-based and fixed-scope quotation model**, not op
 - **Scope Audit**: Our engineering desk in Bengaluru audits your technical requirements within 24 business hours.
 - **Consultation Form**: [https://anstat.co.in/contact](https://anstat.co.in/contact)
 
+## Machine Discovery & AI Interfaces
+- **Canonical Website**: [https://anstat.co.in/](https://anstat.co.in/)
+- **Alternate Markdown Endpoint**: [https://anstat.co.in/markdown/index.md](https://anstat.co.in/markdown/index.md)
+- **LLM Guidance Manifest**: [https://anstat.co.in/llms.txt](https://anstat.co.in/llms.txt)
+- **Deep LLM Context**: [https://anstat.co.in/llms-full.txt](https://anstat.co.in/llms-full.txt)
+- **Canonical MCP Server Card (SEP-2127)**: [https://anstat.co.in/api/mcp/server-card](https://anstat.co.in/api/mcp/server-card)
+- **Compatibility MCP Server Card (SEP-1649)**: [https://anstat.co.in/.well-known/mcp/server-card.json](https://anstat.co.in/.well-known/mcp/server-card.json)
+- **Streamable HTTP MCP Transport**: [https://anstat.co.in/api/mcp](https://anstat.co.in/api/mcp)
+- **AI Agent Discovery Catalog**: [https://anstat.co.in/.well-known/ai-catalog.json](https://anstat.co.in/.well-known/ai-catalog.json)
+- **Crawler Sitemap**: [https://anstat.co.in/sitemap.xml](https://anstat.co.in/sitemap.xml)
+
