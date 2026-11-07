@@ -837,3 +837,4 @@ switch ($method) {
         sendJsonRpcError(-32601, "Method '{$method}' not found.", $id);
         break;
 }
+

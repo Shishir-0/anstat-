@@ -356,8 +356,10 @@ try {
   // ---------------------------------------------------------------------------
   console.log('\n[Test 15/15] Testing production endpoint connectivity (https://anstat.co.in/api/mcp)...');
   try {
-    const prodRes = await fetch('https://anstat.co.in/api/mcp', {
+    // 15a: Check slashless endpoint redirect / route status
+    const prodSlashless = await fetch('https://anstat.co.in/api/mcp', {
       method: 'POST',
+      redirect: 'manual',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -369,20 +371,41 @@ try {
         params: { protocolVersion: '2025-11-25' }
       })
     });
-
-    console.log(`  📡 Production POST https://anstat.co.in/api/mcp Status: ${prodRes.status}`);
-    const prodText = await prodRes.text();
-    console.log(`  📡 Production Response Preview: ${prodText.substring(0, 160)}...`);
-
-    if (prodRes.status === 200) {
-      const prodJson = JSON.parse(prodText);
-      assert.strictEqual(prodJson.jsonrpc, '2.0');
-      console.log('  ✅ PASS: Live production endpoint is responsive and executing valid MCP protocol!');
-    } else if (prodRes.status === 301) {
-      console.log('  ℹ️ Production server currently holds the previous deployment with 301 redirect. Our updated .htaccess and api/mcp.php will resolve this once uploaded.');
+    console.log(`  📡 Production POST https://anstat.co.in/api/mcp Status: ${prodSlashless.status}`);
+    if (prodSlashless.status === 301) {
+      console.log(`  ℹ️ Production currently redirects slashless to: ${prodSlashless.headers.get('location')}`);
+      console.log('     (Our updated .htaccess RewriteRule ^api/mcp/?$ api/mcp.php resolves this upon upload)');
     }
+
+    // 15b: Direct invocation of anstat_get_company_info on live production server
+    const prodToolCall = await fetch('https://anstat.co.in/api/mcp/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 'prod-tool-test',
+        method: 'tools/call',
+        params: {
+          name: 'anstat_get_company_info',
+          arguments: {}
+        }
+      })
+    });
+
+    console.log(`  📡 Production POST https://anstat.co.in/api/mcp/ Status: ${prodToolCall.status}`);
+    assert.strictEqual(prodToolCall.status, 200, 'Live production server must return HTTP 200 for tools/call');
+    const toolJson = await prodToolCall.json();
+    assert.strictEqual(toolJson.jsonrpc, '2.0');
+    assert.ok(toolJson.result && toolJson.result.content && toolJson.result.content[0].text);
+    const companyData = JSON.parse(toolJson.result.content[0].text);
+    assert.strictEqual(companyData.legalName, 'ANSTAT');
+    console.log(`  ✅ PASS: Live production server successfully executed 'anstat_get_company_info'!`);
+    console.log(`     Verified Company Name: ${companyData.legalName} | Canonical URL: ${companyData.canonicalUrl}`);
   } catch (netErr) {
-    console.log(`  ℹ️ Production network check note: ${netErr.message}`);
+    console.log(`  ⚠️ Production network check note: ${netErr.message}`);
   }
 
   console.log('\n================================================================================');
