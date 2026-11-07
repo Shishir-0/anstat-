@@ -116,11 +116,24 @@ if (fs.existsSync(llmsPath)) {
 if (fs.existsSync(serverCardPath)) {
   try {
     const card = JSON.parse(fs.readFileSync(serverCardPath, 'utf8'));
-    assert(card.name === 'anstat-public-mcp', 'Server card has valid server name');
-    assert(Array.isArray(card.transports) && card.transports[0].type === 'streamable-http', 'Server card declares valid streamable-http transport');
-    assert(card.endpoint || card.transports[0].endpoint, 'Server card declares endpoint URL');
+    assert(card.$schema && card.$schema.includes('server-card.schema.json'), 'Server card has valid $schema URI');
+    assert(typeof card.name === 'string' && card.name.includes('/'), 'Server card declares reverse-DNS style unique name');
+    assert(card.version, 'Server card declares semantic version');
+    assert(card.title, 'Server card declares title');
+    assert(card.description, 'Server card declares description');
+    assert(card.websiteUrl === 'https://anstat.co.in', 'Server card declares websiteUrl');
+    assert(Array.isArray(card.remotes) && card.remotes.length > 0, 'Server card declares remotes array');
+    const remote = card.remotes[0];
+    assert(remote.type === 'streamable-http', 'Server card declares streamable-http remote transport');
+    assert(remote.url === 'https://anstat.co.in/api/mcp', 'Server card declares actual remote endpoint URL');
+    assert(Array.isArray(remote.supportedProtocolVersions) && remote.supportedProtocolVersions.includes('2025-11-25'), 'Server card declares supportedProtocolVersions including 2025-11-25');
+    assert(!card.tools && !card.resources && !card.capabilities, 'Server card does not enumerate static tools/resources (discovered dynamically)');
+    
+    // Check canonical endpoint files
+    const serverCardPhpPath = path.join(publicDir, 'api', 'server-card.php');
+    assert(fs.existsSync(serverCardPhpPath), 'Canonical Server Card PHP endpoint exists: public/api/server-card.php');
   } catch (err) {
-    assert(false, 'Valid JSON syntax in server-card.json', err.message);
+    assert(false, 'Valid Server Card schema and configuration', err.message);
   }
 }
 

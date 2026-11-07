@@ -15,6 +15,7 @@ import ResearchTeaser from "./components/ResearchTeaser";
 import FinalCTA from "./components/FinalCTA";
 import EnquiryForm from "./components/EnquiryForm";
 import Footer from "./components/Footer";
+import AnstatWebMcpTools from "./components/AnstatWebMcpTools";
 
 import { lazy, Suspense } from "react";
 
@@ -282,6 +283,7 @@ export default function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <AnstatWebMcpTools />
         <GlobalLayout>
           <Suspense
             fallback={

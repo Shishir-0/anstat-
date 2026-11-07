@@ -45,6 +45,9 @@ ErrorDocument 404 /404.html
   RewriteEngine On
   RewriteBase /
 
+  # MCP Server Card discovery endpoint (canonical SEP-2127 route)
+  RewriteRule ^api/mcp/server-card/?$ api/server-card.php [L,QSA]
+
   # MCP Streamable HTTP Endpoint (handles both /api/mcp and /api/mcp/ without redirects)
   RewriteRule ^api/mcp/?$ api/mcp.php [L,QSA]
 
@@ -91,7 +94,16 @@ ErrorDocument 404 /404.html
 
   # RFC 8288 Link Headers for Agent Discovery
   Header add Link '<https://anstat.co.in/llms.txt>; rel="describedby"'
+  Header add Link '<https://anstat.co.in/api/mcp/server-card>; rel="service-desc"'
   Header add Link '<https://anstat.co.in/.well-known/mcp/server-card.json>; rel="service-desc"'
+
+  # JSON & Discovery documents delivery with CORS
+  <FilesMatch "\.json$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Accept"
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
 
   # Static assets immutable caching
   <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">

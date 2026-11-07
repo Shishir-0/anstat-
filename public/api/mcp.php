@@ -331,6 +331,12 @@ function searchServices(string $query, array $divisions, array $aliases): array 
 // 5. GET Request Handler (Streamable HTTP Server Status / Discovery)
 // -----------------------------------------------------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+    if (strpos($requestUri, 'server-card') !== false) {
+        require_once __DIR__ . '/server-card.php';
+        exit;
+    }
+
     $acceptHeader = $_SERVER['HTTP_ACCEPT'] ?? '';
 
     // If client specifically requested text/event-stream, stream metadata in SSE format
@@ -365,7 +371,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'tools' => 5,
             'resources' => 2
         ],
-        'serverCard' => 'https://anstat.co.in/.well-known/mcp/server-card.json',
+        'serverCard' => 'https://anstat.co.in/api/mcp/server-card',
+        'serverCardCompatibility' => 'https://anstat.co.in/.well-known/mcp/server-card.json',
         'provider' => [
             'name' => 'ANSTAT',
             'headquarters' => 'Bengaluru, Karnataka, India',

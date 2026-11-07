@@ -1,6 +1,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { ANSTAT_COMPANY_DATA, WEBMCP_TOOLS, searchServices } from '../src/utils/webmcp.js';
 
@@ -73,6 +74,39 @@ export function createMCPServer() {
     }
 
     const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+
+    // Server Card Discovery endpoints
+    if (url.pathname === '/api/mcp/server-card' || url.pathname === '/api/mcp/server-card/' || url.pathname === '/.well-known/mcp/server-card.json') {
+      const cardPath = path.resolve(__dirname, '../public/.well-known/mcp/server-card.json');
+      const cardContent = fs.readFileSync(cardPath, 'utf8');
+      const etag = crypto.createHash('md5').update(cardContent).digest('hex');
+      const ifNoneMatch = req.headers['if-none-match']?.replace(/"/g, '');
+      if (ifNoneMatch === etag) {
+        res.writeHead(304);
+        res.end();
+        return;
+      }
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, must-revalidate',
+        'ETag': `"${etag}"`,
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(cardContent);
+      return;
+    }
+
+    if (url.pathname === '/.well-known/ai-catalog.json') {
+      const catPath = path.resolve(__dirname, '../public/.well-known/ai-catalog.json');
+      const catContent = fs.readFileSync(catPath, 'utf8');
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, must-revalidate',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(catContent);
+      return;
+    }
 
     // Verify endpoint path
     if (url.pathname !== '/api/mcp' && url.pathname !== '/api/mcp/') {

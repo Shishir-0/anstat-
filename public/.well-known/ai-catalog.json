@@ -20,9 +20,11 @@
       "description": "Comprehensive corporate, technical, and R&D context for deep retrieval"
     },
     "mcp_server_card": {
-      "url": "https://anstat.co.in/.well-known/mcp/server-card.json",
+      "url": "https://anstat.co.in/api/mcp/server-card",
+      "canonicalUrl": "https://anstat.co.in/api/mcp/server-card",
+      "compatibilityUrl": "https://anstat.co.in/.well-known/mcp/server-card.json",
       "contentType": "application/json",
-      "description": "Standard SEP-2127 MCP Server Card for remote AI agent discovery"
+      "description": "Canonical SEP-2127 MCP Server Card for remote AI agent discovery"
     },
     "sitemap": {
       "url": "https://anstat.co.in/sitemap.xml",

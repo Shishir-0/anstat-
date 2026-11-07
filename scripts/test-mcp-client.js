@@ -1,7 +1,7 @@
 import assert from 'node:assert';
 import { createMCPServer } from './mcp-server.js';
 
-console.log('🤖 ANSTAT Comprehensive MCP Protocol & Security Test Suite (15 Test Battery)');
+console.log('🤖 ANSTAT Comprehensive MCP Protocol & Security Test Suite (16 Test Battery)');
 console.log('================================================================================');
 
 const server = createMCPServer();
@@ -352,11 +352,49 @@ try {
   console.log(`  ✅ PASS: Successfully executed ${concurrentResults.length} concurrent requests without state collisions`);
 
   // ---------------------------------------------------------------------------
-  // Test 15: Production Endpoint Verification (Live anstat.co.in check)
+  // Test 15: Server Card & AI Catalog Discovery Endpoints (SEP-2127)
   // ---------------------------------------------------------------------------
-  console.log('\n[Test 15/15] Testing production endpoint connectivity (https://anstat.co.in/api/mcp)...');
+  console.log('\n[Test 15/16] Testing Server Card & AI Catalog discovery endpoints...');
+  const cardUrl = `http://localhost:${port}/api/mcp/server-card`;
+  const cardRes = await fetch(cardUrl, {
+    headers: { 'Accept': 'application/json' }
+  });
+  assert.strictEqual(cardRes.status, 200, 'Canonical /api/mcp/server-card must return HTTP 200');
+  assert.ok(cardRes.headers.get('content-type')?.includes('application/json'));
+  assert.strictEqual(cardRes.headers.get('access-control-allow-origin'), '*');
+  const cardEtag = cardRes.headers.get('etag');
+  assert.ok(cardEtag, 'Server card must provide ETag header for client caching');
+
+  const cardData = await cardRes.json();
+  assert.ok(cardData.$schema?.includes('server-card.schema.json'), 'Must reference official server card schema');
+  assert.strictEqual(cardData.name, 'in.co.anstat/public-mcp', 'Must declare reverse-DNS style name');
+  assert.strictEqual(cardData.websiteUrl, 'https://anstat.co.in', 'Must declare websiteUrl');
+  assert.ok(Array.isArray(cardData.remotes) && cardData.remotes.length > 0, 'Must declare remotes transport array');
+  assert.strictEqual(cardData.remotes[0].type, 'streamable-http', 'Must declare streamable-http remote transport');
+  assert.strictEqual(cardData.remotes[0].url, 'https://anstat.co.in/api/mcp', 'Must point to actual remote endpoint URL');
+  assert.ok(cardData.remotes[0].supportedProtocolVersions.includes('2025-11-25'), 'Must declare supportedProtocolVersions');
+  assert.ok(!cardData.tools && !cardData.capabilities, 'Card must not enumerate static tools (discovered dynamically)');
+
+  // Test ETag conditional request
+  const etagRes = await fetch(cardUrl, {
+    headers: { 'If-None-Match': cardEtag }
+  });
+  assert.strictEqual(etagRes.status, 304, 'If-None-Match with matching ETag must return HTTP 304 Not Modified');
+
+  // Test AI Catalog canonical pointer
+  const catalogUrl = `http://localhost:${port}/.well-known/ai-catalog.json`;
+  const catRes = await fetch(catalogUrl);
+  assert.strictEqual(catRes.status, 200);
+  const catData = await catRes.json();
+  assert.strictEqual(catData.endpoints.mcp_server_card.url, 'https://anstat.co.in/api/mcp/server-card');
+  console.log('  ✅ PASS: Server Card (canonical & compatibility) and AI Catalog validated successfully');
+
+  // ---------------------------------------------------------------------------
+  // Test 16: Production Endpoint Verification (Live anstat.co.in checks)
+  // ---------------------------------------------------------------------------
+  console.log('\n[Test 16/16] Testing production endpoint connectivity (https://anstat.co.in/api/mcp)...');
   try {
-    // 15a: Check slashless endpoint redirect / route status
+    // 16a: Check slashless endpoint redirect / route status
     const prodSlashless = await fetch('https://anstat.co.in/api/mcp', {
       method: 'POST',
       redirect: 'manual',
@@ -377,7 +415,7 @@ try {
       console.log('     (Our updated .htaccess RewriteRule ^api/mcp/?$ api/mcp.php resolves this upon upload)');
     }
 
-    // 15b: Direct invocation of anstat_get_company_info on live production server
+    // 16b: Direct invocation of anstat_get_company_info on live production server
     const prodToolCall = await fetch('https://anstat.co.in/api/mcp/', {
       method: 'POST',
       headers: {
@@ -404,12 +442,23 @@ try {
     assert.strictEqual(companyData.legalName, 'ANSTAT');
     console.log(`  ✅ PASS: Live production server successfully executed 'anstat_get_company_info'!`);
     console.log(`     Verified Company Name: ${companyData.legalName} | Canonical URL: ${companyData.canonicalUrl}`);
+
+    // 16c: Live Server Card check
+    const liveCardRes = await fetch('https://anstat.co.in/.well-known/mcp/server-card.json');
+    console.log(`  📡 Production GET https://anstat.co.in/.well-known/mcp/server-card.json Status: ${liveCardRes.status}`);
+    assert.strictEqual(liveCardRes.status, 200);
+
+    // 16d: Live AI Catalog check
+    const liveCatRes = await fetch('https://anstat.co.in/.well-known/ai-catalog.json');
+    console.log(`  📡 Production GET https://anstat.co.in/.well-known/ai-catalog.json Status: ${liveCatRes.status}`);
+    assert.strictEqual(liveCatRes.status, 200);
+
   } catch (netErr) {
     console.log(`  ⚠️ Production network check note: ${netErr.message}`);
   }
 
   console.log('\n================================================================================');
-  console.log('🎉 ALL 15 MCP PROTOCOL & SECURITY TEST SUITE ASSERTIONS PASSED!');
+  console.log('🎉 ALL 16 MCP PROTOCOL & SECURITY TEST SUITE ASSERTIONS PASSED!');
   console.log('================================================================================\n');
 
 } finally {

@@ -450,7 +450,7 @@ export function registerWebMCPTools() {
 
   if (targetContext) {
     try {
-      // Pattern A: registerTool method
+      // Pattern A: registerTool method (W3C WebMCP Standard)
       if (typeof targetContext.registerTool === "function") {
         WEBMCP_TOOLS.forEach(tool => {
           targetContext.registerTool({
@@ -458,7 +458,8 @@ export function registerWebMCPTools() {
             description: tool.description,
             parameters: tool.parameters,
             inputSchema: tool.inputSchema,
-            handler: tool.execute
+            annotations: { readOnlyHint: true },
+            execute: tool.execute
           });
           registeredCount++;
         });
