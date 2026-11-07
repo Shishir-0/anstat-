@@ -1,20 +1,25 @@
 # ==============================================================================
-# ANSTAT — Official Crawling and Access Policy
+# ANSTAT — Official Crawling, AI Grounding & Content Usage Policy
 # Canonical Host: https://anstat.co.in
 # Primary Sitemap: https://anstat.co.in/sitemap.xml
-# Policy: Permissive public access for search indexing, AI search/grounding, and AI model training.
-# Machine-Readable Signals: search=yes, ai-input=yes, ai-train=yes
+# LLM Manifest: https://anstat.co.in/llms.txt
+# Full LLM Context: https://anstat.co.in/llms-full.txt
+# Machine-Readable Signals: search=yes, ai-input=yes, ai-train=no
 # ==============================================================================
+
+# Machine-Readable Content Signal Directive (IETF / Cloudflare Standard)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 # Global Default Policy for All Legitimate Web Crawlers
 User-agent: *
 Allow: /
+Allow: /api/mcp
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_temp/
 
 # ------------------------------------------------------------------------------
-# 1. Search Engine Crawlers (Traditional Organic Search)
+# 1. Search Engine Crawlers (Traditional Organic Search — ALLOWED)
 # ------------------------------------------------------------------------------
 User-agent: Googlebot
 Allow: /
@@ -41,7 +46,7 @@ User-agent: Slurp
 Allow: /
 
 # ------------------------------------------------------------------------------
-# 2. AI Search, Retrieval & Grounding Crawlers (AEO / GEO Citation Discovery)
+# 2. AI Search, Retrieval & Grounding Crawlers (AEO / GEO Discovery — ALLOWED)
 # ------------------------------------------------------------------------------
 # OpenAI Search & Real-Time Retrieval
 User-agent: OAI-SearchBot
@@ -69,46 +74,47 @@ User-agent: Meta-ExternalFetcher
 Allow: /
 
 # ------------------------------------------------------------------------------
-# 3. AI Model Training & Dataset Crawlers (Explicitly Permitted)
+# 3. AI Model Training & Dataset Crawlers (Explicitly RESTRICTED / DISALLOWED)
+# ANSTAT does not authorize automatic foundation model training without license
 # ------------------------------------------------------------------------------
 # Google Gemini & Extended AI Training
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
 # OpenAI GPT Training
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 # Anthropic Claude Model Training
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 
 User-agent: anthropic-ai
-Allow: /
+Disallow: /
 
 # Apple Intelligence Training
 User-agent: Applebot-Extended
-Allow: /
+Disallow: /
 
 # Meta External Training Agent
 User-agent: Meta-ExternalAgent
-Allow: /
+Disallow: /
 
 # Amazon Web Services & Alexa Training
 User-agent: Amazonbot
-Allow: /
+Disallow: /
 
 # ByteDance AI Training
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 # Cohere Language Models
 User-agent: cohere-ai
-Allow: /
+Disallow: /
 
 # Common Crawl Open Dataset
 User-agent: CCBot
-Allow: /
+Disallow: /
 
 # ------------------------------------------------------------------------------
 # Sitemaps & Technical Feeds

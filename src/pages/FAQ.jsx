@@ -58,7 +58,7 @@ const faqs = [
   {
     category: "Delivery & Process",
     q: "How do pricing and project estimates work?",
-    a: "We structure pricing transparently based on defined deliverables and technical complexity. After an initial discovery session, we provide a detailed proposal detailing milestones, timeline, and exact commercial investment. We do not use hidden fee structures or unexpected billing surprises.",
+    a: "We structure pricing transparently on fixed-scope milestone commitments rather than variable hourly billing or opaque retainers. Indicative starting scopes include: Digital Marketing & SEO retainers from ₹35,000 / month; Custom Software Development from ₹50,000 / milestone; Applied AI Solutions from ₹75,000 / sprint; Commercial 4K Videography from ₹30,000 / production day; and Business Solutions audits from ₹45,000. After an initial scope audit, we provide an itemized proposal detailing deliverables, milestones, timeline, and exact investment with zero hidden surprises.",
   },
   {
     category: "Ownership & Maintenance",

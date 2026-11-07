@@ -231,7 +231,19 @@ Canonical: https://anstat.co.in/faq
    The client retains 100% intellectual property rights, source code, repositories, and media files upon milestone sign-off (standard third-party open-source packages remain under their respective permissive licenses).
 
 5. **How does project pricing work?**
-   Pricing is milestone-based and scoped transparently based on functional deliverables and architectural complexity. No hidden hourly surprises.
+   Pricing is milestone-based and scoped transparently based on functional deliverables and architectural complexity. No hidden hourly surprises. Indicative starting scopes:
+   - Digital Marketing & SEO: Starting from ₹35,000 / month retainer.
+   - Custom Software & Web Platforms: Starting from ₹50,000 / milestone scope.
+   - Applied AI Solutions & Autonomous Workflows: Starting from ₹75,000 / implementation sprint.
+   - Commercial Videography & Production: Starting from ₹30,000 / production day.
 
 6. **How do we get started?**
    Submit an inquiry via our project form at https://anstat.co.in/contact or email connect@anstat.co.in. We schedule a 30-minute discovery consultation to audit requirements and determine fit.
+
+---
+
+## 7. Crawling, AI Grounding & Content Usage Policy
+- **Content Signals Directive**: `Content-Signal: search=yes, ai-input=yes, ai-train=no`
+- **Search Engine Indexing**: Fully permitted for all search engines (Googlebot, Bingbot, Applebot, etc.).
+- **AI Inference & Real-Time Grounding (AEO/GEO)**: Permitted for live retrieval, answer synthesis, and citation attribution with backlink to `https://anstat.co.in/`.
+- **AI Model Training**: Not permitted without explicit written commercial licensing. Automated foundation model training crawlers (such as CCBot, GPTBot, ClaudeBot, Google-Extended, Meta-ExternalAgent) are restricted in `robots.txt`.

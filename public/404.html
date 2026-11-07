@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>404 - Page Not Found | ANSTAT</title>
+    <link rel="icon" type="image/png" href="/AnLogo.png" />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      :root {
+        --color-emerald: #16804A;
+        --color-forest: #18372A;
+        --color-text: #435149;
+        --color-muted: #68766E;
+        --color-surface: #F4F7F4;
+        --color-border: #E1E9E2;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: #FFFFFF;
+        color: var(--color-text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .header {
+        padding: 1.25rem 2rem;
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: var(--color-forest);
+        font-weight: 800;
+        font-size: 1.25rem;
+      }
+      .brand img {
+        height: 2.25rem;
+        width: auto;
+      }
+      .main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+        text-align: center;
+      }
+      .content {
+        max-width: 600px;
+      }
+      .badge {
+        display: inline-block;
+        background: #E8F3EB;
+        color: var(--color-emerald);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        margin-bottom: 1.5rem;
+        border: 1px solid #C4DFC9;
+      }
+      h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        margin: 0 0 0.5rem 0;
+        color: var(--color-forest);
+        font-weight: 900;
+        line-height: 1;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: var(--color-forest);
+        margin: 0 0 1rem 0;
+        font-weight: 700;
+      }
+      p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--color-text);
+        margin-bottom: 2rem;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .btn-primary {
+        background: var(--color-emerald);
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 0.85rem 1.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: opacity 0.2s;
+      }
+      .btn-secondary {
+        background: var(--color-surface);
+        color: var(--color-forest);
+        text-decoration: none;
+        padding: 0.85rem 1.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid var(--color-border);
+        transition: background 0.2s;
+      }
+      .btn-primary:hover { opacity: 0.9; }
+      .btn-secondary:hover { background: #E8F3EB; }
+      .footer {
+        padding: 1.5rem 2rem;
+        border-top: 1px solid var(--color-border);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="brand" aria-label="ANSTAT Home">
+        <img src="/AnLogo.png" alt="ANSTAT Logo" width="36" height="36" />
+        <span>ANSTAT</span>
+      </a>
+      <a href="/contact" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Contact Support</a>
+    </header>
+    <main class="main">
+      <div class="content">
+        <div class="badge">HTTP 404 — Not Found</div>
+        <h1>404</h1>
+        <h2>The page you requested does not exist.</h2>
+        <p>The URL may have moved, been renamed, or does not exist. You can return to our homepage or explore our core service divisions below.</p>
+        <div class="links">
+          <a href="/" class="btn-primary">Return to Homepage</a>
+          <a href="/services" class="btn-secondary">Explore Services</a>
+          <a href="/case-studies" class="btn-secondary">Case Studies</a>
+          <a href="/contact" class="btn-secondary">Contact Desk</a>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2026 ANSTAT &bull; Technology, AI & Business Growth Solutions &bull; Bengaluru, India</p>
+    </footer>
+  </body>
+</html>
+

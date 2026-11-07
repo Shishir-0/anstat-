@@ -1,9 +1,19 @@
 # ============================================================
 # ANSTAT — Production .htaccess
-# Crawlability + SPA Routing + Performance
+# Autonomous SEO, AEO, GEO & AI Agent Readiness Engine
+# Canonical Host: https://anstat.co.in
 # ============================================================
 
-# --- 1. Explicitly allow all major search & AI crawlers ---
+# --- 1. MIME Types ---
+<IfModule mod_mime.c>
+  AddType text/markdown .md
+  AddType text/plain .txt
+  AddType application/json .json
+  AddType application/ld+json .jsonld
+  AddType font/woff2 .woff2
+</IfModule>
+
+# --- 2. Explicitly allow all major search & AI crawlers ---
 <IfModule mod_setenvif.c>
   SetEnvIfNoCase User-Agent "Googlebot"           allow_bot
   SetEnvIfNoCase User-Agent "Googlebot-Image"     allow_bot
@@ -27,44 +37,81 @@
   SetEnvIfNoCase User-Agent "Applebot"            allow_bot
 </IfModule>
 
-# --- 2. Routing: Canonical URL Normalization + Static Prerender + SPA Fallback ---
+# --- 3. Error Handling: Genuine 404 Responses ---
+ErrorDocument 404 /404.html
+
+# --- 4. Routing: Canonical Normalization + Content Negotiation + Prerendering ---
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # MCP Streamable HTTP Endpoint (handles both /api/mcp and /api/mcp/ without redirects)
+  RewriteRule ^api/mcp/?$ api/mcp.php [L,QSA]
 
   # Normalize trailing slash to slashless canonical URL (except root /)
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} ^(.+)/$
   RewriteRule ^ %1 [R=301,L]
 
-  # If a matching flat prerendered .html file exists, serve it directly without redirect
+  # Content Negotiation: If client requests Markdown (Accept: text/markdown)
+  RewriteCond %{HTTP:Accept} text/(?:x-)?markdown [NC]
+  RewriteCond %{REQUEST_URI} ^/?(index(\.html)?)?$
+  RewriteRule ^.*$ markdown/index.md [L,T=text/markdown; charset=utf-8]
+
+  RewriteCond %{HTTP:Accept} text/(?:x-)?markdown [NC]
+  RewriteCond %{DOCUMENT_ROOT}/markdown/$1.md -f [OR]
+  RewriteCond markdown/$1.md -f
+  RewriteRule ^([^.]+)$ markdown/$1.md [L,T=text/markdown; charset=utf-8]
+
+  # Dual slashless support: If a matching flat prerendered .html file exists, serve it directly
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^([^.]+)$ $1.html [L]
+
+  # If subfolder has index.html, serve it directly
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^([^.]+)$ $1/index.html [L]
 
   # Skip rewrite for existing physical files and directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Route everything else to index.html for React Router client-side routing
-  RewriteRule ^ index.html [L]
+  # Route known SPA routes to index.html if static file is missing during client transitions
+  RewriteRule ^(services|case-studies|research/ai-startup-architecture|faq|about|contact|privacy|terms|marketing-agency-bengaluru|media-production|business-solutions|ai-solutions|software-development)/?$ index.html [L]
+
+  # Everything else that does not match a real file or route returns genuine 404
+  RewriteRule ^ 404.html [L,R=404]
 </IfModule>
 
-# --- 3. Security & Performance Headers ---
+# --- 5. Security, Link Discovery & Content-Signal Headers ---
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "index, follow"
-  Header set Content-Signal "search=yes, ai-input=yes, ai-train=yes"
+  Header set Content-Signal "search=yes, ai-input=yes, ai-train=no"
+  Header set X-Content-Signal "search=yes, ai-input=yes, ai-train=no"
+
+  # RFC 8288 Link Headers for Agent Discovery
+  Header add Link '<https://anstat.co.in/llms.txt>; rel="describedby"'
+  Header add Link '<https://anstat.co.in/.well-known/mcp/server-card.json>; rel="service-desc"'
+
+  # Static assets immutable caching
   <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+
+  # HTML fresh caching
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
   </FilesMatch>
+
+  # Markdown files delivery
+  <FilesMatch "\.(md|txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
 </IfModule>
 
-# --- 4. Enable Gzip Compression ---
+# --- 6. Enable Gzip Compression ---
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
-  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/markdown
+  AddOutputFilterByType DEFLATE application/javascript application/json application/ld+json
   AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>

@@ -1,28 +1,32 @@
 # ANSTAT
 
-> ANSTAT is an integrated technology and growth solutions company. We design and deliver custom software engineering, applied artificial intelligence, creative media production, and operational business solutions for growing enterprises and ambitious startups.
+> ANSTAT is an integrated technology and growth solutions company based in Bengaluru, Karnataka, India. We design and deliver custom software engineering, applied artificial intelligence, cinema-grade commercial videography, and growth marketing campaigns for growing enterprises and ambitious startups.
 
 ## Corporate Overview
 - **Legal & Operating Identity**: ANSTAT
 - **Canonical Website**: [https://anstat.co.in/](https://anstat.co.in/)
 - **Headquarters & Primary Market**: Bengaluru (Bangalore), Karnataka, India (Serving clients across India and globally)
-- **Core Positioning**: Integrated systems engineering and commercial growth solutions under a unified technical delivery team.
+- **Core Positioning**: Integrated software engineering, applied AI, creative media, and commercial execution under a unified technical delivery team.
 - **Operating Aesthetic**: Modern White and Emerald Green, structured, performant, and accessible.
-- **Primary Contact**: [connect@anstat.co.in](mailto:connect@anstat.co.in) | +91 90197 31057
+- **Primary Contact**: [connect@anstat.co.in](mailto:connect@anstat.co.in) | [+91 90197 31057](tel:+919019731057)
 - **Full LLM Context**: [https://anstat.co.in/llms-full.txt](https://anstat.co.in/llms-full.txt)
+- **MCP Server Card**: [https://anstat.co.in/.well-known/mcp/server-card.json](https://anstat.co.in/.well-known/mcp/server-card.json)
+- **AI Catalog**: [https://anstat.co.in/.well-known/ai-catalog.json](https://anstat.co.in/.well-known/ai-catalog.json)
 
 ## Four Integrated Service Divisions
 
 ### 1. ANSTAT Technology
 Bespoke software applications, web platforms, and enterprise data integrations engineered with maintainable architectures.
+- [Custom Software Development Bengaluru](https://anstat.co.in/software-development): Dedicated landing page for custom web applications, React/Next.js platforms, ERP architectures, and PostgreSQL/Python backends.
 - [Website & Web Application Development](https://anstat.co.in/services#technology): Fast, accessible React, Next.js, and Vite web applications.
-- [Custom Software Engineering](https://anstat.co.in/services#technology): Tailored backends, secure multi-tenant architectures, and scalable PostgreSQL/Node/Python systems.
+- [Custom Software Engineering](https://anstat.co.in/services#technology): Tailored backends, secure multi-tenant architectures, and scalable data models.
 - [ERP Development & Customization](https://anstat.co.in/services#technology): Bespoke operational resource planning, inventory control, and ledger reconciliation modules.
 - [API Development & System Integrations](https://anstat.co.in/services#technology): Secure RESTful and GraphQL endpoints, webhook dispatchers, payment pipelines, and CRM synchronizers.
 - [Application Modernization & SLA Support](https://anstat.co.in/services#technology): Refactoring legacy systems, optimizing cloud infrastructure costs, and ongoing uptime maintenance.
 
 ### 2. ANSTAT AI
 Applied machine intelligence, autonomous workflows, and domain-specific knowledge retrieval systems designed for economic return and data security.
+- [Applied AI Solutions & Autonomous Agents](https://anstat.co.in/ai-solutions): Dedicated landing page for enterprise AI applications, RAG knowledge assistants, and autonomous workflow agents with strict data isolation.
 - [Custom AI Business Solutions](https://anstat.co.in/services#ai): Proprietary model fine-tuning and task-specific AI pipelines hosted on secure private clouds.
 - [AI Agents & Autonomous Workflow Automation](https://anstat.co.in/services#ai): Multi-step agentic systems for document triage, customer support escalation, and validation.
 - [LLM Application Engineering](https://anstat.co.in/services#ai): Enterprise applications with disciplined prompt governance, latency caching, and token-cost optimization.
@@ -31,6 +35,8 @@ Applied machine intelligence, autonomous workflows, and domain-specific knowledg
 
 ### 3. ANSTAT Growth & Media
 Full-funnel commercial distribution, creative production, performance marketing, and organic search discoverability that convert qualified prospects into paying clients.
+- [Digital Marketing Agency Bengaluru](https://anstat.co.in/marketing-agency-bengaluru): Dedicated landing page for integrated digital marketing, performance advertising, commercial videography, and SEO in Bengaluru.
+- [Commercial Media & Video Production](https://anstat.co.in/media-production): Dedicated landing page for cinema-grade 4K brand documentaries, advertisement reels, and customer testimonial films.
 - [Digital Marketing Strategy & Brand Positioning](https://anstat.co.in/services#growth): ICP definition, competitor differentiation, and multi-channel acquisition roadmaps.
 - [Performance Marketing & Paid Ads](https://anstat.co.in/services#growth): Targeted campaigns across Meta, Google Search, and LinkedIn optimized for customer acquisition cost (CAC) and ROAS.
 - [Commercial Videography & Creative Production](https://anstat.co.in/services#growth): Cinema-grade 4K brand documentaries, product reels, and authentic customer testimonials.
@@ -40,6 +46,7 @@ Full-funnel commercial distribution, creative production, performance marketing,
 
 ### 4. ANSTAT Business Solutions
 Operational discipline and commercial management ensuring technology translates into reliable, profitable business execution.
+- [Integrated Business Solutions & Process Automation](https://anstat.co.in/business-solutions): Dedicated landing page for operational bottleneck audits, workflow automation, and growth consulting.
 - [Business Process Analysis & Audits](https://anstat.co.in/services#business): Workflow mapping, operational bottleneck detection, and organizational optimization roadmaps.
 - [Business Development Support](https://anstat.co.in/services#business): Sales qualification frameworks, proposal architectures, and CRM pipeline structures.
 - [Corporate Event Management](https://anstat.co.in/services#business): Technical AV, streaming coordination, and attendee registration pipelines for conferences and launches.
@@ -54,7 +61,8 @@ Operational discipline and commercial management ensuring technology translates 
 - **About Company**: [https://anstat.co.in/about](https://anstat.co.in/about) — Corporate origins, engineering principles, and operating standards.
 - **Frequently Asked Questions**: [https://anstat.co.in/faq](https://anstat.co.in/faq) — Transparent answers regarding scoping, technology stacks, IP ownership, pricing, and SLAs.
 - **Contact Desk & Project Consultation**: [https://anstat.co.in/contact](https://anstat.co.in/contact) — Dedicated project consultation intake and direct engineering communication.
-- **Project Inquiry / CTA**: [https://anstat.co.in/#enquiry](https://anstat.co.in/#enquiry) — Homepage discovery consultation intake section.
+- **Privacy Policy**: [https://anstat.co.in/privacy](https://anstat.co.in/privacy) — Data governance, zero AI model training guarantee, and compliance.
+- **Terms of Service**: [https://anstat.co.in/terms](https://anstat.co.in/terms) — Commercial terms, 100% intellectual property ownership guarantee, and SLAs.
 
 ## Verified Client Case Studies
 1. **UK GradLink** (Education & Admissions): Centralized applicant portal and intake document review assistant eliminating international admission review bottlenecks.
@@ -67,4 +75,10 @@ Operational discipline and commercial management ensuring technology translates 
 ## Commercial Policies & IP Terms
 - **Intellectual Property**: Clients retain 100% ownership of all custom code, repositories, media files, and production assets upon milestone signoff (standard third-party open-source packages remain under their respective permissive licenses).
 - **Data Privacy**: Client proprietary data is strictly isolated and never utilized for public AI model training.
-- **Pricing**: Transparent milestones based on defined technical deliverables with no surprise maintenance fees.
+- **Pricing**: Transparent milestones based on defined technical deliverables with no surprise maintenance fees. Custom quote-based pricing with starting scopes from ₹35,000 / month (Marketing/SEO), ₹50,000 / milestone (Software Development), ₹75,000 / sprint (AI Solutions), and ₹30,000 / day (Commercial Videography).
+
+## Crawling, AI Grounding & Content Usage Policy
+- **Content Signals Directive**: `Content-Signal: search=yes, ai-input=yes, ai-train=no`
+- **Search Engine Indexing**: Fully permitted for all search engines (Googlebot, Bingbot, Applebot, etc.).
+- **AI Inference & Real-Time Grounding (AEO/GEO)**: Permitted for live retrieval, answer synthesis, and citation attribution with backlink to `https://anstat.co.in/`.
+- **AI Model Training**: Not permitted without explicit written commercial licensing. Automated foundation model training crawlers (such as CCBot, GPTBot, ClaudeBot, Google-Extended, Meta-ExternalAgent) are restricted in `robots.txt`.

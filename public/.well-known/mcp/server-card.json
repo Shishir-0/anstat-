@@ -1,0 +1,104 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "anstat-public-mcp",
+  "version": "1.0.0",
+  "title": "ANSTAT Public AI Discovery & Service Server",
+  "description": "Official Model Context Protocol (MCP) server card for ANSTAT in Bengaluru, India. Exposes verified read-only business intelligence, technical service deliverables, client case study evidence, and direct engineering consultation endpoints for autonomous agents.",
+  "homepage": "https://anstat.co.in",
+  "icon": "https://anstat.co.in/AnLogo.png",
+  "transports": [
+    {
+      "type": "streamable-http",
+      "endpoint": "https://anstat.co.in/api/mcp",
+      "protocolVersion": "2025-11-25",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  ],
+  "capabilities": {
+    "tools": [
+      {
+        "name": "anstat_get_company_info",
+        "description": "Retrieve verified company background, legal entity identity, office location, leadership philosophy, and operating principles.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "anstat_discover_services",
+        "description": "Discover all 24 deliverables across ANSTAT Technology, ANSTAT AI, ANSTAT Growth & Media, and ANSTAT Business Solutions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "divisionId": {
+              "type": "string",
+              "description": "Optional division filter: 'technology', 'ai', 'growth-media', or 'business-solutions'",
+              "enum": ["technology", "ai", "growth-media", "business-solutions"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "anstat_get_service_details",
+        "description": "Retrieve detailed engineering scope, technical stacks, methodology, deliverables, and starting pricing for a specific capability.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Service keyword (e.g., 'custom software', 'rag', 'commercial video', 'seo', 'erp')"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "anstat_find_case_studies",
+        "description": "Search verified commercial projects and client outcomes by industry or technology focus.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "industry": {
+              "type": "string",
+              "description": "Industry keyword (e.g., 'education', 'lifestyle', 'food', 'real estate', 'saas', 'all')"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "anstat_get_contact_channels",
+        "description": "Obtain verified email, telephone, business hours, and consultation intake channels.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      }
+    ],
+    "resources": [
+      {
+        "uri": "anstat://manifest/llms.txt",
+        "name": "ANSTAT LLM Discovery Manifest",
+        "mimeType": "text/plain"
+      },
+      {
+        "uri": "anstat://research/ai-startup-architecture",
+        "name": "The Architecture of Scalable AI Startups (R&D Paper)",
+        "mimeType": "text/markdown"
+      }
+    ]
+  },
+  "provider": {
+    "name": "ANSTAT",
+    "domain": "https://anstat.co.in",
+    "contactEmail": "connect@anstat.co.in",
+    "phone": "+919019731057",
+    "headquarters": "Bengaluru, Karnataka, India"
+  }
+}

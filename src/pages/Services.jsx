@@ -726,6 +726,52 @@ export default function Services() {
             ))}
           </div>
 
+          {/* Commercial Pricing & Quotation Framework */}
+          <section id="pricing" className="mt-20 bg-white border border-[#16804A]/30 rounded-3xl p-8 sm:p-12 shadow-xs">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <div className="badge-emerald mb-3">Transparent Commercial Terms</div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#18372A] tracking-tight mb-4">
+                Commercial Pricing &amp; Quotation Model
+              </h2>
+              <p className="text-sm sm:text-base text-[#435149] leading-relaxed">
+                ANSTAT operates strictly on fixed-scope milestone pricing, avoiding opaque hourly billing or arbitrary retainers. Each engagement begins with a scope audit to define explicit deliverables and timeline commitments.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <div className="p-6 bg-[#F4F7F4] border border-[#E1E9E2] rounded-2xl">
+                <h3 className="font-bold text-[#18372A] text-base mb-1">Custom Software</h3>
+                <div className="text-xs text-[#16804A] font-bold mb-2">From ₹50,000 / milestone</div>
+                <p className="text-xs text-[#435149]">Bespoke web apps, ERP systems, and APIs scoped to database and architecture complexity.</p>
+              </div>
+              <div className="p-6 bg-[#F4F7F4] border border-[#E1E9E2] rounded-2xl">
+                <h3 className="font-bold text-[#18372A] text-base mb-1">Applied AI Solutions</h3>
+                <div className="text-xs text-[#16804A] font-bold mb-2">From ₹75,000 / sprint</div>
+                <p className="text-xs text-[#435149]">Autonomous agent workflows, RAG systems, and task models with air-gapped data isolation.</p>
+              </div>
+              <div className="p-6 bg-[#F4F7F4] border border-[#E1E9E2] rounded-2xl">
+                <h3 className="font-bold text-[#18372A] text-base mb-1">Marketing &amp; SEO</h3>
+                <div className="text-xs text-[#16804A] font-bold mb-2">From ₹35,000 / month</div>
+                <p className="text-xs text-[#435149]">Targeted Meta &amp; Google ad campaigns, SEO, and social management focused on commercial lead velocity.</p>
+              </div>
+              <div className="p-6 bg-[#F4F7F4] border border-[#E1E9E2] rounded-2xl">
+                <h3 className="font-bold text-[#18372A] text-base mb-1">Commercial Media</h3>
+                <div className="text-xs text-[#16804A] font-bold mb-2">From ₹30,000 / day</div>
+                <p className="text-xs text-[#435149]">Cinema-grade 4K filming, product reels, lighting, sound design, color grading, and social video cuts.</p>
+              </div>
+            </div>
+
+            <div className="p-6 bg-[#E8F3EB] rounded-2xl border border-[#C4DFC9] text-center max-w-2xl mx-auto">
+              <h3 className="font-bold text-[#18372A] text-sm mb-2">How Quotations Are Formulated</h3>
+              <p className="text-xs text-[#435149] leading-relaxed mb-4">
+                1) Submit requirements &bull; 2) Principal engineers audit technical scope within 24 hours &bull; 3) Receive itemized milestone proposal with guaranteed deliverables and timelines prior to commitment.
+              </p>
+              <Link to="/contact" className="btn-primary py-2 px-6 text-xs inline-block">
+                Request a Scoped Quotation &rarr;
+              </Link>
+            </div>
+          </section>
+
           {/* Bottom Callout */}
           <section className="mt-28 bg-[#F4F7F4] border border-[#E1E9E2] rounded-3xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#18372A] mb-4">

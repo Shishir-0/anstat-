@@ -25,6 +25,14 @@ const About = lazy(() => import("./pages/About"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const MarketingAgencyBengaluru = lazy(() => import("./pages/MarketingAgencyBengaluru"));
+const MediaProduction = lazy(() => import("./pages/MediaProduction"));
+const BusinessSolutions = lazy(() => import("./pages/BusinessSolutions"));
+const AISolutions = lazy(() => import("./pages/AISolutions"));
+const SoftwareDevelopment = lazy(() => import("./pages/SoftwareDevelopment"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 /* ------------------ HELPERS ------------------ */
 
@@ -97,13 +105,14 @@ const Home = () => (
       />
       <link rel="canonical" href="https://anstat.co.in/" />
 
-      {/* Structured Data: Organization & LocalBusiness */}
+      {/* Structured Data: Organization & ProfessionalService */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
+          "@type": ["Organization", "ProfessionalService"],
           "@id": "https://anstat.co.in/#organization",
           "name": "ANSTAT",
+          "legalName": "ANSTAT",
           "url": "https://anstat.co.in",
           "logo": "https://anstat.co.in/AnLogo.png",
           "image": "https://anstat.co.in/AnLogo.png",
@@ -111,11 +120,13 @@ const Home = () => (
             "Integrated technology and growth solutions company in Bengaluru providing custom software engineering, applied AI, digital marketing, videography, and business consulting.",
           "email": "connect@anstat.co.in",
           "telephone": "+919019731057",
-          "priceRange": "₹₹₹",
+          "priceRange": "₹₹₹ (Custom Milestone Scopes from ₹35,000)",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Bengaluru",
             "addressLocality": "Bengaluru",
             "addressRegion": "Karnataka",
+            "postalCode": "560001",
             "addressCountry": "IN"
           },
           "areaServed": [
@@ -140,7 +151,7 @@ const Home = () => (
             {
               "@type": "ContactPoint",
               "telephone": "+919019731057",
-              "contactType": "sales",
+              "contactType": "customer service",
               "email": "connect@anstat.co.in",
               "availableLanguage": ["English", "Hindi", "Kannada"],
               "hoursAvailable": {
@@ -157,39 +168,51 @@ const Home = () => (
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "ANSTAT Service Divisions",
+            "name": "ANSTAT Commercial Services",
             "itemListElement": [
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "ANSTAT Technology",
-                  "description": "Website, web application development, custom software, ERP and integrations."
-                }
+                  "name": "Custom Software Development",
+                  "url": "https://anstat.co.in/software-development"
+                },
+                "priceCurrency": "INR",
+                "price": "50000",
+                "description": "Milestone-based custom web and software engineering scopes starting from ₹50,000 per milestone."
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "ANSTAT AI",
-                  "description": "Customized AI solutions, LLM applications, agents, RAG and automation."
-                }
+                  "name": "Applied AI Solutions & Autonomous Agents",
+                  "url": "https://anstat.co.in/ai-solutions"
+                },
+                "priceCurrency": "INR",
+                "price": "75000",
+                "description": "Implementation sprints for enterprise AI and autonomous workflows starting from ₹75,000 per sprint."
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "ANSTAT Growth & Media",
-                  "description": "Digital marketing strategy, performance advertising, commercial videography, social media management, and SEO."
-                }
+                  "name": "Digital Marketing Agency Bengaluru",
+                  "url": "https://anstat.co.in/marketing-agency-bengaluru"
+                },
+                "priceCurrency": "INR",
+                "price": "35000",
+                "description": "Monthly performance marketing and SEO growth retainers starting from ₹35,000 per month."
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "ANSTAT Business Solutions",
-                  "description": "Business analysis, operational process improvement, growth strategy, and project management."
-                }
+                  "name": "Commercial Media & Videography",
+                  "url": "https://anstat.co.in/media-production"
+                },
+                "priceCurrency": "INR",
+                "price": "30000",
+                "description": "Cinema-grade 4K production packages starting from ₹30,000 per production day."
               }
             ]
           }
@@ -278,6 +301,14 @@ export default function App() {
               <Route path="/research/ai-startup-architecture" element={<Research />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/marketing-agency-bengaluru" element={<MarketingAgencyBengaluru />} />
+              <Route path="/media-production" element={<MediaProduction />} />
+              <Route path="/business-solutions" element={<BusinessSolutions />} />
+              <Route path="/ai-solutions" element={<AISolutions />} />
+              <Route path="/software-development" element={<SoftwareDevelopment />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </GlobalLayout>

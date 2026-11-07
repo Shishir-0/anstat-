@@ -199,3 +199,150 @@ routes:
     priority: 0.85
     changefreq: "monthly"
     conversion_goal: "Direct project consultation inquiry submission"
+
+  - path: "/marketing-agency-bengaluru"
+    canonical_url: "https://anstat.co.in/marketing-agency-bengaluru"
+    title: "Marketing Agency in Bengaluru | Digital, Media & Growth | ANSTAT"
+    meta_description: "ANSTAT Growth & Media is a leading digital marketing, performance advertising, and commercial videography agency in Bengaluru engineering high-converting customer acquisition."
+    primary_h1: "Leading Digital Marketing & Media Agency in Bengaluru"
+    primary_intent: "High-Intent Commercial Dominance"
+    target_keywords:
+      primary: "marketing agency Bengaluru"
+      secondary:
+        - "best marketing agency in Bengaluru"
+        - "top marketing agency in Bengaluru"
+        - "digital marketing agency Bengaluru"
+        - "performance marketing agency Bengaluru"
+        - "growth marketing agency Bengaluru"
+    schema_types:
+      - "Service"
+      - "ProfessionalService"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "Commercial campaign consultation inquiry"
+
+  - path: "/media-production"
+    canonical_url: "https://anstat.co.in/media-production"
+    title: "Commercial Video Production & Media Company Bengaluru | ANSTAT"
+    meta_description: "ANSTAT produces cinema-grade 4K commercial videography, advertisement films, product reels, and brand documentaries that build credibility and drive conversions in Bengaluru."
+    primary_h1: "Commercial Video & Media Production in Bengaluru"
+    primary_intent: "Commercial Media Dominance"
+    target_keywords:
+      primary: "media production company Bengaluru"
+      secondary:
+        - "video production company Bengaluru"
+        - "media agency in Bengaluru"
+        - "commercial videography Bangalore"
+        - "corporate video production India"
+    schema_types:
+      - "Service"
+      - "ProfessionalService"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "Commercial video production booking"
+
+  - path: "/business-solutions"
+    canonical_url: "https://anstat.co.in/business-solutions"
+    title: "Business Solutions & Process Automation Company Bengaluru | ANSTAT"
+    meta_description: "ANSTAT Business Solutions delivers operational process audits, workflow automation, ERP integrations, and business development consulting in Bengaluru, India."
+    primary_h1: "Integrated Business Solutions & Process Automation"
+    primary_intent: "Commercial Operations & Growth"
+    target_keywords:
+      primary: "business solutions company Bengaluru"
+      secondary:
+        - "business services company Bengaluru"
+        - "business process automation India"
+        - "business consulting firm Bengaluru"
+        - "operations improvement consulting"
+    schema_types:
+      - "Service"
+      - "ProfessionalService"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "Operational audit consultation inquiry"
+
+  - path: "/ai-solutions"
+    canonical_url: "https://anstat.co.in/ai-solutions"
+    title: "AI Solutions & Autonomous Agents Company Bengaluru | ANSTAT AI"
+    meta_description: "ANSTAT AI develops enterprise applied AI solutions, autonomous agentic workflows, domain RAG systems, and voice AI in Bengaluru with zero data leakage guarantees."
+    primary_h1: "Applied AI Solutions & Autonomous Agents"
+    primary_intent: "Enterprise AI Technology"
+    target_keywords:
+      primary: "AI development company Bengaluru"
+      secondary:
+        - "AI solutions provider Bengaluru"
+        - "AI automation company India"
+        - "custom AI solutions for business"
+        - "AI agent development company Bangalore"
+    schema_types:
+      - "Service"
+      - "ProfessionalService"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "AI architecture consultation inquiry"
+
+  - path: "/software-development"
+    canonical_url: "https://anstat.co.in/software-development"
+    title: "Custom Software & Web Development Company Bengaluru | ANSTAT"
+    meta_description: "ANSTAT Technology is a custom software development company in Bengaluru engineering high-performance web applications, ERPs, and APIs with 100% IP ownership."
+    primary_h1: "Custom Software & Web Development in Bengaluru"
+    primary_intent: "Commercial Software Engineering"
+    target_keywords:
+      primary: "custom software development company Bengaluru"
+      secondary:
+        - "web development agency Bengaluru"
+        - "software development company Bangalore"
+        - "custom ERP development India"
+        - "web application development Bengaluru"
+    schema_types:
+      - "Service"
+      - "ProfessionalService"
+      - "BreadcrumbList"
+    indexable: true
+    priority: 0.95
+    changefreq: "weekly"
+    conversion_goal: "Software engineering scoping consultation"
+
+  - path: "/privacy"
+    canonical_url: "https://anstat.co.in/privacy"
+    title: "Privacy Policy | ANSTAT Data Governance & Protection | Bengaluru"
+    meta_description: "ANSTAT's privacy policy and data governance standards. We enforce strict enterprise data isolation, zero third-party AI training on client data, and full regulatory compliance."
+    primary_h1: "Privacy Policy"
+    primary_intent: "Trust & Legal Governance"
+    target_keywords:
+      primary: "ANSTAT privacy policy data protection"
+      secondary:
+        - "enterprise data isolation guarantee"
+        - "zero AI model training on client data"
+    schema_types:
+      - "WebPage"
+    indexable: true
+    priority: 0.50
+    changefreq: "monthly"
+    conversion_goal: "Trust signal verification"
+
+  - path: "/terms"
+    canonical_url: "https://anstat.co.in/terms"
+    title: "Terms of Service & Commercial Conditions | ANSTAT | Bengaluru"
+    meta_description: "Commercial terms of service for ANSTAT in Bengaluru, India. We guarantee 100% intellectual property ownership to clients upon milestone delivery, strict confidentiality, and transparent SLAs."
+    primary_h1: "Terms of Service & Commercial Conditions"
+    primary_intent: "Commercial Governance & IP Ownership"
+    target_keywords:
+      primary: "ANSTAT terms of service"
+      secondary:
+        - "100% client intellectual property ownership"
+        - "commercial SLA terms Bengaluru"
+    schema_types:
+      - "WebPage"
+    indexable: true
+    priority: 0.50
+    changefreq: "monthly"
+    conversion_goal: "Commercial agreement verification"

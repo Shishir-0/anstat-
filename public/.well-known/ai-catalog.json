@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "catalogVersion": "1.0.0",
+  "name": "ANSTAT AI Agent & System Discovery Catalog",
+  "organization": {
+    "name": "ANSTAT",
+    "url": "https://anstat.co.in",
+    "email": "connect@anstat.co.in",
+    "headquarters": "Bengaluru, Karnataka, India"
+  },
+  "endpoints": {
+    "llms_manifest": {
+      "url": "https://anstat.co.in/llms.txt",
+      "contentType": "text/plain",
+      "description": "Standard root-level LLM guidance manifest with service and case study links"
+    },
+    "llms_full_context": {
+      "url": "https://anstat.co.in/llms-full.txt",
+      "contentType": "text/plain",
+      "description": "Comprehensive corporate, technical, and R&D context for deep retrieval"
+    },
+    "mcp_server_card": {
+      "url": "https://anstat.co.in/.well-known/mcp/server-card.json",
+      "contentType": "application/json",
+      "description": "Standard SEP-2127 MCP Server Card for remote AI agent discovery"
+    },
+    "sitemap": {
+      "url": "https://anstat.co.in/sitemap.xml",
+      "contentType": "application/xml",
+      "description": "Canonical search and crawler sitemap"
+    }
+  },
+  "services": [
+    {
+      "division": "ANSTAT Technology",
+      "url": "https://anstat.co.in/services#technology",
+      "capabilities": [
+        "Website & Web Application Development",
+        "Custom Software Engineering",
+        "ERP Development & Customization",
+        "API Development & System Integrations"
+      ]
+    },
+    {
+      "division": "ANSTAT AI",
+      "url": "https://anstat.co.in/services#ai",
+      "capabilities": [
+        "Custom AI Solutions",
+        "Autonomous AI Agents",
+        "LLM Application Engineering",
+        "RAG Knowledge Assistants",
+        "Voice AI & Conversational Agents"
+      ]
+    },
+    {
+      "division": "ANSTAT Growth & Media",
+      "url": "https://anstat.co.in/services#growth-media",
+      "capabilities": [
+        "Digital Marketing Strategy",
+        "Performance Advertising",
+        "Commercial Videography",
+        "Social Media Management",
+        "Search Engine Optimization (SEO)",
+        "Conversion Optimization (CRO)"
+      ]
+    },
+    {
+      "division": "ANSTAT Business Solutions",
+      "url": "https://anstat.co.in/services#business-solutions",
+      "capabilities": [
+        "Business Process Analysis",
+        "Business Growth Consulting",
+        "Implementation Management"
+      ]
+    }
+  ]
+}
+

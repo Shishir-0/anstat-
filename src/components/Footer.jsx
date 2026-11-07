@@ -5,6 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#F4F7F4] border-t border-[#E1E9E2] pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-[#435149]">
       <div className="max-w-7xl mx-auto">
+        <h2 className="sr-only">Site Navigation &amp; Company Links</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {/* Brand Info (2 cols on lg) */}
           <div className="lg:col-span-2">
@@ -58,39 +59,47 @@ export default function Footer() {
           {/* Service Divisions */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-4">
-              Service Divisions
+              Solutions &amp; Services
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  to="/services#technology"
+                  to="/software-development"
                   className="hover:text-[#16804A] transition-colors"
                 >
-                  ANSTAT Technology
+                  Software Development
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#ai"
+                  to="/ai-solutions"
                   className="hover:text-[#16804A] transition-colors"
                 >
-                  ANSTAT AI
+                  AI &amp; Autonomous Agents
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#growth-media"
+                  to="/marketing-agency-bengaluru"
                   className="hover:text-[#16804A] transition-colors"
                 >
-                  ANSTAT Growth & Media
+                  Marketing Agency Bengaluru
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#business-solutions"
+                  to="/media-production"
                   className="hover:text-[#16804A] transition-colors"
                 >
-                  ANSTAT Business Solutions
+                  Commercial Videography
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/business-solutions"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Business Solutions &amp; Ops
                 </Link>
               </li>
               <li className="pt-1">
@@ -98,7 +107,7 @@ export default function Footer() {
                   to="/services"
                   className="text-xs font-bold text-[#16804A] hover:underline"
                 >
-                  View All Services →
+                  All 24 Capabilities →
                 </Link>
               </li>
             </ul>
@@ -150,7 +159,7 @@ export default function Footer() {
           {/* Connect & Legal */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#18372A] mb-4">
-              Connect
+              Connect &amp; Legal
             </h3>
             <ul className="space-y-2.5 text-sm mb-6">
               <li>
@@ -173,6 +182,22 @@ export default function Footer() {
                   X (Twitter)
                 </a>
               </li>
+              <li>
+                <Link
+                  to="/privacy"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="hover:text-[#16804A] transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
 
             <div className="bg-white border border-[#E1E9E2] p-3.5 rounded-xl text-xs">
@@ -192,11 +217,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#E1E9E2] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#68766E]">
           <div>
-            &copy; {new Date().getFullYear()} ANSTAT. All rights reserved.
+            &copy; {new Date().getFullYear()} ANSTAT. All rights reserved. &bull; Bengaluru, India
           </div>
-          <div className="flex items-center gap-6">
-            <span>Integrated Technology & Growth Solutions</span>
-            <span>Made with precision</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <Link to="/privacy" className="hover:text-[#16804A] transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#16804A] transition-colors">Terms of Service</Link>
+            <span>Integrated Technology &amp; Growth</span>
           </div>
         </div>
       </div>
